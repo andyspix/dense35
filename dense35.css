@@ -1,0 +1,106 @@
+.charsheet {
+	background: #FFF;
+	min-width: 932px;
+	width: 932px;
+}
+
+.sheet-grid {
+	display: grid;
+	grid-gap: 1px;
+	justify-items: stretch;
+	align-items: center;
+}
+
+.sheet-grid.header {
+	background: #EEE;
+	grid-template-columns: repeat(30, 30px);
+	grid-template-rows: repeat(3, 16px);
+	border-top: 1px solid slategray;
+	border-left: 1px solid slategray;
+	border-right: 2px solid slategray;
+	border-bottom: 2px solid slategray;
+}
+
+.sheet-grid > div {
+	padding: 1px;
+	border-radius: 1px;
+	font-size: 12;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.sheet-label {
+	font-weight: bold;
+	font-size: 13;
+}
+
+.sheet-grid.header input{
+	background: #EEE;
+}
+input {
+	width: 100%;
+	height: 14px;
+	font-size: 11;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid slategray;
+}
+.sheet-ui {}
+
+.sheet-header {
+	border-top: 1px solid slategray;
+	border-left: 1px solid slategray;
+	border-right: 2px solid slategray;
+	border-bottom: 2px solid slategray;
+}
+
+.sheet-label.sheet-charname { grid-column: 1 / span 2; grid-row: 1 }
+.sheet-ui.sheet-charname    { grid-column: 3 / span 9; grid-row: 1 }
+
+.sheet-label.sheet-race     { grid-column: 12 / span 2; grid-row: 1 }
+.sheet-ui.sheet-race        { grid-column: 14 / span 5; grid-row: 1 }
+
+.sheet-label.sheet-class    { grid-column: 19 / span 2; grid-row: 1 }
+.sheet-ui.sheet-class       { grid-column: 21 / span 4; grid-row: 1 }
+
+.sheet-label.sheet-religion { grid-column: 25 / span 2; grid-row: 1 }
+.sheet-ui.sheet-religion    { grid-column: 27 / span 4; grid-row: 1 }
+
+.sheet-label.sheet-height   { grid-column: 1 / span 1; grid-row: 2 }
+.sheet-ui.sheet-height      { grid-column: 2 / span 1; grid-row: 2 }
+
+.sheet-label.sheet-weight   { grid-column: 3 / span 1; grid-row: 2 }
+.sheet-ui.sheet-weight      { grid-column: 4 / span 1; grid-row: 2 }
+
+.sheet-label.sheet-sex      { grid-column: 5 / span 1; grid-row: 2 }
+.sheet-ui.sheet-sex         { grid-column: 6 / span 1; grid-row: 2 }
+
+.sheet-label.sheet-age      { grid-column: 7 / span 1; grid-row: 2 }
+.sheet-ui.sheet-age         { grid-column: 8 / span 1; grid-row: 2 }
+
+.sheet-label.sheet-alignment   { grid-column: 9 / span 2; grid-row: 2 }
+.sheet-ui.sheet-alignment      { grid-column: 11 / span 5; grid-row: 2 }
+
+.sheet-label.sheet-level   { grid-column: 16 / span 2; grid-row: 2 }
+.sheet-ui.sheet-level      { grid-column: 18 / span 2; grid-row: 2 }
+
+.sheet-label.sheet-xp   { grid-column: 20 / span 1; grid-row: 2 }
+.sheet-ui.sheet-xp      { grid-column: 21 / span 2; grid-row: 2 }
+
+.sheet-label.sheet-need   { grid-column: 23 / span 2; grid-row: 2 }
+.sheet-ui.sheet-need      { grid-column: 25 / span 2; grid-row: 2 }
+
+.sheet-label.sheet-speed   { grid-column: 27 / span 2; grid-row: 2 }
+.sheet-ui.sheet-speed      { grid-column: 29 / span 2; grid-row: 2 }
+
+.sheet-label.sheet-region   { grid-column: 1 / span 2; grid-row: 3 }
+.sheet-ui.sheet-region      { grid-column: 3 / span 5; grid-row: 3 }
+
+.sheet-label.sheet-eyes   { grid-column: 8 / span 2; grid-row: 3 }
+.sheet-ui.sheet-eyes      { grid-column: 10 / span 3; grid-row: 3 }
+
+.sheet-label.sheet-hair   { grid-column: 13 / span 2; grid-row: 3 }
+.sheet-ui.sheet-hair      { grid-column: 15 / span 3; grid-row: 3 }
+
+.sheet-label.sheet-appearance   { grid-column: 18 / span 3; grid-row: 3 }
+.sheet-ui.sheet-appearance      { grid-column: 21 / span 10; grid-row: 3 }

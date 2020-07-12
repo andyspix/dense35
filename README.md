@@ -1,3 +1,3 @@
-# dense35
+This is a compacted sheet for use with 3.5 campaigns.  Add the following macros to implement Skill rolls, Saving Throws, Ability Checks, and Initiative Rolls:
 
-Futzing around with Roll20 Character sheets - a dense 3.5 edition sheet.
+// Macros TBD
