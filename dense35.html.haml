@@ -65,14 +65,33 @@
       .item A
       .item A
       .item A
+
     .sheet-weapons
-      .item A
-      .item A
-      .item A
+      .sheet-label.sheet-table-header.sheet-weapons-header Weapons
+      .sheet-label-small.sheet-table-header.sheet-tohit-header To Hit
+      .sheet-label-small.sheet-table-header.sheet-damage-header Damage
+      .sheet-label.sheet-table-header.sheet-crit-header Crit
+      .sheet-label.sheet-table-header.sheet-range-header Range
+      .sheet-label.sheet-table-header.sheet-wpnsize-header Size
+      .sheet-label.sheet-table-header.sheet-wpnwt-header Wt
+      .sheet-label.sheet-table-header.sheet-wpnspecial-header Special Abilities
+      - (1..7).each do |i|
+        - %w(weapons tohit damage crit range wpnsize wpnwt wpnspecial).each do |val|
+          .sheet-ui{class: "sheet-#{val}#{i}"}
+            %input{type: 'text', name: "attr_#{val}#{i}"}
+
     .sheet-armor
-      .item A
-      .item A
-      .item A
+      .sheet-label.sheet-table-header.sheet-armor-header Armor/Shield/Item
+      .sheet-label.sheet-table-header.sheet-bonus-header Bonus
+      .sheet-label.sheet-table-header.sheet-maxdex-header Max Dex
+      .sheet-label.sheet-table-header.sheet-penalty-header Penalty
+      .sheet-label.sheet-table-header.sheet-spell-header Spell
+      .sheet-label.sheet-table-header.sheet-armorwt-header Wt
+      .sheet-label.sheet-table-header.sheet-armorspecial-header Special Abilities
+      - (1..5).each do |i|
+        - %w(armor bonus maxdex penalty spell armorwt armorspecial).each do |val|
+          .sheet-ui{class: "sheet-#{val}#{i}"}
+            %input{type: 'text', name: "attr_#{val}#{i}"}
     .sheet-traits-abilities
       .item A
       .item A
