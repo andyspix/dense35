@@ -57,9 +57,23 @@
         .sheet-ui.sheet-appearance
           %input{type: 'text', name: 'attr_appearance'}
     .sheet-ability-scores
-      .item A
-      .item A
-      .item A
+      .sheet-ability-scores-top
+        .blank
+        .sheet-label.sheet-ability-scores-header Score
+        .sheet-label.sheet-ability-scores-header Mod
+        .sheet-label.sheet-ability-scores-header Temp
+        .sheet-label.sheet-ability-scores-header Mod
+      .sheet-ability-scores-table
+        - %w(str dex con int dex wis).each do |val|
+          .sheet-label= val.upcase
+          .sheet-ui
+            %input{type: 'number', name: "attr_#{val}_score"}
+          .sheet-ui
+            %input{type: 'number', name: "attr_#{val}_mod"}
+          .sheet-ui
+            %input{type: 'number', name: "attr_#{val}_temp"}
+          .sheet-ui
+            %input{type: 'number', name: "attr_#{val}_tempmod"}
     .sheet-saves-ac
       .item A
       .item A
@@ -113,7 +127,6 @@
       - (1..17).each do |i|
         .sheet-ui{class: "sheet-feats#{i}"}
           %input{type: 'text', name: "attr_feats#{i}"}
-          ``
     .sheet-equipment
       .sheet-label.sheet-table-header.sheet-equipment-header EQUIPMENT
       .sheet-label.sheet-table-subheader.sheet-equipment-subheader1 In Backpack
@@ -122,14 +135,31 @@
       .sheet-label.sheet-table-subheader.sheet-equipment-subheader4 Wt
       .sheet-label.sheet-table-subheader.sheet-equipment-subheader5 Magical Items
       .sheet-label.sheet-table-subheader.sheet-equipment-subheader6 Wt
-      .item A
-      .item A
-      .item A
+      - (1..28).each do |i|
+        .sheet-ui{class: "sheet-backpack#{i}"}
+          %input{type: 'text', name: "attr_backpack#{i}"}
+      - (1..28).each do |i|
+        .sheet-ui{class: "sheet-backpack-wt#{i}"}
+          %input{type: 'text', name: "attr_backpack-wt#{i}"}
+      - (1..28).each do |i|
+        .sheet-ui{class: "sheet-worn#{i}"}
+          %input{type: 'text', name: "attr_worn#{i}"}
+      - (1..28).each do |i|
+        .sheet-ui{class: "sheet-worn-wt#{i}"}
+          %input{type: 'text', name: "attr_worn-wt#{i}"}
+      - item_slots = %w(head face throat shldrs torso body arms hands ring1 ring2 waist feet)
+      - item_slots.each do |val|
+        .sheet-label-magic-item= val[0].upcase + val[1..-1] + ':'
+      - ((item_slots.count + 1)..28).each do |i|
+        .sheet-label-magic-item
+          %input{type: 'text', name: "attr_magic-item#{i}", placeholder: " ---"}
+      - (1..28).each do |i|
+        .sheet-ui.sheet-magic-item-description{class: "sheet-magic-item#{i}"}
+          %input{type: 'text', name: "attr_magic-item#{i}"}
+      - (1..28).each do |i|
+        .sheet-ui{class: "sheet-magic-item-wt#{i}"}
+          %input{type: 'text', name: "attr_magic-item-wt#{i}"}
     .sheet-carry-weight
       .item A
-      .item A
-      .item A
     .sheet-skills
-      .item A
-      .item A
       .item A
