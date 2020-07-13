@@ -85,6 +85,10 @@
 	background: #DDD;
 }
 
+.sheet-table-subheader {
+  text-align: center;
+}
+
 .sheet-weapons {
 	display: grid;
 	grid-column: 1 / span 2;
@@ -129,7 +133,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: repeat(3, 200px);
+	grid-template-columns: 200px 200px auto;
 	grid-template-rows: repeat(18, 16px);
 	grid-auto-flow: column;
 }
@@ -157,7 +161,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 90px 30px 90px 30px 90px 30px 90px 30px 120px;
+	grid-template-columns: 90px 30px 90px 30px 90px 30px 90px 30px auto;
 	grid-template-rows: 22px
 }
 
@@ -169,7 +173,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 120px 30px 30px 30px 30px 69px;
+	grid-template-columns: 120px 30px 30px 30px 30px auto;
 	grid-template-rows: repeat(66, 16px)
 }
 
@@ -335,3 +339,9 @@ input {
 .sheet-ui.sheet-wpnspecial7          { grid-column: 8; grid-row: 8 }
 
 .sheet-label.sheet-equipment-header { grid-column: 1 / span 7; grid-row: 1 }
+.sheet-label.sheet-equipment-subheader1 { grid-column: 1 ; grid-row: 2 }
+.sheet-label.sheet-equipment-subheader2 { grid-column: 2 ; grid-row: 2 }
+.sheet-label.sheet-equipment-subheader3 { grid-column: 3 ; grid-row: 2 }
+.sheet-label.sheet-equipment-subheader4 { grid-column: 4 ; grid-row: 2 }
+.sheet-label.sheet-equipment-subheader5 { grid-column: 5 / span 2 ; grid-row: 2 }
+.sheet-label.sheet-equipment-subheader6 { grid-column: 7 ; grid-row: 2 }
