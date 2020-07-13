@@ -2,6 +2,7 @@
 <div class='charsheet'>
 <div class='sheet-grid'>
 <div class='sheet-header'>
+<div class='sheet-header-row1'>
 <div class='sheet-label sheet-charname'>Name:</div>
 <div class='sheet-ui sheet-charname'>
 <input name='attr_charname' type='text'>
@@ -18,6 +19,8 @@
 <div class='sheet-ui sheet-religion'>
 <input name='attr_religion' type='text'>
 </div>
+</div>
+<div class='sheet-header-row2'>
 <div class='sheet-label sheet-height'>Ht:</div>
 <div class='sheet-ui sheet-height'>
 <input name='attr_height' type='text'>
@@ -34,7 +37,7 @@
 <div class='sheet-ui sheet-age'>
 <input name='attr_age' type='text'>
 </div>
-<div class='sheet-label sheet-alignment'>Align:</div>
+<div class='sheet-label sheet-alignment'>Alignment:</div>
 <div class='sheet-ui sheet-alignment'>
 <input name='attr_alignment' type='text'>
 </div>
@@ -46,14 +49,16 @@
 <div class='sheet-ui sheet-xp'>
 <input name='attr_xp' type='text'>
 </div>
-<div class='sheet-label sheet-need'>Need:</div>
-<div class='sheet-ui sheet-need'>
-<input name='attr_need' type='text'>
+<div class='sheet-label sheet-needed'>Needed:</div>
+<div class='sheet-ui sheet-needed'>
+<input name='attr_needed' type='text'>
 </div>
 <div class='sheet-label sheet-speed'>Speed:</div>
 <div class='sheet-ui sheet-speed'>
 <input name='attr_speed' type='text'>
 </div>
+</div>
+<div class='sheet-header-row3'>
 <div class='sheet-label sheet-region'>Region:</div>
 <div class='sheet-ui sheet-region'>
 <input name='attr_region' type='text'>
@@ -69,6 +74,7 @@
 <div class='sheet-label sheet-appearance'>Appearance:</div>
 <div class='sheet-ui sheet-appearance'>
 <input name='attr_appearance' type='text'>
+</div>
 </div>
 </div>
 <div class='sheet-ability-scores'>
@@ -88,9 +94,9 @@
 </div>
 <div class='sheet-weapons'>
 <div class='sheet-label sheet-table-header sheet-weapons-header'>Weapons</div>
-<div class='sheet-label-small sheet-table-header sheet-tohit-header'>To Hit</div>
-<div class='sheet-label-small sheet-table-header sheet-damage-header'>Damage</div>
-<div class='sheet-label sheet-table-header sheet-crit-header'>Crit</div>
+<div class='sheet-label sheet-table-header sheet-tohit-header'>To Hit</div>
+<div class='sheet-label sheet-table-header sheet-damage-header'>Damage</div>
+<div class='sheet-label sheet-table-header sheet-crit-header'>Critical</div>
 <div class='sheet-label sheet-table-header sheet-range-header'>Range</div>
 <div class='sheet-label sheet-table-header sheet-wpnsize-header'>Size</div>
 <div class='sheet-label sheet-table-header sheet-wpnwt-header'>Wt</div>
@@ -268,8 +274,8 @@
 <div class='sheet-label sheet-table-header sheet-armor-header'>Armor/Shield/Item</div>
 <div class='sheet-label sheet-table-header sheet-bonus-header'>Bonus</div>
 <div class='sheet-label sheet-table-header sheet-maxdex-header'>Max Dex</div>
-<div class='sheet-label sheet-table-header sheet-penalty-header'>Penalty</div>
-<div class='sheet-label sheet-table-header sheet-spell-header'>Spell</div>
+<div class='sheet-label sheet-table-header sheet-penalty-header'>&#10004;Penalty</div>
+<div class='sheet-label sheet-table-header sheet-spell-header'>Spell&#9785;</div>
 <div class='sheet-label sheet-table-header sheet-armorwt-header'>Wt</div>
 <div class='sheet-label sheet-table-header sheet-armorspecial-header'>Special Abilities</div>
 <div class='sheet-armor1 sheet-ui'>
@@ -379,11 +385,180 @@
 </div>
 </div>
 <div class='sheet-traits-abilities'>
-<div class='item'>A</div>
-<div class='item'>A</div>
-<div class='item'>A</div>
+<div class='sheet-label sheet-table-header sheet-racial-traits-header'>Racial Traits</div>
+<div class='sheet-racial-traits1 sheet-ui'>
+<input name='attr_racial-traits1' type='text'>
+</div>
+<div class='sheet-racial-traits2 sheet-ui'>
+<input name='attr_racial-traits2' type='text'>
+</div>
+<div class='sheet-racial-traits3 sheet-ui'>
+<input name='attr_racial-traits3' type='text'>
+</div>
+<div class='sheet-racial-traits4 sheet-ui'>
+<input name='attr_racial-traits4' type='text'>
+</div>
+<div class='sheet-racial-traits5 sheet-ui'>
+<input name='attr_racial-traits5' type='text'>
+</div>
+<div class='sheet-racial-traits6 sheet-ui'>
+<input name='attr_racial-traits6' type='text'>
+</div>
+<div class='sheet-racial-traits7 sheet-ui'>
+<input name='attr_racial-traits7' type='text'>
+</div>
+<div class='sheet-racial-traits8 sheet-ui'>
+<input name='attr_racial-traits8' type='text'>
+</div>
+<div class='sheet-label sheet-table-header sheet-languages-header'>Languages</div>
+<div class='sheet-languages1 sheet-ui'>
+<input name='attr_languages1' type='text'>
+</div>
+<div class='sheet-languages2 sheet-ui'>
+<input name='attr_languages2' type='text'>
+</div>
+<div class='sheet-languages3 sheet-ui'>
+<input name='attr_languages3' type='text'>
+</div>
+<div class='sheet-languages4 sheet-ui'>
+<input name='attr_languages4' type='text'>
+</div>
+<div class='sheet-languages5 sheet-ui'>
+<input name='attr_languages5' type='text'>
+</div>
+<div class='sheet-languages6 sheet-ui'>
+<input name='attr_languages6' type='text'>
+</div>
+<div class='sheet-languages7 sheet-ui'>
+<input name='attr_languages7' type='text'>
+</div>
+<div class='sheet-languages8 sheet-ui'>
+<input name='attr_languages8' type='text'>
+</div>
+<div class='sheet-label sheet-table-header sheet-class-abilities-header'>Class Abilities</div>
+<div class='sheet-class-abilities1 sheet-ui'>
+<input name='attr_class-abilities1' type='text'>
+</div>
+<div class='sheet-class-abilities2 sheet-ui'>
+<input name='attr_class-abilities2' type='text'>
+</div>
+<div class='sheet-class-abilities3 sheet-ui'>
+<input name='attr_class-abilities3' type='text'>
+</div>
+<div class='sheet-class-abilities4 sheet-ui'>
+<input name='attr_class-abilities4' type='text'>
+</div>
+<div class='sheet-class-abilities5 sheet-ui'>
+<input name='attr_class-abilities5' type='text'>
+</div>
+<div class='sheet-class-abilities6 sheet-ui'>
+<input name='attr_class-abilities6' type='text'>
+</div>
+<div class='sheet-class-abilities7 sheet-ui'>
+<input name='attr_class-abilities7' type='text'>
+</div>
+<div class='sheet-class-abilities8 sheet-ui'>
+<input name='attr_class-abilities8' type='text'>
+</div>
+<div class='sheet-class-abilities9 sheet-ui'>
+<input name='attr_class-abilities9' type='text'>
+</div>
+<div class='sheet-class-abilities10 sheet-ui'>
+<input name='attr_class-abilities10' type='text'>
+</div>
+<div class='sheet-class-abilities11 sheet-ui'>
+<input name='attr_class-abilities11' type='text'>
+</div>
+<div class='sheet-class-abilities12 sheet-ui'>
+<input name='attr_class-abilities12' type='text'>
+</div>
+<div class='sheet-class-abilities13 sheet-ui'>
+<input name='attr_class-abilities13' type='text'>
+</div>
+<div class='sheet-class-abilities14 sheet-ui'>
+<input name='attr_class-abilities14' type='text'>
+</div>
+<div class='sheet-class-abilities15 sheet-ui'>
+<input name='attr_class-abilities15' type='text'>
+</div>
+<div class='sheet-class-abilities16 sheet-ui'>
+<input name='attr_class-abilities16' type='text'>
+</div>
+<div class='sheet-class-abilities17 sheet-ui'>
+<input name='attr_class-abilities17' type='text'>
+</div>
+<div class='sheet-label sheet-table-header sheet-feats-header'>Feats</div>
+<div class='sheet-feats1 sheet-ui'>
+<input name='attr_feats1' type='text'>
+``
+</div>
+<div class='sheet-feats2 sheet-ui'>
+<input name='attr_feats2' type='text'>
+``
+</div>
+<div class='sheet-feats3 sheet-ui'>
+<input name='attr_feats3' type='text'>
+``
+</div>
+<div class='sheet-feats4 sheet-ui'>
+<input name='attr_feats4' type='text'>
+``
+</div>
+<div class='sheet-feats5 sheet-ui'>
+<input name='attr_feats5' type='text'>
+``
+</div>
+<div class='sheet-feats6 sheet-ui'>
+<input name='attr_feats6' type='text'>
+``
+</div>
+<div class='sheet-feats7 sheet-ui'>
+<input name='attr_feats7' type='text'>
+``
+</div>
+<div class='sheet-feats8 sheet-ui'>
+<input name='attr_feats8' type='text'>
+``
+</div>
+<div class='sheet-feats9 sheet-ui'>
+<input name='attr_feats9' type='text'>
+``
+</div>
+<div class='sheet-feats10 sheet-ui'>
+<input name='attr_feats10' type='text'>
+``
+</div>
+<div class='sheet-feats11 sheet-ui'>
+<input name='attr_feats11' type='text'>
+``
+</div>
+<div class='sheet-feats12 sheet-ui'>
+<input name='attr_feats12' type='text'>
+``
+</div>
+<div class='sheet-feats13 sheet-ui'>
+<input name='attr_feats13' type='text'>
+``
+</div>
+<div class='sheet-feats14 sheet-ui'>
+<input name='attr_feats14' type='text'>
+``
+</div>
+<div class='sheet-feats15 sheet-ui'>
+<input name='attr_feats15' type='text'>
+``
+</div>
+<div class='sheet-feats16 sheet-ui'>
+<input name='attr_feats16' type='text'>
+``
+</div>
+<div class='sheet-feats17 sheet-ui'>
+<input name='attr_feats17' type='text'>
+``
+</div>
 </div>
 <div class='sheet-equipment'>
+<div class='sheet-label sheet-table-header sheet-equipment-header'>EQUIPMENT</div>
 <div class='item'>A</div>
 <div class='item'>A</div>
 <div class='item'>A</div>
