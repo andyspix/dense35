@@ -1445,8 +1445,8 @@
 </div>
 <div class='sheet-skills'>
 <div class='sheet-label sheet-table-header sheet-skills-header'>SKILLS</div>
-<div class='sheet-label-small sheet-skills-explain'>Mod = StatBns + Ranks + Misc</div>
-<div class='sheet-label sheet-label-skills'>Appraise &#10041;</div>
+<div class='sheet-label-small sheet-skills-explain'>Mod = Stat + Ranks + Misc</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Appraise &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_appraise-total' type='text'>
 </div>
@@ -1465,7 +1465,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_appraise-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Balance &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Balance &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_balance-total' type='text'>
 </div>
@@ -1484,7 +1484,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_balance-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Bluff &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Bluff &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_bluff-total' type='text'>
 </div>
@@ -1503,7 +1503,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_bluff-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Climb &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Climb &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_climb-total' type='text'>
 </div>
@@ -1522,7 +1522,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_climb-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Concentration &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Concentration &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_concentration-total' type='text'>
 </div>
@@ -1541,102 +1541,73 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_concentration-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Craft-Alchemy &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Craft &#10041;</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_craft-filler1-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_craft-alchemy-total' type='text'>
+<input name='attr_craft-filler1-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craft-alchemy-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_craft-filler1-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_craft-alchemy-ranks' type='text'>
+<input name='attr_craft-filler1-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_craft-alchemy-miscmod sheet-hideleft' type='text'>
+<input name='attr_craft-filler1-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craft-alchemy-misc-explanation' placeholder='...' type='text'>
+<input name='attr_craft-filler1-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Craft-Poison &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Craft &#10041;</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_craft-filler2-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_craft-poison-total' type='text'>
+<input name='attr_craft-filler2-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craft-poison-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_craft-filler2-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_craft-poison-ranks' type='text'>
+<input name='attr_craft-filler2-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_craft-poison-miscmod sheet-hideleft' type='text'>
+<input name='attr_craft-filler2-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craft-poison-misc-explanation' placeholder='...' type='text'>
+<input name='attr_craft-filler2-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Craft &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Craft &#10041;</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_craft-filler3-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_craft-misc1-total' type='text'>
+<input name='attr_craft-filler3-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craft-misc1-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_craft-filler3-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_craft-misc1-ranks' type='text'>
+<input name='attr_craft-filler3-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_craft-misc1-miscmod sheet-hideleft' type='text'>
+<input name='attr_craft-filler3-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craft-misc1-misc-explanation' placeholder='...' type='text'>
+<input name='attr_craft-filler3-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Craft &#10041;</div>
-<div class='sheet-ui sheet-skill-total'>
-<input name='attr_craft-misc2-total' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>=</div>
-<div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craft-misc2-statmod sheet-hideleft' placeholder='INT' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>+</div>
-<div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_craft-misc2-ranks' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>+</div>
-<div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_craft-misc2-miscmod sheet-hideleft' type='text'>
-</div>
-<div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craft-misc2-misc-explanation' placeholder='...' type='text'>
-</div>
-<div class='sheet-label sheet-label-skills'>Craft &#10041;</div>
-<div class='sheet-ui sheet-skill-total'>
-<input name='attr_craft-misc3-total' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>=</div>
-<div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craft-misc3-statmod sheet-hideleft' placeholder='INT' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>+</div>
-<div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_craft-misc3-ranks' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>+</div>
-<div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_craft-misc3-miscmod sheet-hideleft' type='text'>
-</div>
-<div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craft-misc3-misc-explanation' placeholder='...' type='text'>
-</div>
-<div class='sheet-label sheet-label-skills'>Decipher Script</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Decipher Script</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_decipher-script-total' type='text'>
 </div>
@@ -1655,7 +1626,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_decipher-script-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Diplomacy &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Diplomacy &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_diplomacy-total' type='text'>
 </div>
@@ -1674,7 +1645,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_diplomacy-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Disable Device</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Disable Device</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_disable-device-total' type='text'>
 </div>
@@ -1693,7 +1664,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_disable-device-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Disguise &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Disguise &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_disguise-total' type='text'>
 </div>
@@ -1712,7 +1683,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_disguise-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Escape Artist &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Escape Artist &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_escape-artist-total' type='text'>
 </div>
@@ -1731,7 +1702,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_escape-artist-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Forgery &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Forgery &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_forgery-total' type='text'>
 </div>
@@ -1750,7 +1721,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_forgery-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Gather Info &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Gather Info &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_gather-info-total' type='text'>
 </div>
@@ -1769,7 +1740,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_gather-info-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Handle Animal</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Handle Animal</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_handle-animal-total' type='text'>
 </div>
@@ -1788,7 +1759,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_handle-animal-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Heal &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Heal &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_heal-total' type='text'>
 </div>
@@ -1807,7 +1778,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_heal-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Hide &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Hide &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_hide-total' type='text'>
 </div>
@@ -1826,7 +1797,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_hide-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Intimidate &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Intimidate &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_intimidate-total' type='text'>
 </div>
@@ -1845,7 +1816,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_intimidate-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Jump &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Jump &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_jump-total' type='text'>
 </div>
@@ -1864,121 +1835,117 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_jump-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Knowledge-Arcana</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledge-filler1-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledge-arcana-total' type='text'>
+<input name='attr_knowledge-filler1-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledge-arcana-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_knowledge-filler1-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_knowledge-arcana-ranks' type='text'>
+<input name='attr_knowledge-filler1-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_knowledge-arcana-miscmod sheet-hideleft' type='text'>
+<input name='attr_knowledge-filler1-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledge-arcana-misc-explanation' placeholder='...' type='text'>
+<input name='attr_knowledge-filler1-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Knowledge-Nature</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledge-filler2-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledge-nature-total' type='text'>
+<input name='attr_knowledge-filler2-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledge-nature-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_knowledge-filler2-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_knowledge-nature-ranks' type='text'>
+<input name='attr_knowledge-filler2-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_knowledge-nature-miscmod sheet-hideleft' type='text'>
+<input name='attr_knowledge-filler2-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledge-nature-misc-explanation' placeholder='...' type='text'>
+<input name='attr_knowledge-filler2-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Knowledge-Religion</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledge-filler3-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledge-religion-total' type='text'>
+<input name='attr_knowledge-filler3-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledge-religion-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_knowledge-filler3-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_knowledge-religion-ranks' type='text'>
+<input name='attr_knowledge-filler3-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_knowledge-religion-miscmod sheet-hideleft' type='text'>
+<input name='attr_knowledge-filler3-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledge-religion-misc-explanation' placeholder='...' type='text'>
+<input name='attr_knowledge-filler3-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Knowledge</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledge-filler4-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledge-misc1-total' type='text'>
+<input name='attr_knowledge-filler4-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledge-misc1-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_knowledge-filler4-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_knowledge-misc1-ranks' type='text'>
+<input name='attr_knowledge-filler4-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_knowledge-misc1-miscmod sheet-hideleft' type='text'>
+<input name='attr_knowledge-filler4-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledge-misc1-misc-explanation' placeholder='...' type='text'>
+<input name='attr_knowledge-filler4-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Knowledge</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledge-filler5-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledge-misc2-total' type='text'>
+<input name='attr_knowledge-filler5-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledge-misc2-statmod sheet-hideleft' placeholder='INT' type='text'>
+<input name='attr_knowledge-filler5-statmod sheet-hideleft' placeholder='INT' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_knowledge-misc2-ranks' type='text'>
+<input name='attr_knowledge-filler5-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_knowledge-misc2-miscmod sheet-hideleft' type='text'>
+<input name='attr_knowledge-filler5-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledge-misc2-misc-explanation' placeholder='...' type='text'>
+<input name='attr_knowledge-filler5-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Knowledge</div>
-<div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledge-misc3-total' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>=</div>
-<div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledge-misc3-statmod sheet-hideleft' placeholder='INT' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>+</div>
-<div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_knowledge-misc3-ranks' type='text'>
-</div>
-<div class='sheet-label sheet-hideleft'>+</div>
-<div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_knowledge-misc3-miscmod sheet-hideleft' type='text'>
-</div>
-<div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledge-misc3-misc-explanation' placeholder='...' type='text'>
-</div>
-<div class='sheet-label sheet-label-skills'>Listen &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Listen &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_listen-total' type='text'>
 </div>
@@ -1997,7 +1964,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_listen-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Move Silently &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Move Silently &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_move-silently-total' type='text'>
 </div>
@@ -2016,7 +1983,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_move-silently-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Open Lock</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Open Lock</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_open-lock-total' type='text'>
 </div>
@@ -2035,102 +2002,117 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_open-lock-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Perform &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Perform &#10041;</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_perform-filler1-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_perform-misc1-total' type='text'>
+<input name='attr_perform-filler1-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_perform-misc1-statmod sheet-hideleft' placeholder='CHA' type='text'>
+<input name='attr_perform-filler1-statmod sheet-hideleft' placeholder='CHA' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_perform-misc1-ranks' type='text'>
+<input name='attr_perform-filler1-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_perform-misc1-miscmod sheet-hideleft' type='text'>
+<input name='attr_perform-filler1-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_perform-misc1-misc-explanation' placeholder='...' type='text'>
+<input name='attr_perform-filler1-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Perform &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Perform &#10041;</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_perform-filler2-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_perform-misc2-total' type='text'>
+<input name='attr_perform-filler2-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_perform-misc2-statmod sheet-hideleft' placeholder='CHA' type='text'>
+<input name='attr_perform-filler2-statmod sheet-hideleft' placeholder='CHA' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_perform-misc2-ranks' type='text'>
+<input name='attr_perform-filler2-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_perform-misc2-miscmod sheet-hideleft' type='text'>
+<input name='attr_perform-filler2-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_perform-misc2-misc-explanation' placeholder='...' type='text'>
+<input name='attr_perform-filler2-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Perform &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Perform &#10041;</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_perform-filler3-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_perform-misc3-total' type='text'>
+<input name='attr_perform-filler3-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_perform-misc3-statmod sheet-hideleft' placeholder='CHA' type='text'>
+<input name='attr_perform-filler3-statmod sheet-hideleft' placeholder='CHA' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_perform-misc3-ranks' type='text'>
+<input name='attr_perform-filler3-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_perform-misc3-miscmod sheet-hideleft' type='text'>
+<input name='attr_perform-filler3-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_perform-misc3-misc-explanation' placeholder='...' type='text'>
+<input name='attr_perform-filler3-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Profession</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Profession</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_profession-filler1-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_profession-misc1-total' type='text'>
+<input name='attr_profession-filler1-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_profession-misc1-statmod sheet-hideleft' placeholder='WIS' type='text'>
+<input name='attr_profession-filler1-statmod sheet-hideleft' placeholder='WIS' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_profession-misc1-ranks' type='text'>
+<input name='attr_profession-filler1-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_profession-misc1-miscmod sheet-hideleft' type='text'>
+<input name='attr_profession-filler1-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_profession-misc1-misc-explanation' placeholder='...' type='text'>
+<input name='attr_profession-filler1-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Profession</div>
+<div class='sheet-label sheet-label-skills sheet-split-skill'>Profession</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_profession-filler2-split-skill-explanation' placeholder='...' type='text'>
+</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_profession-misc2-total' type='text'>
+<input name='attr_profession-filler2-total' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_profession-misc2-statmod sheet-hideleft' placeholder='WIS' type='text'>
+<input name='attr_profession-filler2-statmod sheet-hideleft' placeholder='WIS' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
-<input name='attr_profession-misc2-ranks' type='text'>
+<input name='attr_profession-filler2-ranks' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
-<input name='attr_profession-misc2-miscmod sheet-hideleft' type='text'>
+<input name='attr_profession-filler2-miscmod sheet-hideleft' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_profession-misc2-misc-explanation' placeholder='...' type='text'>
+<input name='attr_profession-filler2-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>PsiCraft</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>PsiCraft</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_psicraft-total' type='text'>
 </div>
@@ -2149,7 +2131,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_psicraft-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Ride &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Ride &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_ride-total' type='text'>
 </div>
@@ -2168,7 +2150,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_ride-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Search &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Search &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_search-total' type='text'>
 </div>
@@ -2187,7 +2169,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_search-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Sense Motive &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Sense Motive &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_sense-motive-total' type='text'>
 </div>
@@ -2206,7 +2188,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_sense-motive-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Sleight Of Hand</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Sleight Of Hand</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_sleight-of-hand-total' type='text'>
 </div>
@@ -2225,7 +2207,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_sleight-of-hand-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Speak Language</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Speak Language</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_speak-language-total' type='text'>
 </div>
@@ -2244,7 +2226,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_speak-language-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>SpellCraft</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>SpellCraft</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_spellcraft-total' type='text'>
 </div>
@@ -2263,7 +2245,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_spellcraft-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Spot &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Spot &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_spot-total' type='text'>
 </div>
@@ -2282,7 +2264,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_spot-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Survival &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Survival &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_survival-total' type='text'>
 </div>
@@ -2301,7 +2283,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_survival-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Swim &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Swim &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_swim-total' type='text'>
 </div>
@@ -2320,7 +2302,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_swim-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Tumble</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Tumble</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_tumble-total' type='text'>
 </div>
@@ -2339,7 +2321,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_tumble-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Use Magic Device</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Use Magic Device</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_use-magic-device-total' type='text'>
 </div>
@@ -2358,7 +2340,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_use-magic-device-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Use Psionic Device</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Use Psionic Device</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_use-psionic-device-total' type='text'>
 </div>
@@ -2377,7 +2359,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_use-psionic-device-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-label sheet-label-skills'>Use Rope &#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-merged-skill'>Use Rope &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_use-rope-total' type='text'>
 </div>
@@ -2396,7 +2378,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_use-rope-misc-explanation' placeholder='...' type='text'>
 </div>
-<div class='sheet-ui sheet-label-sheet-skills'>
+<div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill'>
 <input name='attr_skill-misc0_name' placeholder=' ...' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2417,7 +2399,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_skill-misc0-misc' type='text'>
 </div>
-<div class='sheet-ui sheet-label-sheet-skills'>
+<div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill'>
 <input name='attr_skill-misc1_name' placeholder=' ...' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2438,7 +2420,7 @@
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
 <input name='attr_skill-misc1-misc' type='text'>
 </div>
-<div class='sheet-ui sheet-label-sheet-skills'>
+<div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill'>
 <input name='attr_skill-misc2_name' placeholder=' ...' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2489,22 +2471,35 @@
 <div class='sheet-ui sheet-skill-miscline'>
 <input name='attr_miscline9' type='text'>
 </div>
+<div class='sheet-ui sheet-skill-miscline'>
+<input name='attr_miscline10' type='text'>
+</div>
+<div class='sheet-ui sheet-skill-miscline'>
+<input name='attr_miscline11' type='text'>
+</div>
+<div class='sheet-ui sheet-skill-miscline'>
+<input name='attr_miscline12' type='text'>
+</div>
 <div class='sheet-skill-money'>
 <div class='sheet-label sheet-skill-money-details'>PP:</div>
 <div class='sheet-ui sheet-skill-money-details sheet-hideleft'>
-<input name='attr_platinum_pieces' type='text'>
+<input name='attr_platinum-pieces' type='text'>
 </div>
 <div class='sheet-label sheet-skill-money-details sheet-hideleft'>GP:</div>
 <div class='sheet-ui sheet-skill-money-details sheet-hideleft'>
-<input name='attr_gold_pieces' type='text'>
+<input name='attr_gold-pieces' type='text'>
 </div>
 <div class='sheet-label sheet-skill-money-details sheet-hideleft'>SP:</div>
 <div class='sheet-ui sheet-skill-money-details sheet-hideleft'>
-<input name='attr_silver_pieces' type='text'>
+<input name='attr_silver-pieces' type='text'>
 </div>
 <div class='sheet-label sheet-skill-money-details sheet-hideleft'>CP:</div>
 <div class='sheet-ui sheet-skill-money-details sheet-hideleft'>
-<input name='attr_copper_pieces' type='text'>
+<input name='attr_copper-pieces' type='text'>
+</div>
+<div class='sheet-label sheet-skill-money-details sheet-hideleft'>Fate:</div>
+<div class='sheet-ui sheet-skill-money-details sheet-hideleft'>
+<input name='attr_fate-points' type='text'>
 </div>
 </div>
 </div>

@@ -309,10 +309,15 @@
     -# SKILLS
     .sheet-skills
       .sheet-label.sheet-table-header.sheet-skills-header SKILLS
-      .sheet-label-small.sheet-skills-explain Mod = StatBns + Ranks + Misc
-      -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-Alchemy' => [0, 'INT'], 'Craft-Poison' => [0, 'INT'], 'Craft-misc1' => [0, 'INT'], 'Craft-misc2' => [0, 'INT'], 'Craft-misc3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-Arcana' => [1, 'INT'], 'Knowledge-Nature' => [1, 'INT'], 'Knowledge-Religion' => [1, 'INT'], 'Knowledge-misc1' => [1, 'INT'], 'Knowledge-misc2' => [1, 'INT'], 'Knowledge-misc3' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-misc1' => [0, 'CHA'], 'Perform-misc2' => [0, 'CHA'], 'Perform-misc3' => [0, 'CHA'], 'Profession-misc1' => [1, 'WIS'], 'Profession-misc2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
+      .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
+      -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-filler1' => [0, 'INT'], 'Craft-filler2' => [0, 'INT'], 'Craft-filler3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-filler1' => [1, 'INT'], 'Knowledge-filler2' => [1, 'INT'], 'Knowledge-filler3' => [1, 'INT'], 'Knowledge-filler4' => [1, 'INT'], 'Knowledge-filler5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-filler1' => [0, 'CHA'], 'Perform-filler2' => [0, 'CHA'], 'Perform-filler3' => [0, 'CHA'], 'Profession-filler1' => [1, 'WIS'], 'Profession-filler2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
       - skills.each do |k, v|
-        .sheet-label.sheet-label-skills= k.gsub(/-misc\d+/i, '') + (v[0].zero? ? ' &#10041;' : '')
+        - if k =~ /-filler\d+/
+          .sheet-label.sheet-label-skills.sheet-split-skill= k.gsub(/-filler\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+          .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-split-skill-explanation", placeholder: '...'}
+        - else
+          .sheet-label.sheet-label-skills.sheet-merged-skill= k.gsub(/-filler\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
         .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-total"}
         .sheet-label.sheet-hideleft =
@@ -327,7 +332,7 @@
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-misc-explanation", placeholder: '...'}
       - 3.times do |i|
-        .sheet-ui.sheet-label-sheet-skills
+        .sheet-ui.sheet-label-sheet-skills.sheet-merged-skill
           %input{type: 'text', name: "attr_skill-misc#{i}_name", placeholder: ' ...'}
         .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_skill-misc#{i}-total"}
@@ -342,22 +347,25 @@
           %input{type: 'text', name: "attr_skill-misc#{i}-miscmod sheet-hideleft"}
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
           %input{type: 'text', name: "attr_skill-misc#{i}-misc"}
-      - 10.times do |i|
+      - 13.times do |i|
         .sheet-ui.sheet-skill-miscline
           %input{type: 'text', name: "attr_miscline#{i}"}
       .sheet-skill-money
         .sheet-label.sheet-skill-money-details PP:
         .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_platinum_pieces"}
+          %input{type: 'text', name: "attr_platinum-pieces"}
         .sheet-label.sheet-skill-money-details.sheet-hideleft GP:
         .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_gold_pieces"}
+          %input{type: 'text', name: "attr_gold-pieces"}
         .sheet-label.sheet-skill-money-details.sheet-hideleft SP:
         .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_silver_pieces"}
+          %input{type: 'text', name: "attr_silver-pieces"}
         .sheet-label.sheet-skill-money-details.sheet-hideleft CP:
         .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_copper_pieces"}
+          %input{type: 'text', name: "attr_copper-pieces"}
+        .sheet-label.sheet-skill-money-details.sheet-hideleft Fate:
+        .sheet-ui.sheet-skill-money-details.sheet-hideleft
+          %input{type: 'text', name: "attr_fate-points"}
 
     -# NOTES
     .sheet-notes
