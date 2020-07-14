@@ -131,20 +131,20 @@
           %input{type: 'text', name: "attr_base_attack_bonus"}
       .sheet-attack-bonus-sec2
         .sheet-label
-        .sheet-label.sheet-hideleft Total
-        .sheet-label.sheet-hideleft +
-        .sheet-label.sheet-hideleft Base
-        .sheet-label.sheet-hideleft +
-        .sheet-label.sheet-hideleft Stat
-        .sheet-label.sheet-hideleft +
-        .sheet-label.sheet-hideleft Size
-        .sheet-label.sheet-hideleft +
-        .sheet-label.sheet-hideleft Misc
+        .sheet-label.sheet-hideleft.sheet-italics Total
+        .sheet-label.sheet-hideleft.sheet-italics
+        .sheet-label.sheet-hideleft.sheet-italics Base
+        .sheet-label.sheet-hideleft.sheet-italics
+        .sheet-label.sheet-hideleft.sheet-italics Stat
+        .sheet-label.sheet-hideleft.sheet-italics
+        .sheet-label.sheet-hideleft.sheet-italics Size
+        .sheet-label.sheet-hideleft.sheet-italics
+        .sheet-label.sheet-hideleft.sheet-italics Misc
         .sheet-label.sheet-hideleft
         .sheet-label.sheet-attack-melee &#9876; Melee:
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_melee-total"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_melee-base"}
         .sheet-label.sheet-hideleft +
@@ -157,11 +157,11 @@
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_melee-misc"}
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_melee-explanation"}
+          %input{type: 'text', name: "attr_melee-explanation", placeholder: '...'}
         .sheet-label.sheet-attack-range &#9732; Range:
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_range-total"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_range-base"}
         .sheet-label.sheet-hideleft +
@@ -174,11 +174,11 @@
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_range-misc"}
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_range-explanation"}
+          %input{type: 'text', name: "attr_range-explanation", placeholder: '...'}
         .sheet-label.sheet-attack-grapple Grapple:
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_grapple-total"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_grapple-base"}
         .sheet-label.sheet-hideleft +
@@ -191,7 +191,7 @@
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_grapple-misc"}
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grapple-explanation"}
+          %input{type: 'text', name: "attr_grapple-explanation", placeholder: '...'}
       .sheet-attack-bonus-sec3
         .sheet-label Touch AC:
         .sheet-ui.sheet-hideleft
@@ -309,7 +309,7 @@
       .sheet-label-small.sheet-skills-explain Mod = StatBns + Ranks + Misc
       -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-Alchemy' => [0, 'INT'], 'Craft-Poison' => [0, 'INT'], 'Craft-misc1' => [0, 'INT'], 'Craft-misc2' => [0, 'INT'], 'Craft-misc3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-Arcana' => [1, 'INT'], 'Knowledge-Nature' => [1, 'INT'], 'Knowledge-Religion' => [1, 'INT'], 'Knowledge-misc1' => [1, 'INT'], 'Knowledge-misc2' => [1, 'INT'], 'Knowledge-misc3' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-misc1' => [0, 'CHA'], 'Perform-misc2' => [0, 'CHA'], 'Perform-misc3' => [0, 'CHA'], 'Profession-misc1' => [1, 'WIS'], 'Profession-misc2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
       - skills.each do |k, v|
-        .sheet-label.sheet-label-skills= k.gsub(/_misc\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+        .sheet-label.sheet-label-skills= k.gsub(/-misc\d+/i, '') + (v[0].zero? ? ' &#10041;' : '')
         .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-total"}
         .sheet-label.sheet-hideleft =
@@ -322,7 +322,7 @@
         .sheet-ui.sheet-skill-miscmod.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-miscmod sheet-hideleft"}
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-misc-explanation"}
+          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-misc-explanation", placeholder: '...'}
       - 3.times do |i|
         .sheet-ui.sheet-label-sheet-skills
           %input{type: 'text', name: "attr_skill-misc#{i}_name", placeholder: ' ...'}
@@ -339,9 +339,22 @@
           %input{type: 'text', name: "attr_skill-misc#{i}-miscmod sheet-hideleft"}
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
           %input{type: 'text', name: "attr_skill-misc#{i}-misc"}
-      - 11.times do |i|
+      - 10.times do |i|
         .sheet-ui.sheet-skill-miscline
           %input{type: 'text', name: "attr_miscline#{i}"}
+      .sheet-skill-money
+        .sheet-label.sheet-skill-money-details PP:
+        .sheet-ui.sheet-skill-money-details.sheet-hideleft
+          %input{type: 'text', name: "attr_platinum_pieces"}
+        .sheet-label.sheet-skill-money-details.sheet-hideleft GP:
+        .sheet-ui.sheet-skill-money-details.sheet-hideleft
+          %input{type: 'text', name: "attr_gold_pieces"}
+        .sheet-label.sheet-skill-money-details.sheet-hideleft SP:
+        .sheet-ui.sheet-skill-money-details.sheet-hideleft
+          %input{type: 'text', name: "attr_silver_pieces"}
+        .sheet-label.sheet-skill-money-details.sheet-hideleft CP:
+        .sheet-ui.sheet-skill-money-details.sheet-hideleft
+          %input{type: 'text', name: "attr_copper_pieces"}
 
     -# NOTES
     .sheet-notes
