@@ -21,12 +21,12 @@
 	justify-self: stretch;
 	align-self: stretch;
 	grid-gap: 0px;
-	background: #DDD;
+	background: gainsboro;
 	grid-template-rows: repeat(3, 18px);
-	border-top: 1px solid slategray;
-	border-left: 1px solid slategray;
-	border-right: 2px solid slategray;
-	border-bottom: 2px solid slategray;
+	border-top: 1px solid silver;
+	border-left: 1px solid silver;
+	border-right: 2px solid silver;
+	border-bottom: 2px solid silver;
 }
 
 .sheet-header-row1 {
@@ -63,7 +63,7 @@
 	grid-gap: 0px;
 	grid-template-columns: 38px 43px 43px 43px auto;
 	grid-template-rows: 18px;
-	border-right: 1px solid slategray;
+	border-right: 1px solid silver;
 }
 
 .sheet-ability-scores-table {
@@ -75,8 +75,8 @@
 	grid-gap: 0px;
 	grid-template-columns: 38px 43px 43px 43px auto;
 	grid-template-rows: repeat(6, 18px);
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 }
 
 .sheet-saves-ac {
@@ -87,8 +87,8 @@
 	align-self: center;
 	grid-gap: 0px;
 	grid-template-rows: 72px 18px 18px 18px;
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 }
 .sheet-saves-ac-sec1 {
 	grid-auto-flow: row;
@@ -109,7 +109,7 @@
 	align-self: center;
 	grid-gap: 0px;
 	grid-template-rows: 18px;
-	grid-template-columns: 110px 64px 80px auto;
+	grid-template-columns: 60px 50px 80px 55px 70px auto;
 }
 
 .sheet-saves-ac-sec3 {
@@ -142,8 +142,8 @@
 	align-self: center;
 	grid-gap: 0px;
 	grid-template-rows: 18px 72px 36px;
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 }
 
 .sheet-attack-bonus-sec1 {
@@ -162,7 +162,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 57px repeat(4, 30px 9px) 30px auto;
+	grid-template-columns: 57px 27px 9px 27px 9px 39px 9px 27px 9px 30px auto;
 	grid-template-rows: 18px 18px 18px 18px;
 }
 
@@ -179,12 +179,12 @@
 
 .sheet-table-header {
   text-align: center;
-	background: #DDD;
+	background: gainsboro;
 }
 
 .sheet-skills-explain {
   text-align: center;
-	background: #DDD;
+	background: gainsboro;
 }
 
 .sheet-table-subheader {
@@ -200,13 +200,13 @@
 	grid-gap: 0px;
 	grid-template-columns: 164px 40px 43px 40px 50px 37px 30px auto;
 	grid-template-rows: repeat(8, 18px);
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 }
 
 .sheet-ability-scores-top .sheet-ability-scores-header {
-	border-top: 1px solid slategray;
-	border-left: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-left: 1px solid silver;
 	text-align: center;
 }
 
@@ -230,24 +230,24 @@
 .sheet-carry-weight .sheet-ui,
 .sheet-attack-bonus .sheet-ui,
 .sheet-saves-ac .sheet-ui {
-	border-bottom: 1px solid slategray;
-	border-left: 1px solid slategray;
+	border-bottom: 1px solid silver;
+	border-left: 1px solid silver;
 }
 
 .charsheet .sheet-notes .sheet-notes-header {
 	grid-column: 1 / span 3;
-	border-bottom: 1px solid slategray;
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
-	border-left: 1px solid slategray;
+	border-bottom: 1px solid silver;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
 }
 .charsheet .sheet-notes .sheet-notes-miscline-left {
 	grid-column: 1;
-	border-bottom: 1px solid slategray;
+	border-bottom: 1px solid silver;
 }
 .charsheet .sheet-notes .sheet-notes-miscline-right {
 	grid-column: 3;
-	border-bottom: 1px solid slategray;
+	border-bottom: 1px solid silver;
 }
 
 .sheet-armor {
@@ -259,13 +259,13 @@
 	grid-gap: 0px;
 	grid-template-columns: 144px 47px 65px 65px 53px 30px auto;
 	grid-template-rows: repeat(6, 18px);
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 }
 
 .sheet-traits-abilities {
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
 	grid-row: 5;
@@ -278,8 +278,8 @@
 }
 
 .sheet-equipment {
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
 	grid-row: 6;
@@ -292,8 +292,8 @@
 }
 
 .sheet-carry-weight {
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
 	grid-row: 7;
@@ -306,12 +306,12 @@
 
 .sheet-carry-weight .sheet-ui input {
 	padding: 1px;
-	border-bottom: 1px solid slategray;
+	border-bottom: 1px solid silver;
 }
 
 .sheet-skills {
-	border-top: 1px solid slategray;
-	border-right: 1px solid slategray;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 3;
 	grid-row: 3 / span 5;
@@ -369,24 +369,24 @@
 }
 
 .sheet-equipment .sheet-label-magic-item {
-	border-bottom: 1px solid slategray;
-	border-left: 1px solid slategray;
+	border-bottom: 1px solid silver;
+	border-left: 1px solid silver;
 }
 
 .sheet-equipment .sheet-magic-item-description {
-	border-bottom: 1px solid slategray;
+	border-bottom: 1px solid silver;
 	border-left: none
 }
 
 .charsheet .sheet-grid .sheet-header input {
 	padding: 1px;
-	background: #DDD;
-	border-bottom: 1px solid slategray;
+	background: gainsboro;
+	border-bottom: 1px solid silver;
 }
 
 .charsheet .sheet-grid .sheet-carry-weight input {
 	padding: 1px;
-	border-bottom: 1px solid slategray;
+	border-bottom: 1px solid silver;
 }
 
 .sheet-skill-miscline {
@@ -415,7 +415,9 @@
 	padding: 1px;
 	width: 100%;
 	height: 14px !important;
-	font-size: 11px !important;
+	color: blue;
+	font-weight: bold;
+	font-size: 14px !important;
 	border: none;
 	text-align: center;
 	background-color: #FFF;
@@ -426,17 +428,17 @@
 	padding: 1px;
 	width: 100%;
 	height: 18px !important;
-	font-size: 13px !important;
+	font-size: 14px !important;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .sheet-label.sheet-equipment-header { grid-column: 1 / span 7; grid-row: 1 }
-.sheet-label.sheet-equipment-subheader1 { grid-column: 1 ; grid-row: 2 ; border-bottom: 1px solid slategray; border-left: 1px solid slategray; }
-.sheet-label.sheet-equipment-subheader2 { grid-column: 2 ; grid-row: 2 ; border-bottom: 1px solid slategray; border-left: 1px solid slategray; }
-.sheet-label.sheet-equipment-subheader3 { grid-column: 3 ; grid-row: 2 ; border-bottom: 1px solid slategray; border-left: 1px solid slategray; }
-.sheet-label.sheet-equipment-subheader4 { grid-column: 4 ; grid-row: 2 ; border-bottom: 1px solid slategray; border-left: 1px solid slategray; }
-.sheet-label.sheet-equipment-subheader5 { grid-column: 5 / span 2 ; grid-row: 2 ; border-bottom: 1px solid slategray; border-left: 1px solid slategray; }
-.sheet-label.sheet-equipment-subheader6 { grid-column: 7 ; grid-row: 2 ; border-bottom: 1px solid slategray; border-left: 1px solid slategray; }
+.sheet-label.sheet-equipment-subheader1 { grid-column: 1 ; grid-row: 2 ; border-bottom: 1px solid silver; border-left: 1px solid silver; }
+.sheet-label.sheet-equipment-subheader2 { grid-column: 2 ; grid-row: 2 ; border-bottom: 1px solid silver; border-left: 1px solid silver; }
+.sheet-label.sheet-equipment-subheader3 { grid-column: 3 ; grid-row: 2 ; border-bottom: 1px solid silver; border-left: 1px solid silver; }
+.sheet-label.sheet-equipment-subheader4 { grid-column: 4 ; grid-row: 2 ; border-bottom: 1px solid silver; border-left: 1px solid silver; }
+.sheet-label.sheet-equipment-subheader5 { grid-column: 5 / span 2 ; grid-row: 2 ; border-bottom: 1px solid silver; border-left: 1px solid silver; }
+.sheet-label.sheet-equipment-subheader6 { grid-column: 7 ; grid-row: 2 ; border-bottom: 1px solid silver; border-left: 1px solid silver; }
 
 .sheet-skills-explain { grid-column: 2 / span 8; grid-row: 1 }
 

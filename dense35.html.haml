@@ -100,9 +100,12 @@
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_save-#{val.downcase}-misc-explanation", placeholder: '...'}
       .sheet-saves-ac-sec2
-        .sheet-label.sheet-table-subheader Max Hit Points:
+        .sheet-label.sheet-table-subheader  Max HP:
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_max-hit-points"}
+        .sheet-label.sheet-table-subheader  Current HP:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_current-hit-points"}
         .sheet-label.sheet-table-subheader Initiative:
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_initiative"}
@@ -195,7 +198,7 @@
       .sheet-attack-bonus-sec3
         .sheet-label Touch AC:
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_touch_ac", placeholder: 'No Armor/Shield/Nat-Armor'}
+          %input{type: 'text', name: "attr_touch_ac", placeholder: 'No Armor/Shield/Nat'}
         .sheet-label Flat Footed AC:
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_flat_footed_ac", placeholder: 'No Dex/Dodge'}
