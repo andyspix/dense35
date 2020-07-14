@@ -215,7 +215,7 @@
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-misc"}
       - 3.times do |i|
         .sheet-ui{class: "sheet-skill-misc#{i}"}
-          %input{type: 'text', name: "attr_skill-misc#{i}_name"}
+          %input{type: 'text', name: "attr_skill-misc#{i}_name", placeholder: ' ---'}
         .sheet-ui{class: "sheet-skill-misc#{i}-total"}
           %input{type: 'text', name: "attr_skill-misc#{i}-total"}
         .sheet-label.sheet-hideleft =
