@@ -313,7 +313,7 @@
 	align-self: stretch;
 	grid-gap: 0px;
 	grid-template-columns: 123px 25px 9px 35px 9px 18px 9px 18px auto;
-	grid-template-rows: repeat(66, 18px)
+	grid-template-rows: repeat(65, 18px)
 }
 
 .sheet-notes {
