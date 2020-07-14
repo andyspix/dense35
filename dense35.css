@@ -132,16 +132,44 @@
 }
 
 .sheet-attack-bonus {
-	background: yellow;
 	display: grid;
 	grid-column: 3;
 	grid-row: 2;
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: repeat(9, 28px) auto;
-	grid-template-rows: repeat(7, 18px);
+	grid-template-rows: 18px 72px 36px;
+	border-top: 1px solid slategray;
+	border-right: 1px solid slategray;
 }
+
+.sheet-attack-bonus-sec1 {
+	display: grid;
+	grid-row: 1;
+	justify-self: stretch;
+	align-self: center;
+	grid-gap: 0px;
+	grid-template-columns: auto auto;
+}
+
+.sheet-attack-bonus-sec2 {
+	display: grid;
+	grid-row: 2;
+	justify-self: stretch;
+	align-self: center;
+	grid-gap: 0px;
+	grid-template-columns: repeat(11, auto);
+}
+
+.sheet-attack-bonus-sec3 {
+	display: grid;
+	grid-row: 3;
+	justify-self: stretch;
+	align-self: center;
+	grid-gap: 0px;
+	grid-template-columns: 100px auto;
+}
+
 
 .sheet-table-header {
   text-align: center;
@@ -182,6 +210,7 @@
 .sheet-carry-weight .sheet-label-small,
 .sheet-skills .sheet-skills-explain,
 .sheet-saves-ac .sheet-label,
+.sheet-attack-bonus .sheet-label,
 .sheet-weapons .sheet-table-header,
 .sheet-armor .sheet-table-header,
 .sheet-traits-abilities .sheet-table-header,
@@ -193,6 +222,7 @@
 .sheet-equipment .sheet-ui,
 .sheet-skills .sheet-ui,
 .sheet-carry-weight .sheet-ui,
+.sheet-attack-bonus .sheet-ui,
 .sheet-saves-ac .sheet-ui {
 	border-bottom: 1px solid slategray;
 	border-left: 1px solid slategray;

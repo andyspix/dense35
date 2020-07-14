@@ -125,9 +125,80 @@
 
     -# ATTACK BONUSES
     .sheet-attack-bonus
-      .item A
-      .item A
-      .item A
+      .sheet-attack-bonus-sec1
+        .sheet-label BASE ATTACK BONUS:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_base_attack_bonus"}
+      .sheet-attack-bonus-sec2
+        .sheet-label
+        .sheet-label.sheet-hideleft Total
+        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft Base
+        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft Stat
+        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft Size
+        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft Misc
+        .sheet-label.sheet-hideleft
+        .sheet-label.sheet-attack-melee &#9876; Melee:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_melee-total"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_melee-base"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_melee-stat-bonus", placeholder: 'STR'}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_melee-size"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_melee-misc"}
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_melee-explanation"}
+        .sheet-label.sheet-attack-range &#8982; Range:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_range-total"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_range-base"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_range-stat-bonus", placeholder: 'DEX'}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_range-size"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_range-misc"}
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_range-explanation"}
+        .sheet-label.sheet-attack-grapple Grapple:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_grapple-total"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_grapple-base"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_grapple-stat-bonus", placeholder: 'STR'}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_grapple-size"}
+        .sheet-label.sheet-hideleft +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_grapple-misc"}
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_grapple-explanation"}
+      .sheet-attack-bonus-sec3
+        .sheet-label Touch AC:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_touch_ac", placeholder: 'No Armor/Shield/Nat-Armor'}
+        .sheet-label Flat Footed AC:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_flat_footed_ac", placeholder: 'No Dex/Dodge'}
 
     -# WEAPONS
     .sheet-weapons
