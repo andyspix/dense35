@@ -67,7 +67,7 @@
         .sheet-label.sheet-ability-scores-header Temp
         .sheet-label.sheet-ability-scores-header Mod
       .sheet-ability-scores-table
-        - %w(str dex con int dex wis).each do |val|
+        - %w(str dex con int wis cha).each do |val|
           .sheet-label= val.upcase
           .sheet-ui
             %input{type: 'text', name: "attr_#{val}_score"}
@@ -367,4 +367,4 @@
           %input{type: 'text', name: "attr_notes-miscline-left#{i}"}
       - 25.times do |i|
         .sheet-ui.sheet-notes-miscline-right
-          %input{type: 'text', name: "attr_notes-miscline-left#{i}"}
+          %input{type: 'text', name: "attr_notes-miscline-right#{i}"}
