@@ -80,9 +80,48 @@
 
     -# SAVES & AC
     .sheet-saves-ac
-      .item A
-      .item A
-      .item A
+      .sheet-saves-ac-sec1
+        .sheet-label SAVE
+        - %w(Total Base Stat Magic).each do |val|
+          .sheet-label.sheet-table-subheader= val
+        .sheet-label.sheet-table-subheader.sheet-saves-ac-misc-merge Misc
+        - %w(FORT REF WILL).each do |val|
+          .sheet-label= val
+          .sheet-ui
+            %input{type: 'text', name: "attr_save-#{val.downcase}-total"}
+          .sheet-ui
+            %input{type: 'text', name: "attr_save-#{val.downcase}-base"}
+          .sheet-ui
+            %input{type: 'text', name: "attr_save-#{val.downcase}-stat"}
+          .sheet-ui
+            %input{type: 'text', name: "attr_save-#{val.downcase}-magic"}
+          .sheet-ui
+            %input{type: 'text', name: "attr_save-#{val.downcase}-misc"}
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_save-#{val.downcase}-misc-explanation", placeholder: '...'}
+      .sheet-saves-ac-sec2
+        .sheet-label.sheet-table-subheader Max Hit Points:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_max-hit-points"}
+        .sheet-label.sheet-table-subheader Initiative:
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_initiative"}
+      .sheet-saves-ac-sec3
+        .sheet-label.sheet-italics
+        .sheet-label.sheet-italics.sheet-hideleft Total
+        - %w(Armor Shield DEX Size Nat Deflect Misc).each do |val|
+          .sheet-label.sheet-hideleft.sheet-italics=val
+      .sheet-saves-ac-sec4
+        .sheet-label AC
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_ac-total"}
+        .sheet-label.sheet-hideleft =10
+        - %w(armor shield dex size nat deflect misc).each do |val|
+          .sheet-label.sheet-hideleft +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_ac-#{val}"}
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_ac-misc-explain", placeholder: '...'}
 
     -# ATTACK BONUSES
     .sheet-attack-bonus
@@ -164,7 +203,7 @@
         .sheet-label-magic-item= val[0].upcase + val[1..-1] + ':'
       - ((item_slots.count + 1)..28).each do |i|
         .sheet-label-magic-item
-          %input{type: 'text', name: "attr_magic-item#{i}", placeholder: " ---"}
+          %input{type: 'text', name: "attr_magic-item#{i}", placeholder: " ..."}
       - (1..28).each do |i|
         .sheet-ui.sheet-magic-item-description{class: "sheet-magic-item#{i}"}
           %input{type: 'text', name: "attr_magic-item#{i}"}
@@ -196,39 +235,49 @@
     -# SKILLS
     .sheet-skills
       .sheet-label.sheet-table-header.sheet-skills-header SKILLS
-      .sheet-label-small.sheet-skills-explain Mod + Stat + Rank + Misc
+      .sheet-label-small.sheet-skills-explain Mod = StatBns + Ranks + Misc
       -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-Alchemy' => [0, 'INT'], 'Craft-Poison' => [0, 'INT'], 'Craft-misc1' => [0, 'INT'], 'Craft-misc2' => [0, 'INT'], 'Craft-misc3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-Arcana' => [1, 'INT'], 'Knowledge-Nature' => [1, 'INT'], 'Knowledge-Religion' => [1, 'INT'], 'Knowledge-misc1' => [1, 'INT'], 'Knowledge-misc2' => [1, 'INT'], 'Knowledge-misc3' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-misc1' => [0, 'CHA'], 'Perform-misc2' => [0, 'CHA'], 'Perform-misc3' => [0, 'CHA'], 'Profession-misc1' => [1, 'WIS'], 'Profession-misc2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
       - skills.each do |k, v|
         .sheet-label.sheet-label-skills= k.gsub(/_misc\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
-        .sheet-ui{class: "sheet-#{k.downcase.tr(' ', '-')}-total"}
+        .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-total"}
         .sheet-label.sheet-hideleft =
-        .sheet-ui.sheet-label{class: "sheet-#{k.downcase.tr(' ', '-')}-statmod sheet-hideleft"}
+        .sheet-ui.sheet-skill-statmod.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-statmod sheet-hideleft", placeholder: v[1]}
         .sheet-label.sheet-hideleft +
-        .sheet-ui{class: "sheet-#{k.downcase.tr(' ', '-')}-ranks sheet-hideleft"}
+        .sheet-ui.sheet-skill-ranks.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-ranks"}
         .sheet-label.sheet-hideleft +
-        .sheet-ui{class: "sheet-#{k.downcase.tr(' ', '-')}-miscmod sheet-hideleft"}
+        .sheet-ui.sheet-skill-miscmod.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-miscmod sheet-hideleft"}
-        .sheet-ui{class: "sheet-#{k.downcase.tr(' ', '-')}-misc sheet-hideleft"}
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-misc"}
+        .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
+          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '-')}-misc-explanation"}
       - 3.times do |i|
-        .sheet-ui{class: "sheet-skill-misc#{i}"}
-          %input{type: 'text', name: "attr_skill-misc#{i}_name", placeholder: ' ---'}
-        .sheet-ui{class: "sheet-skill-misc#{i}-total"}
+        .sheet-ui.sheet-label-sheet-skills
+          %input{type: 'text', name: "attr_skill-misc#{i}_name", placeholder: ' ...'}
+        .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_skill-misc#{i}-total"}
         .sheet-label.sheet-hideleft =
-        .sheet-ui.sheet-label{class: "sheet-skill-misc#{i}-statmod sheet-hideleft"}
+        .sheet-ui.sheet-skill-statmod.sheet-hideleft
           %input{type: 'text', name: "attr_skill-misc#{i}-statmod sheet-hideleft"}
         .sheet-label.sheet-hideleft +
-        .sheet-ui{class: "sheet-skill-misc#{i}-ranks sheet-hideleft"}
+        .sheet-ui.sheet-skill-ranks.sheet-hideleft
           %input{type: 'text', name: "attr_skill-misc#{i}-ranks"}
         .sheet-label.sheet-hideleft +
-        .sheet-ui{class: "sheet-skill-misc#{i}-miscmod sheet-hideleft"}
+        .sheet-ui.sheet-skill-miscmod.sheet-hideleft
           %input{type: 'text', name: "attr_skill-misc#{i}-miscmod sheet-hideleft"}
-        .sheet-ui{class: "sheet-skill-misc#{i}-misc sheet-hideleft"}
+        .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
           %input{type: 'text', name: "attr_skill-misc#{i}-misc"}
       - 12.times do |i|
-        .sheet-ui.skill-miscline
+        .sheet-ui.sheet-skill-miscline
           %input{type: 'text', name: "attr_miscline#{i}"}
+
+    -# NOTES
+    .sheet-notes
+      .sheet-label.sheet-table-header.sheet-notes-header NOTES
+      - 25.times do |i|
+        .sheet-ui.sheet-notes-miscline-left
+          %input{type: 'text', name: "attr_notes-miscline-left#{i}"}
+      - 25.times do |i|
+        .sheet-ui.sheet-notes-miscline-right
+          %input{type: 'text', name: "attr_notes-miscline-left#{i}"}
