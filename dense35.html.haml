@@ -93,9 +93,9 @@
     -# WEAPONS
     .sheet-weapons
       .sheet-label.sheet-table-header.sheet-weapons-header Weapons
-      .sheet-label.sheet-table-header.sheet-tohit-header To Hit
-      .sheet-label.sheet-table-header.sheet-damage-header Damage
-      .sheet-label.sheet-table-header.sheet-crit-header Critical
+      .sheet-label.sheet-table-header.sheet-tohit-header ToHit
+      .sheet-label.sheet-table-header.sheet-damage-header Dmg
+      .sheet-label.sheet-table-header.sheet-crit-header Crit
       .sheet-label.sheet-table-header.sheet-range-header Range
       .sheet-label.sheet-table-header.sheet-wpnsize-header Size
       .sheet-label.sheet-table-header.sheet-wpnwt-header Wt
@@ -196,8 +196,8 @@
     -# SKILLS
     .sheet-skills
       .sheet-label.sheet-table-header.sheet-skills-header SKILLS
-      .sheet-label-small.sheet-skills-explain Mod + Stat + Ranks + Misc
-      -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-Alchemy' => [0, 'INT'], 'Craft-Poison' => [0, 'INT'], 'Craft-misc1' => [0, 'INT'], 'Craft-misc2' => [0, 'INT'], 'Craft-misc3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Information' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-Arcana' => [1, 'INT'], 'Knowledge-Nature' => [1, 'INT'], 'Knowledge-Religion' => [1, 'INT'], 'Knowledge-misc1' => [1, 'INT'], 'Knowledge-misc2' => [1, 'INT'], 'Knowledge-misc3' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-misc1' => [0, 'CHA'], 'Perform-misc2' => [0, 'CHA'], 'Perform-misc3' => [0, 'CHA'], 'Profession-misc1' => [1, 'WIS'], 'Profession-misc2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
+      .sheet-label-small.sheet-skills-explain Mod + Stat + Rank + Misc
+      -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-Alchemy' => [0, 'INT'], 'Craft-Poison' => [0, 'INT'], 'Craft-misc1' => [0, 'INT'], 'Craft-misc2' => [0, 'INT'], 'Craft-misc3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-Arcana' => [1, 'INT'], 'Knowledge-Nature' => [1, 'INT'], 'Knowledge-Religion' => [1, 'INT'], 'Knowledge-misc1' => [1, 'INT'], 'Knowledge-misc2' => [1, 'INT'], 'Knowledge-misc3' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-misc1' => [0, 'CHA'], 'Perform-misc2' => [0, 'CHA'], 'Perform-misc3' => [0, 'CHA'], 'Profession-misc1' => [1, 'WIS'], 'Profession-misc2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
       - skills.each do |k, v|
         .sheet-label.sheet-label-skills= k.gsub(/_misc\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
         .sheet-ui{class: "sheet-#{k.downcase.tr(' ', '-')}-total"}
