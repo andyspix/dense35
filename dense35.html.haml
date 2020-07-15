@@ -4,58 +4,70 @@
     -# HEADER
     .sheet-header
       .sheet-header-row1
-        .sheet-label.sheet-charname Name:
-        .sheet-ui.sheet-charname
+        .sheet-label Name:
+        .sheet-ui
           %input{type: 'text', name: 'attr_charname'}
-        .sheet-label.sheet-race Race:
-        .sheet-ui.sheet-race
+        .sheet-label Race:
+        .sheet-ui
           %input{type: 'text', name: 'attr_race'}
-        .sheet-label.sheet-class Class:
-        .sheet-ui.sheet-class
+        .sheet-label Class:
+        .sheet-ui
           %input{type: 'text', name: 'attr_class'}
-        .sheet-label.sheet-religion Religion:
-        .sheet-ui.sheet-religion
+        .sheet-label Religion:
+        .sheet-ui
           %input{type: 'text', name: 'attr_religion'}
       .sheet-header-row2
-        .sheet-label.sheet-height Ht:
-        .sheet-ui.sheet-height
+        .sheet-label Ht:
+        .sheet-ui
           %input{type: 'text', name: 'attr_height'}
-        .sheet-label.sheet-weight Wt:
-        .sheet-ui.sheet-weight
+        .sheet-label Wt:
+        .sheet-ui
           %input{type: 'text', name: 'attr_weight'}
-        .sheet-label.sheet-sex Sex:
-        .sheet-ui.sheet-sex
+        .sheet-label Sex:
+        .sheet-ui
           %input{type: 'text', name: 'attr_sex'}
-        .sheet-label.sheet-age Age:
-        .sheet-ui.sheet-age
+        .sheet-label Age:
+        .sheet-ui
           %input{type: 'text', name: 'attr_age'}
-        .sheet-label.sheet-alignment Alignment:
-        .sheet-ui.sheet-alignment
+        .sheet-label Alignment:
+        .sheet-ui
           %input{type: 'text', name: 'attr_alignment'}
-        .sheet-label.sheet-level Level:
-        .sheet-ui.sheet-level
+        .sheet-label Level:
+        .sheet-ui
           %input{type: 'text', name: 'attr_level'}
-        .sheet-label.sheet-xp XP:
-        .sheet-ui.sheet-xp
+        .sheet-label XP:
+        .sheet-ui
           %input{type: 'text', name: 'attr_xp'}
-        .sheet-label.sheet-needed Needed:
-        .sheet-ui.sheet-needed
+        .sheet-label Needed:
+        .sheet-ui
           %input{type: 'text', name: 'attr_needed'}
-        .sheet-label.sheet-speed Speed:
-        .sheet-ui.sheet-speed
+        .sheet-label Speed:
+        .sheet-ui
           %input{type: 'text', name: 'attr_speed'}
       .sheet-header-row3
-        .sheet-label.sheet-region Region:
-        .sheet-ui.sheet-region
+        .sheet-label Region:
+        .sheet-ui
           %input{type: 'text', name: 'attr_region'}
-        .sheet-label.sheet-eyes Eyes:
-        .sheet-ui.sheet-eyes
+        .sheet-label Eyes:
+        .sheet-ui
           %input{type: 'text', name: 'attr_eyes'}
-        .sheet-label.sheet-hair Hair:
-        .sheet-ui.sheet-hair
-          %input{type: 'text', name: 'attr_hear'}
-        .sheet-label.sheet-appearance Appearance:
-        .sheet-ui.sheet-appearance
+        .sheet-label Hair:
+        .sheet-ui
+          %input{type: 'text', name: 'attr_hair'}
+        .sheet-label Size:
+        .sheet-ui
+          %select{name: 'attr_size'}
+            %option Fine
+            %option Diminutive
+            %option Tiny
+            %option Small
+            %option Medium
+            %option Large
+            %option Huge
+            %option Gargantuan
+            %option Colossal
+        .sheet-label Appearance:
+        .sheet-ui
           %input{type: 'text', name: 'attr_appearance'}
 
     -# ABILITY SCORES
@@ -118,7 +130,9 @@
         .sheet-label AC
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_acTotal"}
-        .sheet-label.sheet-hideleft =10
+        .sheet-label.sheet-hideleft =
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
         - %w(Armor Shield Dex Size Nat Deflect Misc).each do |val|
           .sheet-label.sheet-hideleft +
           .sheet-ui.sheet-hideleft
@@ -310,14 +324,14 @@
     .sheet-skills
       .sheet-label.sheet-table-header.sheet-skills-header SKILLS
       .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
-      -skills = { 'Appraise' => [0, 'INT'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'Craft-filler1' => [0, 'INT'], 'Craft-filler2' => [0, 'INT'], 'Craft-filler3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'Knowledge-filler1' => [1, 'INT'], 'Knowledge-filler2' => [1, 'INT'], 'Knowledge-filler3' => [1, 'INT'], 'Knowledge-filler4' => [1, 'INT'], 'Knowledge-filler5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'Perform-filler1' => [0, 'CHA'], 'Perform-filler2' => [0, 'CHA'], 'Perform-filler3' => [0, 'CHA'], 'Profession-filler1' => [1, 'WIS'], 'Profession-filler2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
+      -skills = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
       - skills.each do |k, v|
-        - if k =~ /-filler\d+/
-          .sheet-label.sheet-label-skills.sheet-split-skill= k.gsub(/-filler\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+        - if k =~ /FillIn\d+/
+          .sheet-label.sheet-label-skills.sheet-split-skill= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
           .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
             %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}SplitSkillExplanation", placeholder: '...'}
         - else
-          .sheet-label.sheet-label-skills.sheet-merged-skill= k.gsub(/-filler\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+          .sheet-label.sheet-label-skills.sheet-merged-skill= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
         .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Total"}
         .sheet-label.sheet-hideleft =
@@ -347,7 +361,7 @@
           %input{type: 'text', name: "attr_skillMisc#{i}Miscmod"}
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
           %input{type: 'text', name: "attr_skillMisc#{i}MiscExplanation"}
-      - 13.times do |i|
+      - 12.times do |i|
         .sheet-ui.sheet-skill-miscline
           %input{type: 'text', name: "attr_miscline#{i}"}
       .sheet-skill-money
@@ -389,47 +403,106 @@
         READMORE: https://app.roll20.net/forum/permalink/7664925/
         ======================================================*/
 
-    // Attribute bonus summing
     const multistats = {};
-    const stats = ['str', 'con', 'dex', 'int', 'wis', 'cha'];
-    stats.forEach(x => {
+
+    // Attribute bonus summing
+    ['str', 'con', 'dex', 'int', 'wis', 'cha'].forEach(x => {
       multistats[`${x}mod`] = {rule: 'dnd_stat_bonus', attributes: [x]};
       multistats[`${x}tempmod`] = {rule: 'dnd_tmpstat_bonus', attributes: [x, `${x}temp`]};
     });
 
-    // Weight summing
-    const backpack = _.map([...Array(28).keys()], function(n) {return 'backpackwt' + n})
-    const worn     = _.map([...Array(28).keys()], function(n) {return 'backpackwt' + n})
-    const magic    = _.map([...Array(28).keys()], function(n) {return 'magicitemwt' + n})
-    const armor    = _.map([...Array(5).keys()], function(n) {return 'armorwt' + n})
-    const weapon   = _.map([...Array(7).keys()], function(n) {return 'weaponwt' + n})
+    // STR mod fillers
+    ['grappleStatBonus', 'climbStatMod', 'jumpStatMod', 'swimStatMod'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['StrTempMod']};
+    });
+
+    // DEX mod fillers
+    ['acdex', 'rangeStatBonus', 'saveRefStat', 'balanceStatMod', 'escapeartistStatMod', 'hideStatMod', 'moveSilentlyStatMod',
+     'openLockStatMod', 'rideStatMod', 'sleightOfHandStatMod', 'tumbleStatMod', 'useRopeStatMod'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['DexTempMod']};
+    });
+
+    // CON mod fillers
+    ['saveFortStat', 'concentrationStatMod'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['ConTempMod']};
+    });
+
+    // INT mod fillers
+    ['appraiseStatMod', 'craftFillIn1StatMod', 'craftFillIn2StatMod', 'craftFillIn3StatMod', 'decipherScriptStatMod', 'disableDeviceStatMod', 'forgeryStatMod', 'knowledgeFillIn1StatMod', 'knowledgeFillIn2StatMod', 'knowledgeFillIn3StatMod', 'knowledgeFillIn4StatMod', 'knowledgeFillIn5StatMod', 'psicraftStatMod', 'searchStatMod', 'speakLanguageStatMod', 'spellcraftStatMod'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['IntTempMod']};
+    });
+
+    // WIS mod fillers
+    ['autohypnosisStatMod', 'healStatMod', 'listenStatMod', 'professionFillIn1StatMod', 'professionFillIn2StatMod', 'survivalStatMod', 'senseMotiveStatMod', 'spotStatMod'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['WisTempMod']};
+    });
+
+    // CHA mod fillers
+    ['bluffStatMod', 'diplomacyStatMod', 'disguiseStatMod', 'gatherInfoStatMod', 'handleAnimalStatMod', 'intimidateStatMod', 'performFillIn1StatMod', 'performFillIn2StatMod', 'performFillIn3StatMod', 'usePsionicDeviceStatMod', 'useMagicDeviceStatMod'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['ChaTempMod']};
+    });
+
+    // BAB filler
+    ['meleeBase', 'rangeBase', 'grappleBase'].forEach(x => {
+      multistats[`${x}`] = {rule: 'fill', attributes: ['baseAttackBonus']};
+    })
+
+    // Weight Summing
+    const backpack = _.map([...Array(28).keys()], function(n) {return 'backpackWt' + n})
+    const worn     = _.map([...Array(28).keys()], function(n) {return 'wornWt' + n})
+    const magic    = _.map([...Array(28).keys()], function(n) {return 'magicItemWt' + n})
+    const armor    = _.map([...Array(5).keys()], function(n) {return 'armorWt' + n})
+    const weapon   = _.map([...Array(7).keys()], function(n) {return 'weaponWt' + n})
     const allwt    = _.union(backpack, worn, magic, armor, weapon)
     multistats['totalweight'] = {rule: 'sum', attributes: allwt};
 
     // Armor & Save Summing
-    multistats['actotal'] = {rule: 'sum', attributes: ['acArmor', 'acShield', 'acDex,', 'acSize', 'acNat', 'acDeflect', 'acMisc']};
-    const saves = ['fort', 'will', 'ref']
-    saves.forEach(x => {
-      multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}base`, `save${x}stat`, `save${x}magic`, `save${x}misc`]};
+    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acMisc']};
+    ['Fort', 'Will', 'Ref'].forEach(x => {
+      multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
     })
 
     // Attack Bonus Summing
-    const atks = ['melee', 'range', 'grapple']
-    atks.forEach(x => {
-      multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}base`, `${x}statbonus`, `${x}size`, `${x}misc`]};
+    const attack_types = ['grapple', 'melee', 'range']
+    attack_types.forEach(x => {
+      multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}Base`, `${x}StatBonus`, `${x}Size`, `${x}Misc`]};
     })
 
-    // TODO: Misc Stat fillers (to saves, ac, attack, skills)
-    // TODO: BAB filler
+    // Size based fillers
+    multistats['meleeSize'] = {rule: 'size_to_attack_ac', attributes: [size]};
+    multistats['rangeSize'] = {rule: 'size_to_attack_ac', attributes: [size]};
+    multistats['rangeSize'] = {rule: 'size_to_attack_ac', attributes: [size]};
+    multistats['acSize']    = {rule: 'size_to_special_attack', attributes: [size]};
+
+    // Weight Calculations
+    multistats['weightHeavy'] = {rule: 'carry_weight', attributes: [str, strtemp, size]};
+
     // TODO: Touch/FF AC filler
-    // TODO: Skill Summing
-    // TODO: Weight Calculators and add Size to Sheet
-    // TODO: Size based fillers
+    // TODO: Skill Summing (remember size bonus to hide)
 
     const multifunctions = {
+        fill: (x) => x,  // just return a value to fill another cell
         sum: (x) => x.reduce((total, add) => total + add),  // add up any number of attributes
         dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
         dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
+        carry_capacity: (x) => {
+          const size_multiplier = {fine: 0.125, diminutive: 0.25, tiny: 0.5, small: 0.75, medium: 1, large: 2, huge: 4, gargantuan: 8, colossal: 16}
+          const str_lookup = {0: 0, 1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100, 11: 115, 12: 130, 13: 150, 14: 175, 15: 200, 16: 230, 17: 260, 18: 300, 19: 350, 20: 400, 21: 460, 22: 520, 23: 600, 24: 700, 25: 800, 26: 920, 27: 1040, 28: 1200, 29: 1400, 30: 1600, 31: 1840, 32: 2080, 33: 2400, 34: 2800, 35: 3200, 36: 3680, 37: 4160, 38: 4800, 39: 5600, 40: 6400, 41: 7360, 42: 8320, 43: 9600}
+          let str = Math.min(43, Math.max(0, x[0] + x[1]))
+          size_multiplier[x[2]] * (str_lookup[str])
+        },
+        size_to_attack_ac: (x) => {
+          const bonus = {fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, large: -1, huge: -2, gargantuan: -4, colossal: -8}
+          bonus[x.toLowerCase()]
+        },
+        size_to_special_attack: (x) => {
+          const bonus = {fine: -16, diminutive: -12, tiny: -8, small: -4, medium: 0, large: 4, huge: 8, gargantuan: 12, colossal: 16}
+          bonus[x.toLowerCase()]
+        },
+        size_to_hide_mod: (x) => {
+          const bonus = {fine: 16, diminutive: 12, tiny: 8, small: 4, medium: 0, large: -4, huge: -8, gargantuan: -12, colossal: -16}
+          bonus[x.toLowerCase()]
+        },
     };
 
     // ======================================================*/
