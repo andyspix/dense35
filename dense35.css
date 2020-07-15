@@ -162,7 +162,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 57px 27px 9px 27px 9px 39px 9px 27px 9px 30px auto;
+	grid-template-columns: 60px 27px 9px 27px 9px 39px 9px 27px 9px 30px auto;
 	grid-template-rows: 18px 18px 18px 18px;
 }
 
@@ -307,7 +307,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 66px 35px 60px 35px 70px 35px 40px 35px 45px 35px 55px auto;
+	grid-template-columns: 68px 40px 60px 40px 74px 39px 36px 35px 45px 35px 55px auto;
 	grid-template-rows: 20px
 }
 
@@ -403,6 +403,7 @@
 	grid-column: 1 / span 10;
 }
 
+.charsheet .sheet-carry-weight .sheet-ui input,
 .charsheet .sheet-skill-money .sheet-ui input {
 	font-size: 12px !important;
 }
