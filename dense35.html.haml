@@ -348,11 +348,11 @@
       -skills = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
       - skills.each do |k, v|
         - if k =~ /FillIn\d+/
-          .sheet-label.sheet-label-skills.sheet-split-skill= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+          .sheet-label.sheet-label-skills.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
           .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
             %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
         - else
-          .sheet-label.sheet-label-skills.sheet-merged-skill= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+          .sheet-label.sheet-label-skills.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
         .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Total", readonly: true}
         .sheet-label.sheet-hideleft.sheet-operator =

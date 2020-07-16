@@ -2,7 +2,7 @@
 	background: #FFF;
 	min-width: 840px;
 	width: 840px;
-	padding: 0px !important;
+	padding: 0px;
 }
 
 .sheet-grid {
@@ -392,7 +392,7 @@
 }
 
 .charsheet .sheet-equipment .sheet-label-magic-item input {
-	font-size: 10px !important;
+	font-size: 10px;
 	padding: 0px;
 }
 
@@ -419,11 +419,11 @@
 
 .charsheet .sheet-carry-weight .sheet-ui input,
 .charsheet .sheet-skill-money .sheet-ui input {
-	font-size: 12px !important;
+	font-size: 12px;
 }
 
 .charsheet .sheet-saves-ac .sheet-saves-ac-sec3 .sheet-label {
-	font-size: 11px !important;
+	font-size: 11px;
 }
 
 .sheet-skill-money {
@@ -463,15 +463,15 @@
 	background: rgba(255, 255, 255, 0);
 }
 
-.charsheet .sheet-grid option {
-	height: 12px !important;
-	min-height: 12px !important;
+.charsheet .sheet-grid .sheet-header option {
+	height: 12px;
+	min-height: 12px;
 	padding: 0px;
 }
 
 .charsheet .sheet-grid .sheet-notes input {
 	text-align: left;
-	height: 18px !important;
+	height: 18px;
 }
 
 .sheet-label.sheet-equipment-header { grid-column: 1 / span 7; grid-row: 1 }
