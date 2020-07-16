@@ -56,16 +56,16 @@
           %input{type: 'text', name: 'attr_hair'}
         .sheet-label Size:
         .sheet-ui
-          %select{name: 'attr_size'}
-            %option Fine
-            %option Diminutive
-            %option Tiny
-            %option Small
-            %option Medium
-            %option Large
-            %option Huge
-            %option Gargantuan
-            %option Colossal
+          %select{name: 'attr_characterSize'}
+            %option{value: '1'} Fine
+            %option{value: '2'} Diminutive
+            %option{value: '3'} Tiny
+            %option{value: '4'} Small
+            %option{value: '5', selected: true} Medium
+            %option{value: '6'} Large
+            %option{value: '7'} Huge
+            %option{value: '8'} Gargantuan
+            %option{value: '9'} Colossal
         .sheet-label Appearance:
         .sheet-ui
           %input{type: 'text', name: 'attr_appearance'}
@@ -104,13 +104,13 @@
           .sheet-ui
             %input{type: 'text', name: "attr_save#{val}Base"}
           .sheet-ui
-            %input{type: 'text', name: "attr_save#{val}Stat"}
+            %input{type: 'text', name: "attr_save#{val}Stat", readonly: true}
           .sheet-ui
             %input{type: 'text', name: "attr_save#{val}Magic"}
           .sheet-ui
             %input{type: 'text', name: "attr_save#{val}Misc"}
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_save#{val}MiscExplanation", placeholder: '...'}
+            %input{type: 'text', name: "attr_save#{val}MiscExplanation", placeholder: '...', title: '-explanation-'}
       .sheet-saves-ac-sec2
         .sheet-label.sheet-table-subheader  Max HP:
         .sheet-ui.sheet-hideleft
@@ -124,21 +124,42 @@
       .sheet-saves-ac-sec3
         .sheet-label.sheet-italics
         .sheet-label.sheet-italics.sheet-hideleft Total
-        - %w(Armor Shield DEX Size Nat Deflect Misc).each do |val|
+        .sheet-label.sheet-italics.sheet-hideleft Base
+        - %w(Armor Shield DEX Size Nat Dodge Deflect Misc).each do |val|
           .sheet-label.sheet-hideleft.sheet-italics=val
       .sheet-saves-ac-sec4
         .sheet-label AC
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_acTotal"}
-        .sheet-label.sheet-hideleft =
+        .sheet-label.sheet-hideleft.sheet-operator =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
-        - %w(Armor Shield Dex Size Nat Deflect Misc).each do |val|
-          .sheet-label.sheet-hideleft +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_ac#{val}"}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acMiscExplain", placeholder: '...'}
+          %input{type: 'text', name: "attr_acArmor"}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acShield"}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acDex", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acSize", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acNat"}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acDodge"}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acDeflect"}
+        .sheet-label.sheet-hideleft.sheet-operator +
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acMisc"}
+        .sheet-ui.sheet-hideleft
+          %input{type: 'text', name: "attr_acMiscExplain", placeholder: '...', title: '-explanation-'}
 
     -# ATTACK BONUSES
     .sheet-attack-bonus
@@ -160,62 +181,62 @@
         .sheet-label.sheet-hideleft
         .sheet-label.sheet-attack-melee &#9876; Melee:
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeTotal"}
-        .sheet-label.sheet-hideleft =
+          %input{type: 'text', name: "attr_meleeTotal", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_meleeBase"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeStatBonus", placeholder: 'STR'}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_meleeStatBonus", placeholder: 'STR', readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeSize"}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_meleeSize", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_meleeMisc"}
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeExplanation", placeholder: '...'}
+          %input{type: 'text', name: "attr_meleeExplanation", placeholder: '...', title: '-explanation-'}
         .sheet-label.sheet-attack-range &#9732; Range:
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeTotal"}
-        .sheet-label.sheet-hideleft =
+          %input{type: 'text', name: "attr_rangeTotal", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_rangeBase"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeStatBonus", placeholder: 'DEX'}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_rangeStatBonus", placeholder: 'DEX', readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeSize"}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_rangeSize", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_rangeMisc"}
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeExplanation", placeholder: '...'}
+          %input{type: 'text', name: "attr_rangeExplanation", placeholder: '...', title: '-explanation-'}
         .sheet-label.sheet-attack-grapple Grapple:
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleTotal"}
-        .sheet-label.sheet-hideleft =
+          %input{type: 'text', name: "attr_grappleTotal", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator =
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_grappleBase"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleStatBonus", placeholder: 'STR'}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_grappleStatBonus", placeholder: 'STR', readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleSize"}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_grappleSize", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-hideleft
           %input{type: 'text', name: "attr_grappleMisc"}
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleExplanation", placeholder: '...'}
+          %input{type: 'text', name: "attr_grappleExplanation", placeholder: '...', title: '-explanation-'}
       .sheet-attack-bonus-sec3
         .sheet-label Touch AC:
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_touchAC", placeholder: 'No Armor/Shield/Nat'}
+          %input{type: 'text', name: "attr_touchAC", placeholder: 'No Armor/Shield/Nat', readonly: true}
         .sheet-label Flat Footed AC:
         .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_flatFootedAC", placeholder: 'No Dex/Dodge'}
+          %input{type: 'text', name: "attr_flatFootedAC", placeholder: 'No Dex/Dodge', readonly: true}
 
     -# WEAPONS
     .sheet-weapons
@@ -291,7 +312,7 @@
         .sheet-label-magic-item= val[0].upcase + val[1..-1] + ':'
       - ((item_slots.count + 1)..28).each do |i|
         .sheet-label-magic-item
-          %input{type: 'text', name: "attr_magicItemSlot#{i}", placeholder: " ..."}
+          %input{type: 'text', name: "attr_magicItemSlot#{i}", placeholder: " ...", title: '-custom slot-'}
       - (1..28).each do |i|
         .sheet-ui.sheet-magic-item-description{class: "sheet-magic-item#{i}"}
           %input{type: 'text', name: "attr_magicItem#{i}"}
@@ -303,22 +324,22 @@
     .sheet-carry-weight
       .sheet-label-small Total Weight:
       .sheet-ui{class: "sheet-total-weight sheet-hideleft"}
-        %input{type: 'text', name: "attr_totalWeight"}
+        %input{type: 'text', name: "attr_totalWeight", readonly: true}
       .sheet-label-small.sheet-hideleft Light (1/3):
       .sheet-ui{class: "sheet-weight-light sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightLight"}
+        %input{type: 'text', name: "attr_weightLight", readonly: true}
       .sheet-label-small.sheet-hideleft Medium (2/3):
       .sheet-ui{class: "sheet-weight-medium sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightMedium"}
+        %input{type: 'text', name: "attr_weightMedium", readonly: true}
       .sheet-label-small.sheet-hideleft Heavy:
       .sheet-ui{class: "sheet-weight-heavy sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightHeavy"}
+        %input{type: 'text', name: "attr_weightHeavy", readonly: true}
       .sheet-label-small.sheet-hideleft Lift (2x):
       .sheet-ui{class: "sheet-weight-lift sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightLift"}
+        %input{type: 'text', name: "attr_weightLift", readonly: true}
       .sheet-label-small.sheet-hideleft Drag (5x):
       .sheet-ui{class: "sheet-weight-drag sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightDrag"}
+        %input{type: 'text', name: "attr_weightDrag", readonly: true}
 
     -# SKILLS
     .sheet-skills
@@ -329,34 +350,34 @@
         - if k =~ /FillIn\d+/
           .sheet-label.sheet-label-skills.sheet-split-skill= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
           .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
-            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}SplitSkillExplanation", placeholder: '...'}
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
         - else
           .sheet-label.sheet-label-skills.sheet-merged-skill= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
         .sheet-ui.sheet-skill-total
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Total"}
-        .sheet-label.sheet-hideleft =
+          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Total", readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator =
         .sheet-ui.sheet-skill-statmod.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Statmod", placeholder: v[1]}
-        .sheet-label.sheet-hideleft +
+          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Statmod", placeholder: v[1], readonly: true}
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-skill-ranks.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Ranks"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-skill-miscmod.sheet-hideleft
           %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Miscmod"}
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}MiscExplanation", placeholder: '...'}
+          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}MiscExplanation", placeholder: '...', title: '-explanation-'}
       - 3.times do |i|
         .sheet-ui.sheet-label-sheet-skills.sheet-merged-skill
-          %input{type: 'text', name: "attr_skillMisc#{i}Name", placeholder: ' ...'}
+          %input{type: 'text', name: "attr_skillMisc#{i}Name", placeholder: ' ...', title: '-Additional Skills-'}
         .sheet-ui.sheet-skill-total
           %input{type: 'text', name: "attr_skillMisc#{i}Total"}
-        .sheet-label.sheet-hideleft =
+        .sheet-label.sheet-hideleft.sheet-operator =
         .sheet-ui.sheet-skill-statmod.sheet-hideleft
           %input{type: 'text', name: "attr_skillMisc#{i}Statmod"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-skill-ranks.sheet-hideleft
           %input{type: 'text', name: "attr_skillMisc#{i}Ranks"}
-        .sheet-label.sheet-hideleft +
+        .sheet-label.sheet-hideleft.sheet-operator +
         .sheet-ui.sheet-skill-miscmod.sheet-hideleft
           %input{type: 'text', name: "attr_skillMisc#{i}Miscmod"}
         .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
@@ -390,6 +411,10 @@
       - 25.times do |i|
         .sheet-ui.sheet-notes-miscline-right
           %input{type: 'text', name: "attr_notesMisclineRight#{i}"}
+    .sheet-infinity
+    %fieldset.repeating_infinity
+      .sheet-ui.sheet-notes-miscline-left
+        %input{type: 'text', name: 'attr_infinityname'}
 
 %script{type: 'text/worker'}
   :plain
@@ -456,52 +481,66 @@
     const allwt    = _.union(backpack, worn, magic, armor, weapon)
     multistats['totalweight'] = {rule: 'sum', attributes: allwt};
 
+    // Size based fillers
+    multistats['meleeSize']   = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
+    multistats['rangeSize']   = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
+    multistats['acSize']      = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
+    multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
+
     // Armor & Save Summing
     multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acMisc']};
     ['Fort', 'Will', 'Ref'].forEach(x => {
       multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
     })
 
+    // Touch/FF AC filler
+    multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc']};
+    multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc']};
+
     // Attack Bonus Summing
-    const attack_types = ['grapple', 'melee', 'range']
-    attack_types.forEach(x => {
+    const attack_styles = ['grapple', 'melee', 'range']
+    attack_styles.forEach(x => {
       multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}Base`, `${x}StatBonus`, `${x}Size`, `${x}Misc`]};
     })
 
-    // Size based fillers
-    multistats['meleeSize'] = {rule: 'size_to_attack_ac', attributes: [size]};
-    multistats['rangeSize'] = {rule: 'size_to_attack_ac', attributes: [size]};
-    multistats['rangeSize'] = {rule: 'size_to_attack_ac', attributes: [size]};
-    multistats['acSize']    = {rule: 'size_to_special_attack', attributes: [size]};
-
     // Weight Calculations
-    multistats['weightHeavy'] = {rule: 'carry_weight', attributes: [str, strtemp, size]};
+    multistats['weightLight'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.333};
+    multistats['weightMedium'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.667};
+    multistats['weightHeavy'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 1};
+    multistats['weightLift'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 2};
+    multistats['weightDrag'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 5};
 
-    // TODO: Touch/FF AC filler
-    // TODO: Skill Summing (remember size bonus to hide)
+    // Skill Summing (remember size bonus to hide)
+    ['appraise','autohypnosis','balance','bluff','climb','concentration','craftfillin1','craftfillin2','craftfillin3','decipherscript','diplomacy','disabledevice','disguise','escapeartist','forgery','gatherinfo','handleanimal','heal','intimidate','jump','knowledgefillin1','knowledgefillin2','knowledgefillin3','knowledgefillin4','knowledgefillin5','listen','movesilently','openlock','performfillin1','performfillin2','performfillin3','professionfillin1','professionfillin2','psicraft','ride','search','sensemotive','sleightofhand','speaklanguage','spellcraft','spot','survival','swim','tumble','usemagicdevice','usepsionicdevice','userope','skillMisc0','skillMisc1','skillMisc2'].forEach(x => {
+      multistats[`${x}Total`] = {rule: 'sum', attributes: [`${x}StatMod`, `${x}Ranks`, `${x}MiscMod`, ]};
+    });
+
+    multistats['hideTotal'] = {rule: 'sum', attributes: ['hideStatMod', 'hideRanks', 'hideMiscMod', 'size_to_hide_mod']};
+
 
     const multifunctions = {
+        pick_from_list: (x) => x[ x[0] ],
         fill: (x) => x,  // just return a value to fill another cell
         sum: (x) => x.reduce((total, add) => total + add),  // add up any number of attributes
         dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
         dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
-        carry_capacity: (x) => {
-          const size_multiplier = {fine: 0.125, diminutive: 0.25, tiny: 0.5, small: 0.75, medium: 1, large: 2, huge: 4, gargantuan: 8, colossal: 16}
+        carry_capacity: function(x, mult) {
+          const size_multiplier = {1: 0.125, 2: 0.25, 3: 0.5, 4: 0.75, 5: 1, 6: 2, 7: 4, 8: 8, 9: 16}
           const str_lookup = {0: 0, 1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100, 11: 115, 12: 130, 13: 150, 14: 175, 15: 200, 16: 230, 17: 260, 18: 300, 19: 350, 20: 400, 21: 460, 22: 520, 23: 600, 24: 700, 25: 800, 26: 920, 27: 1040, 28: 1200, 29: 1400, 30: 1600, 31: 1840, 32: 2080, 33: 2400, 34: 2800, 35: 3200, 36: 3680, 37: 4160, 38: 4800, 39: 5600, 40: 6400, 41: 7360, 42: 8320, 43: 9600}
           let str = Math.min(43, Math.max(0, x[0] + x[1]))
-          size_multiplier[x[2]] * (str_lookup[str])
+          return (Math.round(size_multiplier[x[2]] * str_lookup[str] * mult * 10) / 10)
         },
-        size_to_attack_ac: (x) => {
-          const bonus = {fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, large: -1, huge: -2, gargantuan: -4, colossal: -8}
-          bonus[x.toLowerCase()]
+        size_to_attack_ac: function(x) {
+          const bonus = {1: 8, 2: 4, 3: 2, 4: 1, 5: 0, 6: -1, 7: -2, 8: -4, 9: -8}
+          return (bonus[x[0]])
         },
-        size_to_special_attack: (x) => {
-          const bonus = {fine: -16, diminutive: -12, tiny: -8, small: -4, medium: 0, large: 4, huge: 8, gargantuan: 12, colossal: 16}
-          bonus[x.toLowerCase()]
+        size_to_special_attack: function(x) {
+          const bonus = {1: -16, 2: -12, 3: -8, 4: -4, 5: 0, 6: 4, 7: 8, 8: 12, 9: 16}
+          return (bonus[x[0]])
         },
-        size_to_hide_mod: (x) => {
-          const bonus = {fine: 16, diminutive: 12, tiny: 8, small: 4, medium: 0, large: -4, huge: -8, gargantuan: -12, colossal: -16}
-          bonus[x.toLowerCase()]
+        size_to_hide_mod: function(x) {
+          const bonus = {1: 16, 2: 12, 3: 8, 4: 4, 5: 0, 6: -4, 7: -8, 8: -12, 9: -16}
+          return (bonus[x[0]])
         },
     };
 

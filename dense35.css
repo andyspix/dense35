@@ -9,40 +9,57 @@
 	display: grid;
 	column-gap: 5px;
 	row-gap: 5px;
-	justify-self: center;
-	align-self: center;
+	justify-self: stretch;
+	align-self: stretch;
 	grid-template-columns: 210px 348px 280px;
 }
 
 .sheet-header {
 	display: grid;
-	grid-row: 1;
+	column-gap: 0px;
+	row-gap: 0px;
 	grid-column: 1 / span 3;
+	grid-row: 1;
 	justify-self: stretch;
-	align-self: stretch;
+	align-self: center;
 	grid-gap: 0px;
 	background: gainsboro;
-	grid-template-rows: repeat(3, 18px);
+	grid-template-rows: 18px 18px 18px;
 	border-top: 1px solid silver;
 	border-left: 1px solid silver;
-	border-right: 2px solid silver;
 	border-bottom: 2px solid silver;
+	border-right: 2px solid silver;
+}
+
+.sheet-saves-ac {
+	display: grid;
+	grid-column: 2;
+	grid-row: 2;
+	justify-self: stretch;
+	align-self: center;
+	grid-gap: 0px;
+	grid-template-rows: 72px 18px 18px 18px;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
 }
 
 .sheet-header-row1 {
 	display: grid;
 	grid-row: 1;
 	grid-template-columns: 40px 228px 37px 100px 40px 185px 57px auto;
+	grid-template-rows: 18px;
 }
 .sheet-header-row2 {
 	display: grid;
 	grid-row: 2;
 	grid-template-columns: 25px 54px 25px 55px 29px 56px 29px 56px 70px 59px 39px 59px 28px 54px 55px 55px 45px auto;
+	grid-template-rows: 18px;
 }
 .sheet-header-row3 {
 	display: grid;
 	grid-row: 3;
 	grid-template-columns: 47px 140px 38px 100px 37px 100px 35px 100px 76px auto;
+	grid-template-rows: 18px;
 }
 
 .sheet-ability-scores {
@@ -79,17 +96,6 @@
 	border-right: 1px solid silver;
 }
 
-.sheet-saves-ac {
-	display: grid;
-	grid-column: 2;
-	grid-row: 2;
-	justify-self: stretch;
-	align-self: center;
-	grid-gap: 0px;
-	grid-template-rows: 72px 18px 18px 18px;
-	border-top: 1px solid silver;
-	border-right: 1px solid silver;
-}
 .sheet-saves-ac-sec1 {
 	grid-auto-flow: row;
 	grid-row: 1;
@@ -120,7 +126,7 @@
 	align-self: center;
 	grid-gap: 0px;
 	grid-template-rows: 18px;
-	grid-template-columns: repeat(9, auto)
+	grid-template-columns: 25px 28px repeat(8, auto) 58px
 }
 
 .sheet-saves-ac-sec4 {
@@ -131,7 +137,7 @@
 	align-self: center;
 	grid-gap: 0px;
 	grid-template-rows: 18px;
-	grid-template-columns: repeat(18, auto) 40px;
+	grid-template-columns: repeat(20, auto) 40px;
 }
 
 .sheet-attack-bonus {
@@ -241,6 +247,10 @@
 	border-left: 1px solid silver;
 }
 
+.sheet-header .sheet-ui {
+	border-bottom: 1px solid silver;
+}
+
 .charsheet .sheet-notes .sheet-notes-header {
 	grid-column: 1 / span 3;
 	border-bottom: 1px solid silver;
@@ -254,6 +264,11 @@
 }
 .charsheet .sheet-notes .sheet-notes-miscline-right {
 	grid-column: 3;
+	border-bottom: 1px solid silver;
+}
+
+.charsheet .sheet-grid .sheet-infinity {
+	grid-column: 1;
 	border-bottom: 1px solid silver;
 }
 
@@ -346,27 +361,33 @@
 	font-family: Times
 }
 
-.sheet-label {
+.sheet-grid .sheet-label {
 	font-weight: bold;
-	font-size: 14px !important;
+	font-size: 14px;
 	align-self: stretch;
 }
 
-.sheet-label-small {
+.charsheet .sheet-grid .sheet-operator {
+	font-weight: lighter;
+	font-size: 12px;
+	color: silver;
+}
+
+.sheet-grid .sheet-label-small {
 	font-weight: bold;
-	font-size: 11px !important;
+	font-size: 11px;
 	align-self: stretch;
 }
 
-.sheet-label-magic-item {
+.sheet-grid .sheet-label-magic-item {
 	font-weight: normal;
-	font-size: 10px !important;
+	font-size: 10px;
 	align-self: stretch;
 }
 
-.sheet-label-skills {
+.sheet-grid .sheet-label-skills {
 	font-weight: bold;
-	font-size: 13px !important;
+	font-size: 13px;
 	align-self: stretch;
 }
 
@@ -386,16 +407,10 @@
 }
 
 .charsheet .sheet-grid .sheet-header select {
-	height: 18px;
 	padding: 0px;
-	background: rgba(255, 255, 255, 0);
 	border: none;
-}
-.charsheet .sheet-grid .sheet-header input {
-	padding: 1px;
-	background: rgba(255, 255, 255, 0);
-	border-bottom: 1px solid silver;
-	font-size: 13px;
+	appearance: none;
+	-webkit-appearance: none;
 }
 
 .sheet-skill-miscline {
@@ -405,6 +420,10 @@
 .charsheet .sheet-carry-weight .sheet-ui input,
 .charsheet .sheet-skill-money .sheet-ui input {
 	font-size: 12px !important;
+}
+
+.charsheet .sheet-saves-ac .sheet-saves-ac-sec3 .sheet-label {
+	font-size: 11px !important;
 }
 
 .sheet-skill-money {
@@ -427,10 +446,18 @@
 
 .charsheet .sheet-grid select,
 .charsheet .sheet-grid input {
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	text-indent: 0px;
 	width: 100%;
-	color: navy;
+	height: 22px;
+	line-height: normal;
+	color: royalblue;
 	font-weight: bold;
-	font-family: 'patrick hand', 'shadows into light', fantasy;
+	font-size: 14px;
+	font-family: fantasy, 'patrick hand', 'shadows into light';
 	border: none;
 	text-align: center;
 	background: rgba(255, 255, 255, 0);
@@ -440,12 +467,6 @@
 	height: 12px !important;
 	min-height: 12px !important;
 	padding: 0px;
-}
-
-.charsheet .sheet-grid input {
-	padding: 1px;
-	height: 16px !important;
-	font-size: 14px !important;
 }
 
 .charsheet .sheet-grid .sheet-notes input {

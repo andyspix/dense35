@@ -73,16 +73,16 @@
 </div>
 <div class='sheet-label'>Size:</div>
 <div class='sheet-ui'>
-<select name='attr_size'>
-<option>Fine</option>
-<option>Diminutive</option>
-<option>Tiny</option>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
-<option>Huge</option>
-<option>Gargantuan</option>
-<option>Colossal</option>
+<select name='attr_characterSize'>
+<option value='1'>Fine</option>
+<option value='2'>Diminutive</option>
+<option value='3'>Tiny</option>
+<option value='4'>Small</option>
+<option selected value='5'>Medium</option>
+<option value='6'>Large</option>
+<option value='7'>Huge</option>
+<option value='8'>Gargantuan</option>
+<option value='9'>Colossal</option>
 </select>
 </div>
 <div class='sheet-label'>Appearance:</div>
@@ -196,7 +196,7 @@
 <input name='attr_saveFORTBase' type='text'>
 </div>
 <div class='sheet-ui'>
-<input name='attr_saveFORTStat' type='text'>
+<input name='attr_saveFORTStat' readonly type='text'>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveFORTMagic' type='text'>
@@ -205,7 +205,7 @@
 <input name='attr_saveFORTMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_saveFORTMiscExplanation' placeholder='...' type='text'>
+<input name='attr_saveFORTMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label'>REF</div>
 <div class='sheet-ui'>
@@ -215,7 +215,7 @@
 <input name='attr_saveREFBase' type='text'>
 </div>
 <div class='sheet-ui'>
-<input name='attr_saveREFStat' type='text'>
+<input name='attr_saveREFStat' readonly type='text'>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveREFMagic' type='text'>
@@ -224,7 +224,7 @@
 <input name='attr_saveREFMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_saveREFMiscExplanation' placeholder='...' type='text'>
+<input name='attr_saveREFMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label'>WILL</div>
 <div class='sheet-ui'>
@@ -234,7 +234,7 @@
 <input name='attr_saveWILLBase' type='text'>
 </div>
 <div class='sheet-ui'>
-<input name='attr_saveWILLStat' type='text'>
+<input name='attr_saveWILLStat' readonly type='text'>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveWILLMagic' type='text'>
@@ -243,7 +243,7 @@
 <input name='attr_saveWILLMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_saveWILLMiscExplanation' placeholder='...' type='text'>
+<input name='attr_saveWILLMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 </div>
 <div class='sheet-saves-ac-sec2'>
@@ -263,11 +263,13 @@
 <div class='sheet-saves-ac-sec3'>
 <div class='sheet-label sheet-italics'></div>
 <div class='sheet-label sheet-italics sheet-hideleft'>Total</div>
+<div class='sheet-label sheet-italics sheet-hideleft'>Base</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Armor</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Shield</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>DEX</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Size</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Nat</div>
+<div class='sheet-label sheet-hideleft sheet-italics'>Dodge</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Deflect</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Misc</div>
 </div>
@@ -276,40 +278,44 @@
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acTotal' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acBase' readonly type='text' value='10'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acArmor' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acShield' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_acDex' type='text'>
+<input name='attr_acDex' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_acSize' type='text'>
+<input name='attr_acSize' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acNat' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
+<div class='sheet-ui sheet-hideleft'>
+<input name='attr_acDodge' type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acDeflect' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_acMiscExplain' placeholder='...' type='text'>
+<input name='attr_acMiscExplain' placeholder='...' title='-explanation-' type='text'>
 </div>
 </div>
 </div>
@@ -334,82 +340,82 @@
 <div class='sheet-label sheet-hideleft'></div>
 <div class='sheet-label sheet-attack-melee'>&#9876; Melee:</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_meleeTotal' type='text'>
+<input name='attr_meleeTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_meleeBase' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_meleeStatBonus' placeholder='STR' type='text'>
+<input name='attr_meleeStatBonus' placeholder='STR' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_meleeSize' type='text'>
+<input name='attr_meleeSize' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_meleeMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_meleeExplanation' placeholder='...' type='text'>
+<input name='attr_meleeExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-attack-range'>&#9732; Range:</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_rangeTotal' type='text'>
+<input name='attr_rangeTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_rangeBase' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_rangeStatBonus' placeholder='DEX' type='text'>
+<input name='attr_rangeStatBonus' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_rangeSize' type='text'>
+<input name='attr_rangeSize' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_rangeMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_rangeExplanation' placeholder='...' type='text'>
+<input name='attr_rangeExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-attack-grapple'>Grapple:</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_grappleTotal' type='text'>
+<input name='attr_grappleTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_grappleBase' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_grappleStatBonus' placeholder='STR' type='text'>
+<input name='attr_grappleStatBonus' placeholder='STR' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_grappleSize' type='text'>
+<input name='attr_grappleSize' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_grappleMisc' type='text'>
 </div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_grappleExplanation' placeholder='...' type='text'>
+<input name='attr_grappleExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 </div>
 <div class='sheet-attack-bonus-sec3'>
 <div class='sheet-label'>Touch AC:</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_touchAC' placeholder='No Armor/Shield/Nat' type='text'>
+<input name='attr_touchAC' placeholder='No Armor/Shield/Nat' readonly type='text'>
 </div>
 <div class='sheet-label'>Flat Footed AC:</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_flatFootedAC' placeholder='No Dex/Dodge' type='text'>
+<input name='attr_flatFootedAC' placeholder='No Dex/Dodge' readonly type='text'>
 </div>
 </div>
 </div>
@@ -1218,52 +1224,52 @@
 <div class='sheet-label-magic-item'>Waist:</div>
 <div class='sheet-label-magic-item'>Feet:</div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot13' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot13' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot14' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot14' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot15' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot15' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot16' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot16' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot17' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot17' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot18' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot18' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot19' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot19' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot20' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot20' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot21' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot21' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot22' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot22' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot23' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot23' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot24' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot24' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot25' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot25' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot26' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot26' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot27' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot27' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-label-magic-item'>
-<input name='attr_magicItemSlot28' placeholder=' ...' type='text'>
+<input name='attr_magicItemSlot28' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
 <div class='sheet-magic-item-description sheet-magic-item1 sheet-ui'>
 <input name='attr_magicItem1' type='text'>
@@ -1437,27 +1443,27 @@
 <div class='sheet-carry-weight'>
 <div class='sheet-label-small'>Total Weight:</div>
 <div class='sheet-hideleft sheet-total-weight sheet-ui'>
-<input name='attr_totalWeight' type='text'>
+<input name='attr_totalWeight' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Light (1/3):</div>
 <div class='sheet-hideleft sheet-ui sheet-weight-light'>
-<input name='attr_weightLight' type='text'>
+<input name='attr_weightLight' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Medium (2/3):</div>
 <div class='sheet-hideleft sheet-ui sheet-weight-medium'>
-<input name='attr_weightMedium' type='text'>
+<input name='attr_weightMedium' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Heavy:</div>
 <div class='sheet-hideleft sheet-ui sheet-weight-heavy'>
-<input name='attr_weightHeavy' type='text'>
+<input name='attr_weightHeavy' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Lift (2x):</div>
 <div class='sheet-hideleft sheet-ui sheet-weight-lift'>
-<input name='attr_weightLift' type='text'>
+<input name='attr_weightLift' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Drag (5x):</div>
 <div class='sheet-hideleft sheet-ui sheet-weight-drag'>
-<input name='attr_weightDrag' type='text'>
+<input name='attr_weightDrag' readonly type='text'>
 </div>
 </div>
 <div class='sheet-skills'>
@@ -1465,970 +1471,970 @@
 <div class='sheet-label-small sheet-skills-explain'>Mod = Stat + Ranks + Misc</div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Appraise &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_appraiseTotal' type='text'>
+<input name='attr_appraiseTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_appraiseStatmod' placeholder='INT' type='text'>
+<input name='attr_appraiseStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_appraiseRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_appraiseMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_appraiseMiscExplanation' placeholder='...' type='text'>
+<input name='attr_appraiseMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Autohypnosis</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_autohypnosisTotal' type='text'>
+<input name='attr_autohypnosisTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_autohypnosisStatmod' placeholder='WIS' type='text'>
+<input name='attr_autohypnosisStatmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_autohypnosisRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_autohypnosisMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_autohypnosisMiscExplanation' placeholder='...' type='text'>
+<input name='attr_autohypnosisMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Balance &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_balanceTotal' type='text'>
+<input name='attr_balanceTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_balanceStatmod' placeholder='DEX' type='text'>
+<input name='attr_balanceStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_balanceRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_balanceMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_balanceMiscExplanation' placeholder='...' type='text'>
+<input name='attr_balanceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Bluff &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_bluffTotal' type='text'>
+<input name='attr_bluffTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_bluffStatmod' placeholder='CHA' type='text'>
+<input name='attr_bluffStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_bluffRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_bluffMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_bluffMiscExplanation' placeholder='...' type='text'>
+<input name='attr_bluffMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Climb &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_climbTotal' type='text'>
+<input name='attr_climbTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_climbStatmod' placeholder='STR' type='text'>
+<input name='attr_climbStatmod' placeholder='STR' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_climbRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_climbMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_climbMiscExplanation' placeholder='...' type='text'>
+<input name='attr_climbMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Concentration &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_concentrationTotal' type='text'>
+<input name='attr_concentrationTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_concentrationStatmod' placeholder='CON' type='text'>
+<input name='attr_concentrationStatmod' placeholder='CON' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_concentrationRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_concentrationMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_concentrationMiscExplanation' placeholder='...' type='text'>
+<input name='attr_concentrationMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Craft &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_craftfillin1SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_craftfillin1SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_craftfillin1Total' type='text'>
+<input name='attr_craftfillin1Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craftfillin1Statmod' placeholder='INT' type='text'>
+<input name='attr_craftfillin1Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_craftfillin1Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_craftfillin1Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craftfillin1MiscExplanation' placeholder='...' type='text'>
+<input name='attr_craftfillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Craft &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_craftfillin2SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_craftfillin2SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_craftfillin2Total' type='text'>
+<input name='attr_craftfillin2Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craftfillin2Statmod' placeholder='INT' type='text'>
+<input name='attr_craftfillin2Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_craftfillin2Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_craftfillin2Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craftfillin2MiscExplanation' placeholder='...' type='text'>
+<input name='attr_craftfillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Craft &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_craftfillin3SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_craftfillin3SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_craftfillin3Total' type='text'>
+<input name='attr_craftfillin3Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_craftfillin3Statmod' placeholder='INT' type='text'>
+<input name='attr_craftfillin3Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_craftfillin3Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_craftfillin3Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_craftfillin3MiscExplanation' placeholder='...' type='text'>
+<input name='attr_craftfillin3MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Decipher Script</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_decipherscriptTotal' type='text'>
+<input name='attr_decipherscriptTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_decipherscriptStatmod' placeholder='INT' type='text'>
+<input name='attr_decipherscriptStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_decipherscriptRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_decipherscriptMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_decipherscriptMiscExplanation' placeholder='...' type='text'>
+<input name='attr_decipherscriptMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Diplomacy &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_diplomacyTotal' type='text'>
+<input name='attr_diplomacyTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_diplomacyStatmod' placeholder='CHA' type='text'>
+<input name='attr_diplomacyStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_diplomacyRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_diplomacyMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_diplomacyMiscExplanation' placeholder='...' type='text'>
+<input name='attr_diplomacyMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Disable Device</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_disabledeviceTotal' type='text'>
+<input name='attr_disabledeviceTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_disabledeviceStatmod' placeholder='INT' type='text'>
+<input name='attr_disabledeviceStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_disabledeviceRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_disabledeviceMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_disabledeviceMiscExplanation' placeholder='...' type='text'>
+<input name='attr_disabledeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Disguise &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_disguiseTotal' type='text'>
+<input name='attr_disguiseTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_disguiseStatmod' placeholder='CHA' type='text'>
+<input name='attr_disguiseStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_disguiseRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_disguiseMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_disguiseMiscExplanation' placeholder='...' type='text'>
+<input name='attr_disguiseMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Escape Artist &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_escapeartistTotal' type='text'>
+<input name='attr_escapeartistTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_escapeartistStatmod' placeholder='DEX' type='text'>
+<input name='attr_escapeartistStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_escapeartistRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_escapeartistMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_escapeartistMiscExplanation' placeholder='...' type='text'>
+<input name='attr_escapeartistMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Forgery &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_forgeryTotal' type='text'>
+<input name='attr_forgeryTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_forgeryStatmod' placeholder='INT' type='text'>
+<input name='attr_forgeryStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_forgeryRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_forgeryMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_forgeryMiscExplanation' placeholder='...' type='text'>
+<input name='attr_forgeryMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Gather Info &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_gatherinfoTotal' type='text'>
+<input name='attr_gatherinfoTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_gatherinfoStatmod' placeholder='CHA' type='text'>
+<input name='attr_gatherinfoStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_gatherinfoRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_gatherinfoMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_gatherinfoMiscExplanation' placeholder='...' type='text'>
+<input name='attr_gatherinfoMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Handle Animal</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_handleanimalTotal' type='text'>
+<input name='attr_handleanimalTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_handleanimalStatmod' placeholder='CHA' type='text'>
+<input name='attr_handleanimalStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_handleanimalRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_handleanimalMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_handleanimalMiscExplanation' placeholder='...' type='text'>
+<input name='attr_handleanimalMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Heal &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_healTotal' type='text'>
+<input name='attr_healTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_healStatmod' placeholder='WIS' type='text'>
+<input name='attr_healStatmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_healRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_healMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_healMiscExplanation' placeholder='...' type='text'>
+<input name='attr_healMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Hide &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_hideTotal' type='text'>
+<input name='attr_hideTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_hideStatmod' placeholder='DEX' type='text'>
+<input name='attr_hideStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_hideRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_hideMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_hideMiscExplanation' placeholder='...' type='text'>
+<input name='attr_hideMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Intimidate &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_intimidateTotal' type='text'>
+<input name='attr_intimidateTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_intimidateStatmod' placeholder='CHA' type='text'>
+<input name='attr_intimidateStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_intimidateRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_intimidateMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_intimidateMiscExplanation' placeholder='...' type='text'>
+<input name='attr_intimidateMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Jump &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_jumpTotal' type='text'>
+<input name='attr_jumpTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_jumpStatmod' placeholder='STR' type='text'>
+<input name='attr_jumpStatmod' placeholder='STR' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_jumpRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_jumpMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_jumpMiscExplanation' placeholder='...' type='text'>
+<input name='attr_jumpMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin1SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin1SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledgefillin1Total' type='text'>
+<input name='attr_knowledgefillin1Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledgefillin1Statmod' placeholder='INT' type='text'>
+<input name='attr_knowledgefillin1Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_knowledgefillin1Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_knowledgefillin1Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin1MiscExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin2SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin2SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledgefillin2Total' type='text'>
+<input name='attr_knowledgefillin2Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledgefillin2Statmod' placeholder='INT' type='text'>
+<input name='attr_knowledgefillin2Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_knowledgefillin2Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_knowledgefillin2Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin2MiscExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin3SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin3SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledgefillin3Total' type='text'>
+<input name='attr_knowledgefillin3Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledgefillin3Statmod' placeholder='INT' type='text'>
+<input name='attr_knowledgefillin3Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_knowledgefillin3Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_knowledgefillin3Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin3MiscExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin3MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin4SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin4SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledgefillin4Total' type='text'>
+<input name='attr_knowledgefillin4Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledgefillin4Statmod' placeholder='INT' type='text'>
+<input name='attr_knowledgefillin4Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_knowledgefillin4Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_knowledgefillin4Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin4MiscExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin4MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin5SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin5SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_knowledgefillin5Total' type='text'>
+<input name='attr_knowledgefillin5Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_knowledgefillin5Statmod' placeholder='INT' type='text'>
+<input name='attr_knowledgefillin5Statmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_knowledgefillin5Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_knowledgefillin5Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_knowledgefillin5MiscExplanation' placeholder='...' type='text'>
+<input name='attr_knowledgefillin5MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Listen &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_listenTotal' type='text'>
+<input name='attr_listenTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_listenStatmod' placeholder='WIS' type='text'>
+<input name='attr_listenStatmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_listenRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_listenMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_listenMiscExplanation' placeholder='...' type='text'>
+<input name='attr_listenMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Move Silently &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_movesilentlyTotal' type='text'>
+<input name='attr_movesilentlyTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_movesilentlyStatmod' placeholder='DEX' type='text'>
+<input name='attr_movesilentlyStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_movesilentlyRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_movesilentlyMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_movesilentlyMiscExplanation' placeholder='...' type='text'>
+<input name='attr_movesilentlyMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Open Lock</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_openlockTotal' type='text'>
+<input name='attr_openlockTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_openlockStatmod' placeholder='DEX' type='text'>
+<input name='attr_openlockStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_openlockRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_openlockMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_openlockMiscExplanation' placeholder='...' type='text'>
+<input name='attr_openlockMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Perform &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_performfillin1SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_performfillin1SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_performfillin1Total' type='text'>
+<input name='attr_performfillin1Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_performfillin1Statmod' placeholder='CHA' type='text'>
+<input name='attr_performfillin1Statmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_performfillin1Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_performfillin1Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_performfillin1MiscExplanation' placeholder='...' type='text'>
+<input name='attr_performfillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Perform &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_performfillin2SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_performfillin2SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_performfillin2Total' type='text'>
+<input name='attr_performfillin2Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_performfillin2Statmod' placeholder='CHA' type='text'>
+<input name='attr_performfillin2Statmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_performfillin2Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_performfillin2Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_performfillin2MiscExplanation' placeholder='...' type='text'>
+<input name='attr_performfillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Perform &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_performfillin3SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_performfillin3SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_performfillin3Total' type='text'>
+<input name='attr_performfillin3Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_performfillin3Statmod' placeholder='CHA' type='text'>
+<input name='attr_performfillin3Statmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_performfillin3Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_performfillin3Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_performfillin3MiscExplanation' placeholder='...' type='text'>
+<input name='attr_performfillin3MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Profession</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_professionfillin1SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_professionfillin1SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_professionfillin1Total' type='text'>
+<input name='attr_professionfillin1Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_professionfillin1Statmod' placeholder='WIS' type='text'>
+<input name='attr_professionfillin1Statmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_professionfillin1Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_professionfillin1Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_professionfillin1MiscExplanation' placeholder='...' type='text'>
+<input name='attr_professionfillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-split-skill'>Profession</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
-<input name='attr_professionfillin2SplitSkillExplanation' placeholder='...' type='text'>
+<input name='attr_professionfillin2SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_professionfillin2Total' type='text'>
+<input name='attr_professionfillin2Total' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_professionfillin2Statmod' placeholder='WIS' type='text'>
+<input name='attr_professionfillin2Statmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_professionfillin2Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_professionfillin2Miscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_professionfillin2MiscExplanation' placeholder='...' type='text'>
+<input name='attr_professionfillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>PsiCraft</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_psicraftTotal' type='text'>
+<input name='attr_psicraftTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_psicraftStatmod' placeholder='INT' type='text'>
+<input name='attr_psicraftStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_psicraftRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_psicraftMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_psicraftMiscExplanation' placeholder='...' type='text'>
+<input name='attr_psicraftMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Ride &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_rideTotal' type='text'>
+<input name='attr_rideTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_rideStatmod' placeholder='DEX' type='text'>
+<input name='attr_rideStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_rideRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_rideMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_rideMiscExplanation' placeholder='...' type='text'>
+<input name='attr_rideMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Search &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_searchTotal' type='text'>
+<input name='attr_searchTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_searchStatmod' placeholder='INT' type='text'>
+<input name='attr_searchStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_searchRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_searchMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_searchMiscExplanation' placeholder='...' type='text'>
+<input name='attr_searchMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Sense Motive &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_sensemotiveTotal' type='text'>
+<input name='attr_sensemotiveTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_sensemotiveStatmod' placeholder='WIS' type='text'>
+<input name='attr_sensemotiveStatmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_sensemotiveRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_sensemotiveMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_sensemotiveMiscExplanation' placeholder='...' type='text'>
+<input name='attr_sensemotiveMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Sleight Of Hand</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_sleightofhandTotal' type='text'>
+<input name='attr_sleightofhandTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_sleightofhandStatmod' placeholder='DEX' type='text'>
+<input name='attr_sleightofhandStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_sleightofhandRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_sleightofhandMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_sleightofhandMiscExplanation' placeholder='...' type='text'>
+<input name='attr_sleightofhandMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Speak Language</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_speaklanguageTotal' type='text'>
+<input name='attr_speaklanguageTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_speaklanguageStatmod' placeholder='INT' type='text'>
+<input name='attr_speaklanguageStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_speaklanguageRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_speaklanguageMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_speaklanguageMiscExplanation' placeholder='...' type='text'>
+<input name='attr_speaklanguageMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>SpellCraft</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_spellcraftTotal' type='text'>
+<input name='attr_spellcraftTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_spellcraftStatmod' placeholder='INT' type='text'>
+<input name='attr_spellcraftStatmod' placeholder='INT' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_spellcraftRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_spellcraftMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_spellcraftMiscExplanation' placeholder='...' type='text'>
+<input name='attr_spellcraftMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Spot &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_spotTotal' type='text'>
+<input name='attr_spotTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_spotStatmod' placeholder='WIS' type='text'>
+<input name='attr_spotStatmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_spotRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_spotMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_spotMiscExplanation' placeholder='...' type='text'>
+<input name='attr_spotMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Survival &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_survivalTotal' type='text'>
+<input name='attr_survivalTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_survivalStatmod' placeholder='WIS' type='text'>
+<input name='attr_survivalStatmod' placeholder='WIS' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_survivalRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_survivalMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_survivalMiscExplanation' placeholder='...' type='text'>
+<input name='attr_survivalMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Swim &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_swimTotal' type='text'>
+<input name='attr_swimTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_swimStatmod' placeholder='STR' type='text'>
+<input name='attr_swimStatmod' placeholder='STR' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_swimRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_swimMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_swimMiscExplanation' placeholder='...' type='text'>
+<input name='attr_swimMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Tumble</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_tumbleTotal' type='text'>
+<input name='attr_tumbleTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_tumbleStatmod' placeholder='DEX' type='text'>
+<input name='attr_tumbleStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_tumbleRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_tumbleMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_tumbleMiscExplanation' placeholder='...' type='text'>
+<input name='attr_tumbleMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Use Magic Device</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_usemagicdeviceTotal' type='text'>
+<input name='attr_usemagicdeviceTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_usemagicdeviceStatmod' placeholder='CHA' type='text'>
+<input name='attr_usemagicdeviceStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_usemagicdeviceRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_usemagicdeviceMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_usemagicdeviceMiscExplanation' placeholder='...' type='text'>
+<input name='attr_usemagicdeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Use Psionic Device</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_usepsionicdeviceTotal' type='text'>
+<input name='attr_usepsionicdeviceTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_usepsionicdeviceStatmod' placeholder='CHA' type='text'>
+<input name='attr_usepsionicdeviceStatmod' placeholder='CHA' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_usepsionicdeviceRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_usepsionicdeviceMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_usepsionicdeviceMiscExplanation' placeholder='...' type='text'>
+<input name='attr_usepsionicdeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-label sheet-label-skills sheet-merged-skill'>Use Rope &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
-<input name='attr_useropeTotal' type='text'>
+<input name='attr_useropeTotal' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
-<input name='attr_useropeStatmod' placeholder='DEX' type='text'>
+<input name='attr_useropeStatmod' placeholder='DEX' readonly type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_useropeRanks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_useropeMiscmod' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft'>
-<input name='attr_useropeMiscExplanation' placeholder='...' type='text'>
+<input name='attr_useropeMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill'>
-<input name='attr_skillMisc0Name' placeholder=' ...' type='text'>
+<input name='attr_skillMisc0Name' placeholder=' ...' title='-Additional Skills-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_skillMisc0Total' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
 <input name='attr_skillMisc0Statmod' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_skillMisc0Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_skillMisc0Miscmod' type='text'>
 </div>
@@ -2436,20 +2442,20 @@
 <input name='attr_skillMisc0MiscExplanation' type='text'>
 </div>
 <div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill'>
-<input name='attr_skillMisc1Name' placeholder=' ...' type='text'>
+<input name='attr_skillMisc1Name' placeholder=' ...' title='-Additional Skills-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_skillMisc1Total' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
 <input name='attr_skillMisc1Statmod' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_skillMisc1Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_skillMisc1Miscmod' type='text'>
 </div>
@@ -2457,20 +2463,20 @@
 <input name='attr_skillMisc1MiscExplanation' type='text'>
 </div>
 <div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill'>
-<input name='attr_skillMisc2Name' placeholder=' ...' type='text'>
+<input name='attr_skillMisc2Name' placeholder=' ...' title='-Additional Skills-' type='text'>
 </div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_skillMisc2Total' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>=</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
 <input name='attr_skillMisc2Statmod' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
 <input name='attr_skillMisc2Ranks' type='text'>
 </div>
-<div class='sheet-label sheet-hideleft'>+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
 <input name='attr_skillMisc2Miscmod' type='text'>
 </div>
@@ -2689,6 +2695,12 @@
 <input name='attr_notesMisclineRight24' type='text'>
 </div>
 </div>
+<div class='sheet-infinity'></div>
+<fieldset class='repeating_infinity'>
+<div class='sheet-ui sheet-notes-miscline-left'>
+<input name='attr_infinityname' type='text'>
+</div>
+</fieldset>
 </div>
 </div>
 <script type='text/worker'>
@@ -2755,52 +2767,66 @@ const weapon   = _.map([...Array(7).keys()], function(n) {return 'weaponWt' + n}
 const allwt    = _.union(backpack, worn, magic, armor, weapon)
 multistats['totalweight'] = {rule: 'sum', attributes: allwt};
 
+// Size based fillers
+multistats['meleeSize']   = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
+multistats['rangeSize']   = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
+multistats['acSize']      = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
+multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
+
 // Armor & Save Summing
 multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acMisc']};
 ['Fort', 'Will', 'Ref'].forEach(x => {
   multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
 })
 
+// Touch/FF AC filler
+multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc']};
+multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc']};
+
 // Attack Bonus Summing
-const attack_types = ['grapple', 'melee', 'range']
-attack_types.forEach(x => {
+const attack_styles = ['grapple', 'melee', 'range']
+attack_styles.forEach(x => {
   multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}Base`, `${x}StatBonus`, `${x}Size`, `${x}Misc`]};
 })
 
-// Size based fillers
-multistats['meleeSize'] = {rule: 'size_to_attack_ac', attributes: ['size']};
-multistats['rangeSize'] = {rule: 'size_to_attack_ac', attributes: ['size']};
-multistats['rangeSize'] = {rule: 'size_to_attack_ac', attributes: ['size']};
-multistats['acSize']    = {rule: 'size_to_special_attack', attributes: ['size']};
-
 // Weight Calculations
-multistats['weightHeavy'] = {rule: 'carry_weight', attributes: ['str', 'strtemp', 'size']};
+multistats['weightLight'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.333};
+multistats['weightMedium'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.667};
+multistats['weightHeavy'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 1};
+multistats['weightLift'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 2};
+multistats['weightDrag'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 5};
 
-// TODO: Touch/FF AC filler
-// TODO: Skill Summing (remember size bonus to hide)
+// Skill Summing (remember size bonus to hide)
+['appraise','autohypnosis','balance','bluff','climb','concentration','craftfillin1','craftfillin2','craftfillin3','decipherscript','diplomacy','disabledevice','disguise','escapeartist','forgery','gatherinfo','handleanimal','heal','intimidate','jump','knowledgefillin1','knowledgefillin2','knowledgefillin3','knowledgefillin4','knowledgefillin5','listen','movesilently','openlock','performfillin1','performfillin2','performfillin3','professionfillin1','professionfillin2','psicraft','ride','search','sensemotive','sleightofhand','speaklanguage','spellcraft','spot','survival','swim','tumble','usemagicdevice','usepsionicdevice','userope','skillMisc0','skillMisc1','skillMisc2'].forEach(x => {
+  multistats[`${x}Total`] = {rule: 'sum', attributes: [`${x}StatMod`, `${x}Ranks`, `${x}MiscMod`, ]};
+});
+
+multistats['hideTotal'] = {rule: 'sum', attributes: ['hideStatMod', 'hideRanks', 'hideMiscMod', 'size_to_hide_mod']};
+
 
 const multifunctions = {
+    pick_from_list: (x) => x[ x[0] ],
     fill: (x) => x,  // just return a value to fill another cell
     sum: (x) => x.reduce((total, add) => total + add),  // add up any number of attributes
     dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
     dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
-    carry_capacity: (x) => {
-      const size_multiplier = {fine: 0.125, diminutive: 0.25, tiny: 0.5, small: 0.75, medium: 1, large: 2, huge: 4, gargantuan: 8, colossal: 16}
+    carry_capacity: function(x, mult) {
+      const size_multiplier = {1: 0.125, 2: 0.25, 3: 0.5, 4: 0.75, 5: 1, 6: 2, 7: 4, 8: 8, 9: 16}
       const str_lookup = {0: 0, 1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100, 11: 115, 12: 130, 13: 150, 14: 175, 15: 200, 16: 230, 17: 260, 18: 300, 19: 350, 20: 400, 21: 460, 22: 520, 23: 600, 24: 700, 25: 800, 26: 920, 27: 1040, 28: 1200, 29: 1400, 30: 1600, 31: 1840, 32: 2080, 33: 2400, 34: 2800, 35: 3200, 36: 3680, 37: 4160, 38: 4800, 39: 5600, 40: 6400, 41: 7360, 42: 8320, 43: 9600}
       let str = Math.min(43, Math.max(0, x[0] + x[1]))
-      size_multiplier[x[2]] * (str_lookup[str])
+      return (Math.round(size_multiplier[x[2]] * str_lookup[str] * mult * 10) / 10)
     },
-    size_to_attack_ac: (x) => {
-      const bonus = {fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, large: -1, huge: -2, gargantuan: -4, colossal: -8}
-      bonus[x.toLowerCase()]
+    size_to_attack_ac: function(x) {
+      const bonus = {1: 8, 2: 4, 3: 2, 4: 1, 5: 0, 6: -1, 7: -2, 8: -4, 9: -8}
+      return (bonus[x[0]])
     },
-    size_to_special_attack: (x) => {
-      const bonus = {fine: -16, diminutive: -12, tiny: -8, small: -4, medium: 0, large: 4, huge: 8, gargantuan: 12, colossal: 16}
-      bonus[x.toLowerCase()]
+    size_to_special_attack: function(x) {
+      const bonus = {1: -16, 2: -12, 3: -8, 4: -4, 5: 0, 6: 4, 7: 8, 8: 12, 9: 16}
+      return (bonus[x[0]])
     },
-    size_to_hide_mod: (x) => {
-      const bonus = {fine: 16, diminutive: 12, tiny: 8, small: 4, medium: 0, large: -4, huge: -8, gargantuan: -12, colossal: -16}
-      bonus[x.toLowerCase()]
+    size_to_hide_mod: function(x) {
+      const bonus = {1: 16, 2: 12, 3: 8, 4: 4, 5: 0, 6: -4, 7: -8, 8: -12, 9: -16}
+      return (bonus[x[0]])
     },
 };
 
