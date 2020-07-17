@@ -1,420 +1,446 @@
 %link{rel: :stylesheet, type: :'text/css', href: 'dense35.css', media: 'screen'}
 .charsheet
   .sheet-grid
-    -# HEADER
-    .sheet-header
-      .sheet-header-row1
-        .sheet-label Name:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_charname'}
-        .sheet-label Race:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_race'}
-        .sheet-label Class:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_class'}
-        .sheet-label Religion:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_religion'}
-      .sheet-header-row2
-        .sheet-label Ht:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_height'}
-        .sheet-label Wt:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_weight'}
-        .sheet-label Sex:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_sex'}
-        .sheet-label Age:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_age'}
-        .sheet-label Alignment:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_alignment'}
-        .sheet-label Level:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_level'}
-        .sheet-label XP:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_xp'}
-        .sheet-label Needed:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_needed'}
-        .sheet-label Speed:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_speed'}
-      .sheet-header-row3
-        .sheet-label Region:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_region'}
-        .sheet-label Eyes:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_eyes'}
-        .sheet-label Hair:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_hair'}
-        .sheet-label Size:
-        .sheet-ui
-          %select{name: 'attr_characterSize'}
-            %option{value: '1'} Fine
-            %option{value: '2'} Diminutive
-            %option{value: '3'} Tiny
-            %option{value: '4'} Small
-            %option{value: '5', selected: true} Medium
-            %option{value: '6'} Large
-            %option{value: '7'} Huge
-            %option{value: '8'} Gargantuan
-            %option{value: '9'} Colossal
-        .sheet-label Appearance:
-        .sheet-ui
-          %input{type: 'text', name: 'attr_appearance'}
+    .sheet-page1
+      -# HEADER
+      .sheet-header
+        .sheet-header-row1
+          .sheet-label Name:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_charname'}
+          .sheet-label Race:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_race'}
+          .sheet-label Class:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_class'}
+          .sheet-label Religion:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_religion'}
+        .sheet-header-row2
+          .sheet-label Ht:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_height'}
+          .sheet-label Wt:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_weight'}
+          .sheet-label Sex:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_sex'}
+          .sheet-label Age:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_age'}
+          .sheet-label Alignment:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_alignment'}
+          .sheet-label Level:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_level'}
+          .sheet-label XP:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_xp'}
+          .sheet-label Needed:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_needed'}
+          .sheet-label Speed:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_speed'}
+        .sheet-header-row3
+          .sheet-label Region:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_region'}
+          .sheet-label Eyes:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_eyes'}
+          .sheet-label Hair:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_hair'}
+          .sheet-label Size:
+          .sheet-ui
+            %select{name: 'attr_characterSize'}
+              %option{value: '1'} Fine
+              %option{value: '2'} Diminutive
+              %option{value: '3'} Tiny
+              %option{value: '4'} Small
+              %option{value: '5', selected: true} Medium
+              %option{value: '6'} Large
+              %option{value: '7'} Huge
+              %option{value: '8'} Gargantuan
+              %option{value: '9'} Colossal
+          .sheet-label Appearance:
+          .sheet-ui
+            %input{type: 'text', name: 'attr_appearance'}
 
-    -# ABILITY SCORES
-    .sheet-ability-scores
-      .sheet-ability-scores-top
-        .blank
-        .sheet-label.sheet-ability-scores-header Score
-        .sheet-label.sheet-ability-scores-header Mod
-        .sheet-label.sheet-ability-scores-header Temp
-        .sheet-label.sheet-ability-scores-header Mod
-      .sheet-ability-scores-table
-        - %w(str dex con int wis cha).each do |val|
-          .sheet-label= val.upcase
-          .sheet-ui
-            %input{type: 'text', name: "attr_#{val}"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_#{val}Mod", readonly: true}
-          .sheet-ui
-            %input{type: 'text', name: "attr_#{val}Temp"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_#{val}TempMod", readonly: true}
+      -# ABILITY SCORES
+      .sheet-ability-scores
+        .sheet-ability-scores-top
+          .blank
+          .sheet-label.sheet-ability-scores-header Score
+          .sheet-label.sheet-ability-scores-header Mod
+          .sheet-label.sheet-ability-scores-header Temp
+          .sheet-label.sheet-ability-scores-header Mod
+        .sheet-ability-scores-table
+          - %w(str dex con int wis cha).each do |val|
+            .sheet-label= val.upcase
+            .sheet-ui
+              %input{type: 'text', name: "attr_#{val}"}
+            .sheet-ui
+              %input{type: 'text', name: "attr_#{val}Mod", readonly: true}
+            .sheet-ui
+              %input{type: 'text', name: "attr_#{val}Temp"}
+            .sheet-ui
+              %input{type: 'text', name: "attr_#{val}TempMod", readonly: true}
 
-    -# SAVES & AC
-    .sheet-saves-ac
-      .sheet-saves-ac-sec1
-        .sheet-label SAVE
-        - %w(Total Base Stat Magic).each do |val|
-          .sheet-label.sheet-table-subheader= val
-        .sheet-label.sheet-table-subheader.sheet-saves-ac-misc-merge Misc
-        - %w(FORT REF WILL).each do |val|
-          .sheet-label= val
-          .sheet-ui
-            %input{type: 'text', name: "attr_save#{val}Total"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_save#{val}Base"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_save#{val}Stat", readonly: true}
-          .sheet-ui
-            %input{type: 'text', name: "attr_save#{val}Magic"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_save#{val}Misc"}
+      -# SAVES & AC
+      .sheet-saves-ac
+        .sheet-saves-ac-sec1
+          .sheet-label SAVE
+          - %w(Total Base Stat Magic).each do |val|
+            .sheet-label.sheet-table-subheader= val
+          .sheet-label.sheet-table-subheader.sheet-saves-ac-misc-merge Misc
+          - %w(FORT REF WILL).each do |val|
+            .sheet-label= val
+            .sheet-ui
+              %input{type: 'text', name: "attr_save#{val}Total"}
+            .sheet-ui
+              %input{type: 'text', name: "attr_save#{val}Base"}
+            .sheet-ui
+              %input{type: 'text', name: "attr_save#{val}Stat", readonly: true}
+            .sheet-ui
+              %input{type: 'text', name: "attr_save#{val}Magic"}
+            .sheet-ui
+              %input{type: 'text', name: "attr_save#{val}Misc"}
+            .sheet-ui.sheet-hideleft.sheet-misc-explanation
+              %input{type: 'text', name: "attr_save#{val}MiscExplanation", placeholder: '...', title: '-explanation-'}
+        .sheet-saves-ac-sec2
+          .sheet-label.sheet-table-subheader  Max HP:
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_save#{val}MiscExplanation", placeholder: '...', title: '-explanation-'}
-      .sheet-saves-ac-sec2
-        .sheet-label.sheet-table-subheader  Max HP:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_maxHitPoints"}
-        .sheet-label.sheet-table-subheader  Current HP:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_currentHitPoints"}
-        .sheet-label.sheet-table-subheader Initiative:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_initiative"}
-      .sheet-saves-ac-sec3
-        .sheet-label.sheet-italics
-        .sheet-label.sheet-italics.sheet-hideleft Total
-        .sheet-label.sheet-italics.sheet-hideleft Base
-        - %w(Armor Shield DEX Size Nat Dodge Deflect Misc).each do |val|
-          .sheet-label.sheet-hideleft.sheet-italics=val
-      .sheet-saves-ac-sec4
-        .sheet-label AC
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acTotal"}
-        .sheet-label.sheet-hideleft.sheet-operator =
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acArmor"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acShield"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acDex", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acSize", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acNat"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acDodge"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acDeflect"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acMisc"}
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_acMiscExplain", placeholder: '...', title: '-explanation-'}
+            %input{type: 'text', name: "attr_maxHitPoints"}
+          .sheet-label.sheet-table-subheader  Current HP:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_currentHitPoints"}
+          .sheet-label.sheet-table-subheader Initiative:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_initiative"}
+        .sheet-saves-ac-sec3
+          .sheet-label.sheet-italics
+          .sheet-label.sheet-italics.sheet-hideleft Total
+          .sheet-label.sheet-italics.sheet-hideleft Base
+          - %w(Armor Shield DEX Size Nat Dodge Deflect Misc).each do |val|
+            .sheet-label.sheet-hideleft.sheet-italics=val
+        .sheet-saves-ac-sec4
+          .sheet-label AC
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acTotal"}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acArmor"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acShield"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acDex", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acSize", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acNat"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acDodge"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acDeflect"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acMisc"}
+          .sheet-ui.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_acMiscExplain", placeholder: '...', title: '-explanation-'}
 
-    -# ATTACK BONUSES
-    .sheet-attack-bonus
-      .sheet-attack-bonus-sec1
-        .sheet-label BASE ATTACK BONUS:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_baseAttackBonus"}
-      .sheet-attack-bonus-sec2
-        .sheet-label
-        .sheet-label.sheet-hideleft.sheet-italics Total
-        .sheet-label.sheet-hideleft.sheet-italics
-        .sheet-label.sheet-hideleft.sheet-italics Base
-        .sheet-label.sheet-hideleft.sheet-italics
-        .sheet-label.sheet-hideleft.sheet-italics Stat
-        .sheet-label.sheet-hideleft.sheet-italics
-        .sheet-label.sheet-hideleft.sheet-italics Size
-        .sheet-label.sheet-hideleft.sheet-italics
-        .sheet-label.sheet-hideleft.sheet-italics Misc
-        .sheet-label.sheet-hideleft
-        .sheet-label.sheet-attack-melee &#9876; Melee:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeTotal", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator =
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeBase"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeStatBonus", placeholder: 'STR', readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeSize", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeMisc"}
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_meleeExplanation", placeholder: '...', title: '-explanation-'}
-        .sheet-label.sheet-attack-range &#9732; Range:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeTotal", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator =
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeBase"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeStatBonus", placeholder: 'DEX', readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeSize", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeMisc"}
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_rangeExplanation", placeholder: '...', title: '-explanation-'}
-        .sheet-label.sheet-attack-grapple Grapple:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleTotal", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator =
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleBase"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleStatBonus", placeholder: 'STR', readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleSize", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleMisc"}
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_grappleExplanation", placeholder: '...', title: '-explanation-'}
-      .sheet-attack-bonus-sec3
-        .sheet-label Touch AC:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_touchAC", placeholder: 'No Armor/Shield/Nat', readonly: true}
-        .sheet-label Flat Footed AC:
-        .sheet-ui.sheet-hideleft
-          %input{type: 'text', name: "attr_flatFootedAC", placeholder: 'No Dex/Dodge', readonly: true}
+      -# ATTACK BONUSES
+      .sheet-attack-bonus
+        .sheet-attack-bonus-sec1
+          .sheet-label BASE ATTACK BONUS:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_baseAttackBonus"}
+        .sheet-attack-bonus-sec2
+          .sheet-label
+          .sheet-label.sheet-hideleft.sheet-italics Total
+          .sheet-label.sheet-hideleft.sheet-italics
+          .sheet-label.sheet-hideleft.sheet-italics Base
+          .sheet-label.sheet-hideleft.sheet-italics
+          .sheet-label.sheet-hideleft.sheet-italics Stat
+          .sheet-label.sheet-hideleft.sheet-italics
+          .sheet-label.sheet-hideleft.sheet-italics Size
+          .sheet-label.sheet-hideleft.sheet-italics
+          .sheet-label.sheet-hideleft.sheet-italics Misc
+          .sheet-label.sheet-hideleft
+          .sheet-label.sheet-attack-melee &#9876; Melee:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_meleeTotal", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_meleeBase"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_meleeStatBonus", placeholder: 'STR', readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_meleeSize", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_meleeMisc"}
+          .sheet-ui.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_meleeExplanation", placeholder: '...', title: '-explanation-'}
+          .sheet-label.sheet-attack-range &#9732; Range:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_rangeTotal", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_rangeBase"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_rangeStatBonus", placeholder: 'DEX', readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_rangeSize", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_rangeMisc"}
+          .sheet-ui.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_rangeExplanation", placeholder: '...', title: '-explanation-'}
+          .sheet-label.sheet-attack-grapple Grapple:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_grappleTotal", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_grappleBase"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_grappleStatBonus", placeholder: 'STR', readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_grappleSize", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_grappleMisc"}
+          .sheet-ui.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_grappleExplanation", placeholder: '...', title: '-explanation-'}
+        .sheet-attack-bonus-sec3
+          .sheet-label Touch AC:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_touchAC", placeholder: 'No Armor/Shield/Nat', readonly: true}
+          .sheet-label Flat Footed AC:
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_flatFootedAC", placeholder: 'No Dex/Dodge', readonly: true}
 
-    -# WEAPONS
-    .sheet-weapons
-      .sheet-label.sheet-table-header.sheet-weapons-header Weapons
-      .sheet-label.sheet-table-header.sheet-tohit-header ToHit
-      .sheet-label.sheet-table-header.sheet-damage-header Dmg
-      .sheet-label.sheet-table-header.sheet-crit-header Crit
-      .sheet-label.sheet-table-header.sheet-range-header Range
-      .sheet-label.sheet-table-header.sheet-wpnsize-header Size
-      .sheet-label.sheet-table-header.sheet-wpnwt-header Wt
-      .sheet-label.sheet-table-header.sheet-wpnspecial-header Special Abilities
-      - (1..7).each do |i|
-        - %w(weapons toHit damage crit range wpnSize wpnWt wpnSpecial).each do |val|
-          .sheet-ui{class: "sheet-#{val}#{i}"}
-            %input{type: 'text', name: "attr_#{val}#{i}"}
+      -# WEAPONS
+      .sheet-weapons
+        .sheet-label.sheet-table-header.sheet-weapons-header Weapons
+        .sheet-label.sheet-table-header.sheet-tohit-header ToHit
+        .sheet-label.sheet-table-header.sheet-damage-header Dmg
+        .sheet-label.sheet-table-header.sheet-crit-header Crit
+        .sheet-label.sheet-table-header.sheet-range-header Range
+        .sheet-label.sheet-table-header.sheet-wpnsize-header Size
+        .sheet-label.sheet-table-header.sheet-wpnwt-header Wt
+        .sheet-label.sheet-table-header.sheet-wpnspecial-header Special Abilities
+        - (1..7).each do |i|
+          - %w(weaponName weaponToHit weaponDamage weaponCrit weaponRange weaponSize weaponWt weaponSpecial).each do |val|
+            .sheet-ui{class: "sheet-#{val}#{i}"}
+              %input{type: 'text', name: "attr_#{val}#{i}"}
 
-    -# ARMOR
-    .sheet-armor
-      .sheet-label.sheet-table-header.sheet-armor-header Armor/Shield/Item
-      .sheet-label.sheet-table-header.sheet-bonus-header Bonus
-      .sheet-label.sheet-table-header.sheet-maxdex-header Max Dex
-      .sheet-label.sheet-table-header.sheet-penalty-header &#10004;Penalty
-      .sheet-label.sheet-table-header.sheet-spell-header Spell&#9785;
-      .sheet-label.sheet-table-header.sheet-armorwt-header Wt
-      .sheet-label.sheet-table-header.sheet-armorspecial-header Special Abilities
-      - (1..5).each do |i|
-        - %w(armor bonus maxdex penalty spell armorwt armorspecial).each do |val|
-          .sheet-ui{class: "sheet-#{val}#{i}"}
-            %input{type: 'text', name: "attr_#{val}#{i}"}
+      -# ARMOR
+      .sheet-armor
+        .sheet-label.sheet-table-header.sheet-armor-header Armor/Shield/Item
+        .sheet-label.sheet-table-header.sheet-bonus-header Bonus
+        .sheet-label.sheet-table-header.sheet-maxdex-header Max Dex
+        .sheet-label.sheet-table-header.sheet-penalty-header &#10004;Penalty
+        .sheet-label.sheet-table-header.sheet-spell-header Spell&#9785;
+        .sheet-label.sheet-table-header.sheet-armorwt-header Wt
+        .sheet-label.sheet-table-header.sheet-armorspecial-header Special Abilities
+        - (1..5).each do |i|
+          - %w(armorName armorBonus armorMaxDex armorPenalty armorSpellFail armorWt armorSpecial).each do |val|
+            .sheet-ui{class: "sheet-#{val}#{i}"}
+              %input{type: 'text', name: "attr_#{val}#{i}"}
 
-    -# TRAITS & ABILITIES
-    .sheet-traits-abilities
-      .sheet-label.sheet-table-header.sheet-racial-traits-header Racial Traits
-      - (1..8).each do |i|
-        .sheet-ui{class: "sheet-racial-traits#{i}"}
-          %input{type: 'text', name: "attr_racialTraits#{i}"}
-      .sheet-label.sheet-table-header.sheet-languages-header Languages
-      - (1..8).each do |i|
-        .sheet-ui{class: "sheet-languages#{i}"}
-          %input{type: 'text', name: "attr_languages#{i}"}
-      .sheet-label.sheet-table-header.sheet-class-abilities-header Class Abilities
-      - (1..17).each do |i|
-        .sheet-ui{class: "sheet-class-abilities#{i}"}
-          %input{type: 'text', name: "attr_classAbilities#{i}"}
-      .sheet-label.sheet-table-header.sheet-feats-header Feats
-      - (1..17).each do |i|
-        .sheet-ui{class: "sheet-feats#{i}"}
-          %input{type: 'text', name: "attr_feats#{i}"}
+      -# TRAITS & ABILITIES
+      .sheet-traits-abilities
+        .sheet-label.sheet-table-header.sheet-racial-traits-header Racial Traits
+        - (1..8).each do |i|
+          .sheet-ui{class: "sheet-racial-traits#{i}"}
+            %input{type: 'text', name: "attr_racialTraits#{i}"}
+        .sheet-label.sheet-table-header.sheet-languages-header Languages
+        - (1..8).each do |i|
+          .sheet-ui{class: "sheet-languages#{i}"}
+            %input{type: 'text', name: "attr_languages#{i}"}
+        .sheet-label.sheet-table-header.sheet-class-abilities-header Class Abilities
+        - (1..17).each do |i|
+          .sheet-ui{class: "sheet-class-abilities#{i}"}
+            %input{type: 'text', name: "attr_classAbilities#{i}"}
+        .sheet-label.sheet-table-header.sheet-feats-header Feats
+        - (1..17).each do |i|
+          .sheet-ui{class: "sheet-feats#{i}"}
+            %input{type: 'text', name: "attr_feats#{i}"}
 
-    -# EQUIPMENT
-    .sheet-equipment
-      .sheet-label.sheet-table-header.sheet-equipment-header EQUIPMENT
-      .sheet-label.sheet-table-subheader.sheet-equipment-subheader1 In Backpack
-      .sheet-label.sheet-table-subheader.sheet-equipment-subheader2 Wt
-      .sheet-label.sheet-table-subheader.sheet-equipment-subheader3 Worn
-      .sheet-label.sheet-table-subheader.sheet-equipment-subheader4 Wt
-      .sheet-label.sheet-table-subheader.sheet-equipment-subheader5 Magical Items
-      .sheet-label.sheet-table-subheader.sheet-equipment-subheader6 Wt
-      - (1..28).each do |i|
-        .sheet-ui{class: "sheet-backpack#{i}"}
-          %input{type: 'text', name: "attr_backpack#{i}"}
-      - (1..28).each do |i|
-        .sheet-ui{class: "sheet-backpack-wt#{i}"}
-          %input{type: 'text', name: "attr_backpackWt#{i}"}
-      - (1..28).each do |i|
-        .sheet-ui{class: "sheet-worn#{i}"}
-          %input{type: 'text', name: "attr_worn#{i}"}
-      - (1..28).each do |i|
-        .sheet-ui{class: "sheet-worn-wt#{i}"}
-          %input{type: 'text', name: "attr_wornWt#{i}"}
-      - item_slots = %w(head face throat shldrs torso body arms hands ring1 ring2 waist feet)
-      - item_slots.each do |val|
-        .sheet-label-magic-item= val[0].upcase + val[1..-1] + ':'
-      - ((item_slots.count + 1)..28).each do |i|
-        .sheet-label-magic-item
-          %input{type: 'text', name: "attr_magicItemSlot#{i}", placeholder: " ...", title: '-custom slot-'}
-      - (1..28).each do |i|
-        .sheet-ui.sheet-magic-item-description{class: "sheet-magic-item#{i}"}
-          %input{type: 'text', name: "attr_magicItem#{i}"}
-      - (1..28).each do |i|
-        .sheet-ui{class: "sheet-magic-item-wt#{i}"}
-          %input{type: 'text', name: "attr_magicItemWt#{i}"}
+      -# EQUIPMENT
+      .sheet-equipment
+        .sheet-label.sheet-table-header.sheet-equipment-header EQUIPMENT
+        .sheet-label.sheet-table-subheader.sheet-equipment-subheader1 In Backpack
+        .sheet-label.sheet-table-subheader.sheet-equipment-subheader2 Wt
+        .sheet-label.sheet-table-subheader.sheet-equipment-subheader3 Worn
+        .sheet-label.sheet-table-subheader.sheet-equipment-subheader4 Wt
+        .sheet-label.sheet-table-subheader.sheet-equipment-subheader5 Magical Items
+        .sheet-label.sheet-table-subheader.sheet-equipment-subheader6 Wt
+        - (1..28).each do |i|
+          .sheet-ui{class: "sheet-backpack#{i}"}
+            %input{type: 'text', name: "attr_backpack#{i}"}
+        - (1..28).each do |i|
+          .sheet-ui{class: "sheet-backpack-wt#{i}"}
+            %input{type: 'text', name: "attr_backpackWt#{i}"}
+        - (1..28).each do |i|
+          .sheet-ui{class: "sheet-worn#{i}"}
+            %input{type: 'text', name: "attr_worn#{i}"}
+        - (1..28).each do |i|
+          .sheet-ui{class: "sheet-worn-wt#{i}"}
+            %input{type: 'text', name: "attr_wornWt#{i}"}
+        - item_slots = %w(head face throat shldrs torso body arms hands ring1 ring2 waist feet)
+        - item_slots.each do |val|
+          .sheet-label-magic-item= val[0].upcase + val[1..-1] + ':'
+        - ((item_slots.count + 1)..28).each do |i|
+          .sheet-label-magic-item
+            %input{type: 'text', name: "attr_magicItemSlot#{i}", placeholder: " ...", title: '-custom slot-'}
+        - (1..28).each do |i|
+          .sheet-ui.sheet-magic-item-description{class: "sheet-magic-item#{i}"}
+            %input{type: 'text', name: "attr_magicItem#{i}"}
+        - (1..28).each do |i|
+          .sheet-ui{class: "sheet-magic-item-wt#{i}"}
+            %input{type: 'text', name: "attr_magicItemWt#{i}"}
 
-    -# WEIGHT / LOADING
-    .sheet-carry-weight
-      .sheet-label-small Total Weight:
-      .sheet-ui{class: "sheet-total-weight sheet-hideleft"}
-        %input{type: 'text', name: "attr_totalWeight", readonly: true}
-      .sheet-label-small.sheet-hideleft Light (1/3):
-      .sheet-ui{class: "sheet-weight-light sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightLight", readonly: true}
-      .sheet-label-small.sheet-hideleft Medium (2/3):
-      .sheet-ui{class: "sheet-weight-medium sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightMedium", readonly: true}
-      .sheet-label-small.sheet-hideleft Heavy:
-      .sheet-ui{class: "sheet-weight-heavy sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightHeavy", readonly: true}
-      .sheet-label-small.sheet-hideleft Lift (2x):
-      .sheet-ui{class: "sheet-weight-lift sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightLift", readonly: true}
-      .sheet-label-small.sheet-hideleft Drag (5x):
-      .sheet-ui{class: "sheet-weight-drag sheet-hideleft"}
-        %input{type: 'text', name: "attr_weightDrag", readonly: true}
+      -# WEIGHT / LOADING
+      .sheet-carry-weight
+        .sheet-label-small Total Weight:
+        .sheet-ui{class: "sheet-total-weight sheet-hideleft"}
+          %input{type: 'text', name: "attr_totalWeight", readonly: true}
+        .sheet-label-small.sheet-hideleft Light (1/3):
+        .sheet-ui{class: "sheet-weight-light sheet-hideleft"}
+          %input{type: 'text', name: "attr_weightLight", readonly: true}
+        .sheet-label-small.sheet-hideleft Medium (2/3):
+        .sheet-ui{class: "sheet-weight-medium sheet-hideleft"}
+          %input{type: 'text', name: "attr_weightMedium", readonly: true}
+        .sheet-label-small.sheet-hideleft Heavy:
+        .sheet-ui{class: "sheet-weight-heavy sheet-hideleft"}
+          %input{type: 'text', name: "attr_weightHeavy", readonly: true}
+        .sheet-label-small.sheet-hideleft Lift (2x):
+        .sheet-ui{class: "sheet-weight-lift sheet-hideleft"}
+          %input{type: 'text', name: "attr_weightLift", readonly: true}
+        .sheet-label-small.sheet-hideleft Drag (5x):
+        .sheet-ui{class: "sheet-weight-drag sheet-hideleft"}
+          %input{type: 'text', name: "attr_weightDrag", readonly: true}
 
-    -# SKILLS
-    .sheet-skills
-      .sheet-label.sheet-table-header.sheet-skills-header SKILLS
-      .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
-      -skills = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
-      - skills.each do |k, v|
-        - if k =~ /FillIn\d+/
-          .sheet-label.sheet-label-skills.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
-          .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
-            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
-        - else
-          .sheet-label.sheet-label-skills.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
-        .sheet-ui.sheet-skill-total
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Total", readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator =
-        .sheet-ui.sheet-skill-statmod.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Statmod", placeholder: v[1], readonly: true}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-skill-ranks.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Ranks"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-skill-miscmod.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Miscmod"}
-        .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
-          %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}MiscExplanation", placeholder: '...', title: '-explanation-'}
-      - 3.times do |i|
-        .sheet-ui.sheet-label-sheet-skills.sheet-merged-skill
-          %input{type: 'text', name: "attr_skillMisc#{i}Name", placeholder: ' ...', title: '-Additional Skills-'}
-        .sheet-ui.sheet-skill-total
-          %input{type: 'text', name: "attr_skillMisc#{i}Total"}
-        .sheet-label.sheet-hideleft.sheet-operator =
-        .sheet-ui.sheet-skill-statmod.sheet-hideleft
-          %input{type: 'text', name: "attr_skillMisc#{i}Statmod"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-skill-ranks.sheet-hideleft
-          %input{type: 'text', name: "attr_skillMisc#{i}Ranks"}
-        .sheet-label.sheet-hideleft.sheet-operator +
-        .sheet-ui.sheet-skill-miscmod.sheet-hideleft
-          %input{type: 'text', name: "attr_skillMisc#{i}Miscmod"}
-        .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
-          %input{type: 'text', name: "attr_skillMisc#{i}MiscExplanation"}
-      - 12.times do |i|
-        .sheet-ui.sheet-skill-miscline
-          %input{type: 'text', name: "attr_miscline#{i}"}
-      .sheet-skill-money
-        .sheet-label.sheet-skill-money-details PP:
-        .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_platinumPieces"}
-        .sheet-label.sheet-skill-money-details.sheet-hideleft GP:
-        .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_goldPieces"}
-        .sheet-label.sheet-skill-money-details.sheet-hideleft SP:
-        .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_silverPieces"}
-        .sheet-label.sheet-skill-money-details.sheet-hideleft CP:
-        .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_copperPieces"}
-        .sheet-label.sheet-skill-money-details.sheet-hideleft Fate:
-        .sheet-ui.sheet-skill-money-details.sheet-hideleft
-          %input{type: 'text', name: "attr_fatePoints"}
+      -# SKILLS
+      .sheet-skills
+        .sheet-label.sheet-table-header.sheet-skills-header SKILLS
+        .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
+        -skills = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
+        - skills.each do |k, v|
+          - if k =~ /FillIn\d+/
+            .sheet-label.sheet-label-skills.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+            .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
+              %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
+          - else
+            .sheet-label.sheet-label-skills.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+          .sheet-ui.sheet-skill-total
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Total", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-skill-statmod.sheet-hideleft
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Statmod", placeholder: v[1], readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-ranks.sheet-hideleft
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Ranks"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-miscmod.sheet-hideleft
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}Miscmod"}
+          .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_#{k.downcase.tr(' ', '')}MiscExplanation", placeholder: '...', title: '-explanation-'}
+        - 3.times do |i|
+          .sheet-ui.sheet-label-sheet-skills.sheet-merged-skill
+            %input{type: 'text', name: "attr_skillMisc#{i}Name", placeholder: ' ...', title: '-Additional Skills-'}
+          .sheet-ui.sheet-skill-total
+            %input{type: 'text', name: "attr_skillMisc#{i}Total"}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-skill-statmod.sheet-hideleft
+            %input{type: 'text', name: "attr_skillMisc#{i}Statmod"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-ranks.sheet-hideleft
+            %input{type: 'text', name: "attr_skillMisc#{i}Ranks"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-miscmod.sheet-hideleft
+            %input{type: 'text', name: "attr_skillMisc#{i}Miscmod"}
+          .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
+            %input{type: 'text', name: "attr_skillMisc#{i}MiscExplanation"}
+        - 12.times do |i|
+          .sheet-ui.sheet-skill-miscline
+            %input{type: 'text', name: "attr_miscline#{i}"}
+        .sheet-skill-money
+          .sheet-label.sheet-skill-money-details PP:
+          .sheet-ui.sheet-skill-money-details.sheet-hideleft
+            %input{type: 'text', name: "attr_platinumPieces"}
+          .sheet-label.sheet-skill-money-details.sheet-hideleft GP:
+          .sheet-ui.sheet-skill-money-details.sheet-hideleft
+            %input{type: 'text', name: "attr_goldPieces"}
+          .sheet-label.sheet-skill-money-details.sheet-hideleft SP:
+          .sheet-ui.sheet-skill-money-details.sheet-hideleft
+            %input{type: 'text', name: "attr_silverPieces"}
+          .sheet-label.sheet-skill-money-details.sheet-hideleft CP:
+          .sheet-ui.sheet-skill-money-details.sheet-hideleft
+            %input{type: 'text', name: "attr_copperPieces"}
+          .sheet-label.sheet-skill-money-details.sheet-hideleft Fate:
+          .sheet-ui.sheet-skill-money-details.sheet-hideleft
+            %input{type: 'text', name: "attr_fatePoints"}
 
-    -# NOTES
-    .sheet-notes
-      .sheet-label.sheet-table-header.sheet-notes-header NOTES
-      - 25.times do |i|
-        .sheet-ui.sheet-notes-miscline-left
-          %input{type: 'text', name: "attr_notesMisclineLeft#{i}"}
-      - 25.times do |i|
-        .sheet-ui.sheet-notes-miscline-right
-          %input{type: 'text', name: "attr_notesMisclineRight#{i}"}
-    .sheet-infinity
-    %fieldset.repeating_infinity
-      .sheet-ui.sheet-notes-miscline-left
-        %input{type: 'text', name: 'attr_infinityname'}
+    .sheet-page2
+      -# NOTES REPEATING FIELDS
+      .sheet-notes
+        .sheet-label.sheet-table-header.sheet-notes-header NOTES
+        %fieldset.repeating_notes.sheet-notes-repeating
+          .sheet-notes-section
+            .sheet-label
+            .sheet-ui
+              %input{type: 'text', name: 'attr_notes_left'}
+            .sheet-ui
+              %input{type: 'text', name: 'attr_notes_right'}
+            .sheet-label
+
+      -# SPELLS/POWERS REPEATING FIELDS
+      .sheet-spellspowers
+        .sheet-label.sheet-table-header.sheet-spellspowers-header Spells and Powers
+        .sheet-label.sheet-table-header.sheet-spellspowers-subheader
+          .sheet-label
+          .sheet-label Level
+          .sheet-label Description
+          .sheet-label Duration
+          .sheet-label Range
+          .sheet-label Uses/Cost
+          .sheet-label
+        %fieldset.repeating_spellspowers
+          .sheet-spellspowers-section
+            .sheet-label
+            .sheet-ui.sheet-spellspowers-level
+              %input{type: 'text', name: 'attr_spellspowerslevel', placeholder: 'Lvl', title: 'Level of Spell or Power, leave blank if not applicable'}
+            .sheet-ui.sheet-spellspowers-description
+              %input{type: 'text', name: 'attr_spellspowersdescription', placeholder: 'Description', title: 'Name, damage dice, effect when used, etc'}
+            .sheet-ui.sheet-spellspowers-duration
+              %input{type: 'text', name: 'attr_spellspowersduration', placeholder: 'Duration', title: 'instant, 1rd / lvl, etc'}
+            .sheet-ui.sheet-spellspowers-range
+              %input{type: 'text', name: 'attr_spellspowersrange', placeholder: 'Range', title: 'personal, touch, area, distance, etc'}
+            .sheet-ui.sheet-spellspowers-usespoints
+              %input{type: 'text', name: 'attr_spellspowersusescost', placeholder: 'Uses/Cost', title: 'How many uses per day, times memorized, or PsiPt cost of power' }
+            .sheet-label
 
 %script{type: 'text/worker'}
   :plain
