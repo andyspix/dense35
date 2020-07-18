@@ -203,7 +203,6 @@
 	grid-template-rows: 18px 18px;
 }
 
-
 .sheet-table-header {
   text-align: center;
 	background: gainsboro;
@@ -453,11 +452,22 @@
 	line-height: normal;
 	color: royalblue;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 11px;
 	font-family: fantasy, 'patrick hand', 'shadows into light';
 	border: none;
 	text-align: center;
 	background: rgba(255, 255, 255, 0);
+}
+
+.charsheet .sheet-grid .sheet-skills input,
+.charsheet .sheet-grid .sheet-attack-bonus input,
+.charsheet .sheet-grid .sheet-saves-ac input,
+.charsheet .sheet-grid .sheet-ability-scores input {
+	font-size: 14px;
+}
+
+.charsheet .sheet-grid .sheet-header input {
+	font-size: 13px;
 }
 
 .charsheet .sheet-grid .sheet-misc-explanation input {

@@ -463,7 +463,7 @@
     });
 
     // STR mod fillers
-    ['grappleStatBonus', 'climbStatMod', 'jumpStatMod', 'swimStatMod'].forEach(x => {
+    ['meleeStatBonus', 'grappleStatBonus', 'climbStatMod', 'jumpStatMod', 'swimStatMod'].forEach(x => {
       multistats[`${x}`] = {rule: 'fill', attributes: ['StrTempMod']};
     });
 
@@ -484,7 +484,7 @@
     });
 
     // WIS mod fillers
-    ['autohypnosisStatMod', 'healStatMod', 'listenStatMod', 'professionFillIn1StatMod', 'professionFillIn2StatMod', 'survivalStatMod', 'senseMotiveStatMod', 'spotStatMod'].forEach(x => {
+    ['saveWillStat', 'autohypnosisStatMod', 'healStatMod', 'listenStatMod', 'professionFillIn1StatMod', 'professionFillIn2StatMod', 'survivalStatMod', 'senseMotiveStatMod', 'spotStatMod'].forEach(x => {
       multistats[`${x}`] = {rule: 'fill', attributes: ['WisTempMod']};
     });
 
@@ -541,8 +541,7 @@
       multistats[`${x}Total`] = {rule: 'sum', attributes: [`${x}StatMod`, `${x}Ranks`, `${x}MiscMod`, ]};
     });
 
-    multistats['hideTotal'] = {rule: 'sum', attributes: ['hideStatMod', 'hideRanks', 'hideMiscMod', 'size_to_hide_mod']};
-
+    multistats['hideTotal'] = {rule: 'special_hide_total', attributes: ['hideStatMod', 'hideRanks', 'hideMiscMod', 'characterSize']};
 
     const multifunctions = {
         pick_from_list: (x) => x[ x[0] ],
@@ -568,6 +567,11 @@
           const bonus = {1: 16, 2: 12, 3: 8, 4: 4, 5: 0, 6: -4, 7: -8, 8: -12, 9: -16}
           return (bonus[x[0]])
         },
+        special_hide_total: function(x) {
+          const bonus = {1: 16, 2: 12, 3: 8, 4: 4, 5: 0, 6: -4, 7: -8, 8: -12, 9: -16}
+          let normal_sum = multifunctions.sum(x.slice(0,3))
+          return (normal_sum + bonus[x[3]])
+        }
     };
 
     // ======================================================*/
