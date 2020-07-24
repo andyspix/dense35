@@ -104,7 +104,7 @@
 <div class='sheet-ability-scores-table'>
 <div class='sheet-label'>STR</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll str check' type='roll' value='/roll 1d20 + @{strTempMod}'></button>
+<button name='roll_strcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Strength}} {{Result=[[1d20 + @{strTempMod}]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_str' type='text'>
@@ -120,7 +120,7 @@
 </div>
 <div class='sheet-label'>DEX</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll dex check' type='roll' value='/roll 1d20 + @{dexTempMod}'></button>
+<button name='roll_dexcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Dexterity}} {{Result=[[1d20 + @{dexTempMod}]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_dex' type='text'>
@@ -136,7 +136,7 @@
 </div>
 <div class='sheet-label'>CON</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll con check' type='roll' value='/roll 1d20 + @{conTempMod}'></button>
+<button name='roll_concheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Constitution}} {{Result=[[1d20 + @{conTempMod}]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_con' type='text'>
@@ -152,7 +152,7 @@
 </div>
 <div class='sheet-label'>INT</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll int check' type='roll' value='/roll 1d20 + @{intTempMod}'></button>
+<button name='roll_intcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Intelligence}} {{Result=[[1d20 + @{intTempMod}]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_int' type='text'>
@@ -168,7 +168,7 @@
 </div>
 <div class='sheet-label'>WIS</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll wis check' type='roll' value='/roll 1d20 + @{wisTempMod}'></button>
+<button name='roll_wischeck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Wisdom}} {{Result=[[1d20 + @{wisTempMod}]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_wis' type='text'>
@@ -184,7 +184,7 @@
 </div>
 <div class='sheet-label'>CHA</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll cha check' type='roll' value='/roll 1d20 + @{chaTempMod}'></button>
+<button name='roll_chacheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Charisma}} {{Result=[[1d20 + @{chaTempMod}]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_cha' type='text'>
@@ -210,7 +210,7 @@
 <div class='sheet-label sheet-table-subheader sheet-saves-ac-misc-merge'>Misc</div>
 <div class='sheet-label'>FORT</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll FORT Saving Throw' type='roll' value='/roll 1d20 + @{saveFORTTotal}'></button>
+<button name='roll_FORTsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= FORT }} {{Result=[[1d20 + @{saveFORTTotal}]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveFORTTotal' type='text'>
@@ -232,7 +232,7 @@
 </div>
 <div class='sheet-label'>REF</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll REF Saving Throw' type='roll' value='/roll 1d20 + @{saveREFTotal}'></button>
+<button name='roll_REFsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= REF }} {{Result=[[1d20 + @{saveREFTotal}]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveREFTotal' type='text'>
@@ -254,7 +254,7 @@
 </div>
 <div class='sheet-label'>WILL</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll WILL Saving Throw' type='roll' value='/roll 1d20 + @{saveWILLTotal}'></button>
+<button name='roll_WILLsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= WILL }} {{Result=[[1d20 + @{saveWILLTotal}]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveWILLTotal' type='text'>
@@ -373,7 +373,7 @@
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_meleeBase' type='text'>
+<input name='attr_meleeBase' readonly type='text'>
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
@@ -396,7 +396,7 @@
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_rangeBase' type='text'>
+<input name='attr_rangeBase' readonly type='text'>
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
@@ -419,7 +419,7 @@
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>=</div>
 <div class='sheet-ui sheet-hideleft'>
-<input name='attr_grappleBase' type='text'>
+<input name='attr_grappleBase' readonly type='text'>
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
@@ -1499,7 +1499,7 @@
 <div class='sheet-label sheet-table-header sheet-skills-header'>SKILLS</div>
 <div class='sheet-label-small sheet-skills-explain'>Mod = Stat + Ranks + Misc</div>
 <div class='sheet-roll-button'>
-<button name='roll appraise skill check' type='roll' value='/roll 1d20 + @{appraiseTotal}'></button>
+<button name='roll_appraise_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Appraise}} {{Result=[[1d20 + @{appraiseTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Appraise &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1521,7 +1521,7 @@
 <input name='attr_appraiseMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll autohypnosis skill check' type='roll' value='/roll 1d20 + @{autohypnosisTotal}'></button>
+<button name='roll_autohypnosis_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Autohypnosis}} {{Result=[[1d20 + @{autohypnosisTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Autohypnosis</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1543,7 +1543,7 @@
 <input name='attr_autohypnosisMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll balance skill check' type='roll' value='/roll 1d20 + @{balanceTotal}'></button>
+<button name='roll_balance_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Balance}} {{Result=[[1d20 + @{balanceTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Balance &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1565,7 +1565,7 @@
 <input name='attr_balanceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll bluff skill check' type='roll' value='/roll 1d20 + @{bluffTotal}'></button>
+<button name='roll_bluff_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Bluff}} {{Result=[[1d20 + @{bluffTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Bluff &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1587,7 +1587,7 @@
 <input name='attr_bluffMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll climb skill check' type='roll' value='/roll 1d20 + @{climbTotal}'></button>
+<button name='roll_climb_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Climb}} {{Result=[[1d20 + @{climbTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Climb &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1609,7 +1609,7 @@
 <input name='attr_climbMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll concentration skill check' type='roll' value='/roll 1d20 + @{concentrationTotal}'></button>
+<button name='roll_concentration_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Concentration}} {{Result=[[1d20 + @{concentrationTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Concentration &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1631,7 +1631,7 @@
 <input name='attr_concentrationMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll craftfillin1 skill check' type='roll' value='/roll 1d20 + @{craftfillin1Total}'></button>
+<button name='roll_craftfillin1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Craft: @{craftfillin1SplitSkillExplanation} }} {{Result=[[1d20 + @{craftfillin1Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -1656,7 +1656,7 @@
 <input name='attr_craftfillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll craftfillin2 skill check' type='roll' value='/roll 1d20 + @{craftfillin2Total}'></button>
+<button name='roll_craftfillin2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Craft: @{craftfillin2SplitSkillExplanation} }} {{Result=[[1d20 + @{craftfillin2Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -1681,7 +1681,7 @@
 <input name='attr_craftfillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll craftfillin3 skill check' type='roll' value='/roll 1d20 + @{craftfillin3Total}'></button>
+<button name='roll_craftfillin3_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Craft: @{craftfillin3SplitSkillExplanation} }} {{Result=[[1d20 + @{craftfillin3Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -1706,7 +1706,7 @@
 <input name='attr_craftfillin3MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll decipherscript skill check' type='roll' value='/roll 1d20 + @{decipherscriptTotal}'></button>
+<button name='roll_decipherscript_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Decipher Script}} {{Result=[[1d20 + @{decipherscriptTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Decipher Script</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1728,7 +1728,7 @@
 <input name='attr_decipherscriptMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll diplomacy skill check' type='roll' value='/roll 1d20 + @{diplomacyTotal}'></button>
+<button name='roll_diplomacy_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Diplomacy}} {{Result=[[1d20 + @{diplomacyTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Diplomacy &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1750,7 +1750,7 @@
 <input name='attr_diplomacyMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll disabledevice skill check' type='roll' value='/roll 1d20 + @{disabledeviceTotal}'></button>
+<button name='roll_disabledevice_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Disable Device}} {{Result=[[1d20 + @{disabledeviceTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Disable Device</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1772,7 +1772,7 @@
 <input name='attr_disabledeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll disguise skill check' type='roll' value='/roll 1d20 + @{disguiseTotal}'></button>
+<button name='roll_disguise_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Disguise}} {{Result=[[1d20 + @{disguiseTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Disguise &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1794,7 +1794,7 @@
 <input name='attr_disguiseMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll escapeartist skill check' type='roll' value='/roll 1d20 + @{escapeartistTotal}'></button>
+<button name='roll_escapeartist_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Escape Artist}} {{Result=[[1d20 + @{escapeartistTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Escape Artist &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1816,7 +1816,7 @@
 <input name='attr_escapeartistMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll forgery skill check' type='roll' value='/roll 1d20 + @{forgeryTotal}'></button>
+<button name='roll_forgery_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Forgery}} {{Result=[[1d20 + @{forgeryTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Forgery &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1838,7 +1838,7 @@
 <input name='attr_forgeryMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll gatherinfo skill check' type='roll' value='/roll 1d20 + @{gatherinfoTotal}'></button>
+<button name='roll_gatherinfo_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Gather Info}} {{Result=[[1d20 + @{gatherinfoTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Gather Info &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1860,7 +1860,7 @@
 <input name='attr_gatherinfoMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll handleanimal skill check' type='roll' value='/roll 1d20 + @{handleanimalTotal}'></button>
+<button name='roll_handleanimal_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Handle Animal}} {{Result=[[1d20 + @{handleanimalTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Handle Animal</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1882,7 +1882,7 @@
 <input name='attr_handleanimalMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll heal skill check' type='roll' value='/roll 1d20 + @{healTotal}'></button>
+<button name='roll_heal_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Heal}} {{Result=[[1d20 + @{healTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Heal &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1904,7 +1904,7 @@
 <input name='attr_healMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll hide skill check' type='roll' value='/roll 1d20 + @{hideTotal}'></button>
+<button name='roll_hide_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Hide}} {{Result=[[1d20 + @{hideTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Hide &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1926,7 +1926,7 @@
 <input name='attr_hideMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll intimidate skill check' type='roll' value='/roll 1d20 + @{intimidateTotal}'></button>
+<button name='roll_intimidate_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Intimidate}} {{Result=[[1d20 + @{intimidateTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Intimidate &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1948,7 +1948,7 @@
 <input name='attr_intimidateMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll jump skill check' type='roll' value='/roll 1d20 + @{jumpTotal}'></button>
+<button name='roll_jump_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Jump}} {{Result=[[1d20 + @{jumpTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Jump &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1970,7 +1970,7 @@
 <input name='attr_jumpMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll knowledgefillin1 skill check' type='roll' value='/roll 1d20 + @{knowledgefillin1Total}'></button>
+<button name='roll_knowledgefillin1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin1SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin1Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -1995,7 +1995,7 @@
 <input name='attr_knowledgefillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll knowledgefillin2 skill check' type='roll' value='/roll 1d20 + @{knowledgefillin2Total}'></button>
+<button name='roll_knowledgefillin2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin2SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin2Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2020,7 +2020,7 @@
 <input name='attr_knowledgefillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll knowledgefillin3 skill check' type='roll' value='/roll 1d20 + @{knowledgefillin3Total}'></button>
+<button name='roll_knowledgefillin3_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin3SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin3Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2045,7 +2045,7 @@
 <input name='attr_knowledgefillin3MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll knowledgefillin4 skill check' type='roll' value='/roll 1d20 + @{knowledgefillin4Total}'></button>
+<button name='roll_knowledgefillin4_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin4SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin4Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2070,7 +2070,7 @@
 <input name='attr_knowledgefillin4MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll knowledgefillin5 skill check' type='roll' value='/roll 1d20 + @{knowledgefillin5Total}'></button>
+<button name='roll_knowledgefillin5_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin5SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin5Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2095,7 +2095,7 @@
 <input name='attr_knowledgefillin5MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll listen skill check' type='roll' value='/roll 1d20 + @{listenTotal}'></button>
+<button name='roll_listen_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Listen}} {{Result=[[1d20 + @{listenTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Listen &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2117,7 +2117,7 @@
 <input name='attr_listenMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll movesilently skill check' type='roll' value='/roll 1d20 + @{movesilentlyTotal}'></button>
+<button name='roll_movesilently_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Move Silently}} {{Result=[[1d20 + @{movesilentlyTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Move Silently &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2139,7 +2139,7 @@
 <input name='attr_movesilentlyMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll openlock skill check' type='roll' value='/roll 1d20 + @{openlockTotal}'></button>
+<button name='roll_openlock_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Open Lock}} {{Result=[[1d20 + @{openlockTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Open Lock</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2161,7 +2161,7 @@
 <input name='attr_openlockMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll performfillin1 skill check' type='roll' value='/roll 1d20 + @{performfillin1Total}'></button>
+<button name='roll_performfillin1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Perform: @{performfillin1SplitSkillExplanation} }} {{Result=[[1d20 + @{performfillin1Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2186,7 +2186,7 @@
 <input name='attr_performfillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll performfillin2 skill check' type='roll' value='/roll 1d20 + @{performfillin2Total}'></button>
+<button name='roll_performfillin2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Perform: @{performfillin2SplitSkillExplanation} }} {{Result=[[1d20 + @{performfillin2Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2211,7 +2211,7 @@
 <input name='attr_performfillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll performfillin3 skill check' type='roll' value='/roll 1d20 + @{performfillin3Total}'></button>
+<button name='roll_performfillin3_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Perform: @{performfillin3SplitSkillExplanation} }} {{Result=[[1d20 + @{performfillin3Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform &#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2236,7 +2236,7 @@
 <input name='attr_performfillin3MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll professionfillin1 skill check' type='roll' value='/roll 1d20 + @{professionfillin1Total}'></button>
+<button name='roll_professionfillin1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Profession: @{professionfillin1SplitSkillExplanation} }} {{Result=[[1d20 + @{professionfillin1Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Profession</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2261,7 +2261,7 @@
 <input name='attr_professionfillin1MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll professionfillin2 skill check' type='roll' value='/roll 1d20 + @{professionfillin2Total}'></button>
+<button name='roll_professionfillin2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Profession: @{professionfillin2SplitSkillExplanation} }} {{Result=[[1d20 + @{professionfillin2Total}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Profession</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
@@ -2286,7 +2286,7 @@
 <input name='attr_professionfillin2MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll psicraft skill check' type='roll' value='/roll 1d20 + @{psicraftTotal}'></button>
+<button name='roll_psicraft_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=PsiCraft}} {{Result=[[1d20 + @{psicraftTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>PsiCraft</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2308,7 +2308,7 @@
 <input name='attr_psicraftMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll ride skill check' type='roll' value='/roll 1d20 + @{rideTotal}'></button>
+<button name='roll_ride_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Ride}} {{Result=[[1d20 + @{rideTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Ride &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2330,7 +2330,7 @@
 <input name='attr_rideMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll search skill check' type='roll' value='/roll 1d20 + @{searchTotal}'></button>
+<button name='roll_search_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Search}} {{Result=[[1d20 + @{searchTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Search &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2352,7 +2352,7 @@
 <input name='attr_searchMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll sensemotive skill check' type='roll' value='/roll 1d20 + @{sensemotiveTotal}'></button>
+<button name='roll_sensemotive_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Sense Motive}} {{Result=[[1d20 + @{sensemotiveTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Sense Motive &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2374,7 +2374,7 @@
 <input name='attr_sensemotiveMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll sleightofhand skill check' type='roll' value='/roll 1d20 + @{sleightofhandTotal}'></button>
+<button name='roll_sleightofhand_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Sleight Of Hand}} {{Result=[[1d20 + @{sleightofhandTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Sleight Of Hand</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2396,7 +2396,7 @@
 <input name='attr_sleightofhandMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll speaklanguage skill check' type='roll' value='/roll 1d20 + @{speaklanguageTotal}'></button>
+<button name='roll_speaklanguage_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Speak Language}} {{Result=[[1d20 + @{speaklanguageTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Speak Language</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2418,7 +2418,7 @@
 <input name='attr_speaklanguageMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll spellcraft skill check' type='roll' value='/roll 1d20 + @{spellcraftTotal}'></button>
+<button name='roll_spellcraft_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=SpellCraft}} {{Result=[[1d20 + @{spellcraftTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>SpellCraft</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2440,7 +2440,7 @@
 <input name='attr_spellcraftMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll spot skill check' type='roll' value='/roll 1d20 + @{spotTotal}'></button>
+<button name='roll_spot_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Spot}} {{Result=[[1d20 + @{spotTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Spot &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2462,7 +2462,7 @@
 <input name='attr_spotMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll survival skill check' type='roll' value='/roll 1d20 + @{survivalTotal}'></button>
+<button name='roll_survival_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Survival}} {{Result=[[1d20 + @{survivalTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Survival &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2484,7 +2484,7 @@
 <input name='attr_survivalMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll swim skill check' type='roll' value='/roll 1d20 + @{swimTotal}'></button>
+<button name='roll_swim_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Swim}} {{Result=[[1d20 + @{swimTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Swim &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2506,7 +2506,7 @@
 <input name='attr_swimMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll tumble skill check' type='roll' value='/roll 1d20 + @{tumbleTotal}'></button>
+<button name='roll_tumble_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Tumble}} {{Result=[[1d20 + @{tumbleTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Tumble</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2528,7 +2528,7 @@
 <input name='attr_tumbleMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll usemagicdevice skill check' type='roll' value='/roll 1d20 + @{usemagicdeviceTotal}'></button>
+<button name='roll_usemagicdevice_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Use Magic Device}} {{Result=[[1d20 + @{usemagicdeviceTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Use Magic Device</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2550,7 +2550,7 @@
 <input name='attr_usemagicdeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll usepsionicdevice skill check' type='roll' value='/roll 1d20 + @{usepsionicdeviceTotal}'></button>
+<button name='roll_usepsionicdevice_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Use Psionic Device}} {{Result=[[1d20 + @{usepsionicdeviceTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Use Psionic Device</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2572,7 +2572,7 @@
 <input name='attr_usepsionicdeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll userope skill check' type='roll' value='/roll 1d20 + @{useropeTotal}'></button>
+<button name='roll_userope_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Use Rope}} {{Result=[[1d20 + @{useropeTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Use Rope &#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2594,7 +2594,7 @@
 <input name='attr_useropeMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll SkillMisc0 skill check' type='roll' value='/roll 1d20 + @{skillMisc0Total}'></button>
+<button name='roll_SkillMisc0_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check: 0}} {{Result=[[1d20 + @{skillMisc0Total}]] }}'></button>
 </div>
 <div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill sheet-hideleft'>
 <input name='attr_skillMisc0Name' placeholder=' ...' title='-Additional Skills-' type='text'>
@@ -2618,7 +2618,7 @@
 <input name='attr_skillMisc0MiscExplanation' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll SkillMisc1 skill check' type='roll' value='/roll 1d20 + @{skillMisc1Total}'></button>
+<button name='roll_SkillMisc1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check: 1}} {{Result=[[1d20 + @{skillMisc1Total}]] }}'></button>
 </div>
 <div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill sheet-hideleft'>
 <input name='attr_skillMisc1Name' placeholder=' ...' title='-Additional Skills-' type='text'>
@@ -2642,7 +2642,7 @@
 <input name='attr_skillMisc1MiscExplanation' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll SkillMisc2 skill check' type='roll' value='/roll 1d20 + @{skillMisc2Total}'></button>
+<button name='roll_SkillMisc2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check: 2}} {{Result=[[1d20 + @{skillMisc2Total}]] }}'></button>
 </div>
 <div class='sheet-ui sheet-label-sheet-skills sheet-merged-skill sheet-hideleft'>
 <input name='attr_skillMisc2Name' placeholder=' ...' title='-Additional Skills-' type='text'>
@@ -3027,3 +3027,18 @@ Object.keys(multistats).forEach(destination => {
     }
 });
 </script>
+<rolltemplate class="sheet-rolltemplate-custom">
+  <div class="sheet-container sheet-color-{{color}}">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title subtitle desc color}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title subtitle desc color}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>

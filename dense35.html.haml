@@ -81,18 +81,18 @@
           .sheet-label.sheet-ability-scores-header Temp
           .sheet-label.sheet-ability-scores-header Mod
         .sheet-ability-scores-table
-          - %w(str dex con int wis cha).each do |val|
-            .sheet-label= val.upcase
+          - {str: 'Strength', dex: 'Dexterity', con: 'Constitution', int: 'Intelligence', wis: 'Wisdom', cha: 'Charisma'}.each do |k, v|
+            .sheet-label= k.upcase
             .sheet-roll-button.sheet-hideleft
-              %button{type: 'roll', value: "/roll 1d20 + @{#{val}TempMod}", name: "roll #{val} check"}
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= #{v}}} {{Result=[[1d20 + @{#{k}TempMod}]] }} {{color=red}}", name: "roll_#{k}check"}
             .sheet-ui
-              %input{type: 'text', name: "attr_#{val}"}
+              %input{type: 'text', name: "attr_#{k}"}
             .sheet-ui
-              %input{type: 'text', name: "attr_#{val}Mod", readonly: true}
+              %input{type: 'text', name: "attr_#{k}Mod", readonly: true}
             .sheet-ui
-              %input{type: 'text', name: "attr_#{val}Temp"}
+              %input{type: 'text', name: "attr_#{k}Temp"}
             .sheet-ui
-              %input{type: 'text', name: "attr_#{val}TempMod", readonly: true}
+              %input{type: 'text', name: "attr_#{k}TempMod", readonly: true}
 
       -# SAVES & AC
       .sheet-saves-ac
@@ -104,7 +104,7 @@
           - %w(FORT REF WILL).each do |val|
             .sheet-label= val
             .sheet-roll-button.sheet-hideleft
-              %button{type: 'roll', value: "/roll 1d20 + @{save#{val}Total}", name: "roll #{val} Saving Throw"}
+              %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total}]] }}", name: "roll_#{val}savingthrow"}
             .sheet-ui
               %input{type: 'text', name: "attr_save#{val}Total"}
             .sheet-ui
@@ -190,7 +190,7 @@
             %input{type: 'text', name: "attr_meleeTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_meleeBase"}
+            %input{type: 'text', name: "attr_meleeBase", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_meleeStatBonus", placeholder: 'STR', readonly: true}
@@ -207,7 +207,7 @@
             %input{type: 'text', name: "attr_rangeTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_rangeBase"}
+            %input{type: 'text', name: "attr_rangeBase", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_rangeStatBonus", placeholder: 'DEX', readonly: true}
@@ -224,7 +224,7 @@
             %input{type: 'text', name: "attr_grappleTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_grappleBase"}
+            %input{type: 'text', name: "attr_grappleBase", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_grappleStatBonus", placeholder: 'STR', readonly: true}
@@ -354,13 +354,15 @@
         -skills = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
         - skills.each do |k, v|
           - safename = k.downcase.tr(' ', '')
-          .sheet-roll-button
-            %button{type: 'roll', value: "/roll 1d20 + @{#{safename}Total}", name: "roll #{safename} skill check"}
           - if k =~ /FillIn\d+/
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
             .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
             .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
               %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
           - else
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
             .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
           .sheet-ui.sheet-skill-total
             %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
@@ -377,7 +379,7 @@
             %input{type: 'text', name: "attr_#{safename}MiscExplanation", placeholder: '...', title: '-explanation-'}
         - 3.times do |i|
           .sheet-roll-button
-            %button{type: 'roll', value: "/roll 1d20 + @{skillMisc#{i}Total}", name: "roll SkillMisc#{i} skill check"}
+            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check: #{i}}} {{Result=[[1d20 + @{skillMisc#{i}Total}]] }}", name: "roll_SkillMisc#{i}_skill_check"}
           .sheet-ui.sheet-label-sheet-skills.sheet-merged-skill.sheet-hideleft
             %input{type: 'text', name: "attr_skillMisc#{i}Name", placeholder: ' ...', title: '-Additional Skills-'}
           .sheet-ui.sheet-skill-total
@@ -702,3 +704,21 @@
             });
         }
     });
+
+-# Roll Templates are really tricky to HAML-ize, just render plain
+:plain
+  <rolltemplate class="sheet-rolltemplate-custom">
+    <div class="sheet-container sheet-color-{{color}}">
+      <div class="sheet-header">
+        {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+        {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+      </div>
+      <div class="sheet-content">
+        {{#allprops() title subtitle desc color}}
+        <div class="sheet-key">{{key}}</div>
+        <div class="sheet-value">{{value}}</div>
+        {{/allprops() title subtitle desc color}}
+        {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+      </div>
+    </div>
+  </rolltemplate>
