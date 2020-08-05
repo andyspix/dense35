@@ -185,7 +185,7 @@
           .sheet-label.sheet-hideleft.sheet-italics
           .sheet-label.sheet-hideleft.sheet-italics Misc
           .sheet-label.sheet-hideleft
-          .sheet-label.sheet-attack-melee &#9876; Melee:
+          .sheet-label.sheet-attack-melee &#9876;Melee:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_meleeTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
@@ -202,7 +202,7 @@
             %input{type: 'text', name: "attr_meleeMisc"}
           .sheet-ui.sheet-hideleft.sheet-misc-explanation
             %input{type: 'text', name: "attr_meleeExplanation", placeholder: '...', title: '-explanation-'}
-          .sheet-label.sheet-attack-range &#9732; Range:
+          .sheet-label.sheet-attack-range &#9732;Range:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_rangeTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
@@ -357,13 +357,13 @@
           - if k =~ /FillIn\d+/
             .sheet-roll-button
               %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
-            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
             .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
               %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
           - else
             .sheet-roll-button
               %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
-            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? ' &#10041;' : '')
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
           .sheet-ui.sheet-skill-total
             %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
