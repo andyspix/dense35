@@ -511,11 +511,11 @@
     })
 
     // Weight Summing
-    const backpack = _.map([...Array(28).keys()], function(n) {return 'backpackWt' + n})
-    const worn     = _.map([...Array(28).keys()], function(n) {return 'wornWt' + n})
-    const magic    = _.map([...Array(28).keys()], function(n) {return 'magicItemWt' + n})
-    const armor    = _.map([...Array(5).keys()], function(n) {return 'armorWt' + n})
-    const weapon   = _.map([...Array(7).keys()], function(n) {return 'weaponWt' + n})
+    const backpack = _.map([...Array(29).keys()], function(n) {return 'backpackWt' + n})
+    const worn     = _.map([...Array(29).keys()], function(n) {return 'wornWt' + n})
+    const magic    = _.map([...Array(29).keys()], function(n) {return 'magicItemWt' + n})
+    const armor    = _.map([...Array(6).keys()], function(n) {return 'armorWt' + n})
+    const weapon   = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
     const allwt    = _.union(backpack, worn, magic, armor, weapon)
     multistats['totalweight'] = {rule: 'sum', attributes: allwt};
 
