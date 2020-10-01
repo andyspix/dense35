@@ -526,7 +526,7 @@
     multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
 
     // Armor & Save Summing
-    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acMisc']};
+    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc']};
     ['Fort', 'Will', 'Ref'].forEach(x => {
       multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
     })
