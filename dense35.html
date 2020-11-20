@@ -2840,7 +2840,7 @@ const armor               = _.map([...Array(6).keys()], function(n) {return 'arm
 const weapon              = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
 const gearwt              = _.union(backpack, worn, magic, armor, weapon)
 multistats['coinwt']      = {rule: 'sum', attributes: ['platinumPieces', 'goldPieces', 'silverPieces', 'copperPieces'], modifier: 0.02};
-// multistats['totalweight'] = {rule: 'sum', attributes: [...gearwt, 'coinwt']};
+multistats['totalweight'] = {rule: 'sum', attributes: [...gearwt, 'coinwt']};
 
 // Carry Capacity Calculations
 multistats['weightLight'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.333};
@@ -2880,7 +2880,7 @@ multistats['hideTotal'] = {rule: 'special_hide_total', attributes: ['hideStatMod
 const multifunctions = {
     pick_from_list: (x) => x[ x[0] ],
     fill: (x) => x,  // just return a value to fill another cell
-    sum: (x, mult=1) => (x.reduce((total, add) => total + add))*mult,  // add up any number of attributes, optional multiplier
+    sum: (x, mult) => ((x.reduce((total, add) => total + add)) * (mult || 1)),  // add up any number of attributes, optional multiplier
     dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
     dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
     carry_capacity: function(x, mult) {

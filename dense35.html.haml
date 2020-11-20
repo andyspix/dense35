@@ -558,7 +558,7 @@
     const multifunctions = {
         pick_from_list: (x) => x[ x[0] ],
         fill: (x) => x,  // just return a value to fill another cell
-        sum: (x, mult=1) => (x.reduce((total, add) => total + add))*mult,  // add up any number of attributes, optional multiplier
+        sum: (x, mult) => ((x.reduce((total, add) => total + add)) * (mult || 1)),  // add up any number of attributes, optional multiplier
         dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
         dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
         carry_capacity: function(x, mult) {
