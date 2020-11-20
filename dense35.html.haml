@@ -508,16 +508,24 @@
     // BAB filler
     ['meleeBase', 'rangeBase', 'grappleBase'].forEach(x => {
       multistats[`${x}`] = {rule: 'fill', attributes: ['baseAttackBonus']};
-    })
+    });
 
     // Weight Summing
-    const backpack = _.map([...Array(29).keys()], function(n) {return 'backpackWt' + n})
-    const worn     = _.map([...Array(29).keys()], function(n) {return 'wornWt' + n})
-    const magic    = _.map([...Array(29).keys()], function(n) {return 'magicItemWt' + n})
-    const armor    = _.map([...Array(6).keys()], function(n) {return 'armorWt' + n})
-    const weapon   = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
-    const allwt    = _.union(backpack, worn, magic, armor, weapon)
-    multistats['totalweight'] = {rule: 'sum', attributes: allwt};
+    const backpack            = _.map([...Array(29).keys()], function(n) {return 'backpackWt' + n})
+    const worn                = _.map([...Array(29).keys()], function(n) {return 'wornWt' + n})
+    const magic               = _.map([...Array(29).keys()], function(n) {return 'magicItemWt' + n})
+    const armor               = _.map([...Array(6).keys()], function(n) {return 'armorWt' + n})
+    const weapon              = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
+    const gearwt              = _.union(backpack, worn, magic, armor, weapon)
+    multistats['coinwt']      = {rule: 'sum', attributes: ['platinumPieces', 'goldPieces', 'silverPieces', 'copperPieces'], modifier: 0.02};
+    multistats['totalweight'] = {rule: 'sum', attributes: [...gearwt, 'coinwt']};
+
+    // Carry Capacity Calculations
+    multistats['weightLight'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.333};
+    multistats['weightMedium'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.667};
+    multistats['weightHeavy'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 1};
+    multistats['weightLift'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 2};
+    multistats['weightDrag'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 5};
 
     // Size based fillers
     multistats['meleeSize']   = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
@@ -529,24 +537,16 @@
     multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc']};
     ['Fort', 'Will', 'Ref'].forEach(x => {
       multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
-    })
+    });
 
     // Touch/FF AC filler
     multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc']};
     multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc']};
 
     // Attack Bonus Summing
-    const attack_styles = ['grapple', 'melee', 'range']
-    attack_styles.forEach(x => {
+    ['grapple', 'melee', 'range'].forEach(x => {
       multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}Base`, `${x}StatBonus`, `${x}Size`, `${x}Misc`]};
-    })
-
-    // Weight Calculations
-    multistats['weightLight'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.333};
-    multistats['weightMedium'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 0.667};
-    multistats['weightHeavy'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 1};
-    multistats['weightLift'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 2};
-    multistats['weightDrag'] = {rule: 'carry_capacity', attributes: ['str', 'strtemp', 'characterSize'], modifier: 5};
+    });
 
     // Skill Summing (remember size bonus to hide)
     ['appraise','autohypnosis','balance','bluff','climb','concentration','craftfillin1','craftfillin2','craftfillin3','decipherscript','diplomacy','disabledevice','disguise','escapeartist','forgery','gatherinfo','handleanimal','heal','intimidate','jump','knowledgefillin1','knowledgefillin2','knowledgefillin3','knowledgefillin4','knowledgefillin5','listen','movesilently','openlock','performfillin1','performfillin2','performfillin3','professionfillin1','professionfillin2','psicraft','ride','search','sensemotive','sleightofhand','speaklanguage','spellcraft','spot','survival','swim','tumble','usemagicdevice','usepsionicdevice','userope','skillMisc0','skillMisc1','skillMisc2'].forEach(x => {
@@ -558,7 +558,7 @@
     const multifunctions = {
         pick_from_list: (x) => x[ x[0] ],
         fill: (x) => x,  // just return a value to fill another cell
-        sum: (x) => x.reduce((total, add) => total + add),  // add up any number of attributes
+        sum: (x, mult=1) => (x.reduce((total, add) => total + add))*mult,  // add up any number of attributes, optional multiplier
         dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
         dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
         carry_capacity: function(x, mult) {
