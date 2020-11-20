@@ -2833,11 +2833,11 @@ const multistats = {};
 })
 
 // Weight Summing
-const backpack = _.map([...Array(28).keys()], function(n) {return 'backpackWt' + n})
-const worn     = _.map([...Array(28).keys()], function(n) {return 'wornWt' + n})
-const magic    = _.map([...Array(28).keys()], function(n) {return 'magicItemWt' + n})
-const armor    = _.map([...Array(5).keys()], function(n) {return 'armorWt' + n})
-const weapon   = _.map([...Array(7).keys()], function(n) {return 'weaponWt' + n})
+const backpack = _.map([...Array(29).keys()], function(n) {return 'backpackWt' + n})
+const worn     = _.map([...Array(29).keys()], function(n) {return 'wornWt' + n})
+const magic    = _.map([...Array(29).keys()], function(n) {return 'magicItemWt' + n})
+const armor    = _.map([...Array(6).keys()], function(n) {return 'armorWt' + n})
+const weapon   = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
 const allwt    = _.union(backpack, worn, magic, armor, weapon)
 multistats['totalweight'] = {rule: 'sum', attributes: allwt};
 
@@ -2848,7 +2848,7 @@ multistats['acSize']      = {rule: 'size_to_attack_ac', attributes: ['characterS
 multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
 
 // Armor & Save Summing
-multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acMisc']};
+multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc']};
 ['Fort', 'Will', 'Ref'].forEach(x => {
   multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
 })
