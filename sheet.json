@@ -2,6 +2,8 @@
 	"html": "dense35.html",
 	"css": "dense35.css",
 	"authors": "Andrew Spix",
+  "roll20userid": "5154837",
 	"preview": "dense35.png",
-	"instructions": "Compacted 3.5 Character sheet, instructions TBD"
+  "version": 1.0.0,
+	"instructions": "Dense D&D 3.5 character sheet, single page layout with no tabs.  Intentionally compacted favoring use with mouse/keyboard, but sized to fit width of most tablets for simple vertical scrolling/zooming.  Credit GiGs for Multiversal/sheetworker framework (https://app.roll20.net/forum/post/7664924/multiversal-sheet-worker-generator-this-is-bonkers)"
 }
