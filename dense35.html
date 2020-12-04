@@ -2095,6 +2095,56 @@
 <input name='attr_knowledgefillin5MiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
+<button name='roll_knowledgefillin6_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin6SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin6Total}]] }}'></button>
+</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledgefillin6SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
+</div>
+<div class='sheet-ui sheet-skill-total'>
+<input name='attr_knowledgefillin6Total' readonly type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
+<div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
+<input name='attr_knowledgefillin6Statmod' placeholder='INT' readonly type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
+<div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
+<input name='attr_knowledgefillin6Ranks' type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
+<div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
+<input name='attr_knowledgefillin6Miscmod' type='text'>
+</div>
+<div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft sheet-misc-explanation'>
+<input name='attr_knowledgefillin6MiscExplanation' placeholder='...' title='-explanation-' type='text'>
+</div>
+<div class='sheet-roll-button'>
+<button name='roll_knowledgefillin7_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Knowledge: @{knowledgefillin7SplitSkillExplanation} }} {{Result=[[1d20 + @{knowledgefillin7Total}]] }}'></button>
+</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title=''>Knowledge</div>
+<div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
+<input name='attr_knowledgefillin7SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
+</div>
+<div class='sheet-ui sheet-skill-total'>
+<input name='attr_knowledgefillin7Total' readonly type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>=</div>
+<div class='sheet-ui sheet-skill-statmod sheet-hideleft'>
+<input name='attr_knowledgefillin7Statmod' placeholder='INT' readonly type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
+<div class='sheet-ui sheet-skill-ranks sheet-hideleft'>
+<input name='attr_knowledgefillin7Ranks' type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
+<div class='sheet-ui sheet-skill-miscmod sheet-hideleft'>
+<input name='attr_knowledgefillin7Miscmod' type='text'>
+</div>
+<div class='sheet-ui sheet-skill-misc-explanation sheet-hideleft sheet-misc-explanation'>
+<input name='attr_knowledgefillin7MiscExplanation' placeholder='...' title='-explanation-' type='text'>
+</div>
+<div class='sheet-roll-button'>
 <button name='roll_listen_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Listen}} {{Result=[[1d20 + @{listenTotal}]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Listen&#10041;</div>
@@ -2695,12 +2745,6 @@
 <div class='sheet-ui sheet-skill-miscline'>
 <input name='attr_miscline9' type='text'>
 </div>
-<div class='sheet-ui sheet-skill-miscline'>
-<input name='attr_miscline10' type='text'>
-</div>
-<div class='sheet-ui sheet-skill-miscline'>
-<input name='attr_miscline11' type='text'>
-</div>
 <div class='sheet-skill-money'>
 <div class='sheet-label sheet-skill-money-details'>PP:</div>
 <div class='sheet-ui sheet-skill-money-details sheet-hideleft'>
@@ -2813,7 +2857,7 @@ const multistats = {};
 });
 
 // INT mod fillers
-['appraiseStatMod', 'craftFillIn1StatMod', 'craftFillIn2StatMod', 'craftFillIn3StatMod', 'decipherScriptStatMod', 'disableDeviceStatMod', 'forgeryStatMod', 'knowledgeFillIn1StatMod', 'knowledgeFillIn2StatMod', 'knowledgeFillIn3StatMod', 'knowledgeFillIn4StatMod', 'knowledgeFillIn5StatMod', 'psicraftStatMod', 'searchStatMod', 'speakLanguageStatMod', 'spellcraftStatMod'].forEach(x => {
+['appraiseStatMod', 'craftFillIn1StatMod', 'craftFillIn2StatMod', 'craftFillIn3StatMod', 'decipherScriptStatMod', 'disableDeviceStatMod', 'forgeryStatMod', 'knowledgeFillIn1StatMod', 'knowledgeFillIn2StatMod', 'knowledgeFillIn3StatMod', 'knowledgeFillIn4StatMod', 'knowledgeFillIn5StatMod', 'knowledgeFillIn6StatMod', 'knowledgeFillIn7StatMod', 'psicraftStatMod', 'searchStatMod', 'speakLanguageStatMod', 'spellcraftStatMod'].forEach(x => {
   multistats[`${x}`] = {rule: 'fill', attributes: ['IntTempMod']};
 });
 
@@ -2871,7 +2915,7 @@ multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'ac
 });
 
 // Skill Summing (remember size bonus to hide)
-['appraise','autohypnosis','balance','bluff','climb','concentration','craftfillin1','craftfillin2','craftfillin3','decipherscript','diplomacy','disabledevice','disguise','escapeartist','forgery','gatherinfo','handleanimal','heal','intimidate','jump','knowledgefillin1','knowledgefillin2','knowledgefillin3','knowledgefillin4','knowledgefillin5','listen','movesilently','openlock','performfillin1','performfillin2','performfillin3','professionfillin1','professionfillin2','psicraft','ride','search','sensemotive','sleightofhand','speaklanguage','spellcraft','spot','survival','swim','tumble','usemagicdevice','usepsionicdevice','userope','skillMisc0','skillMisc1','skillMisc2'].forEach(x => {
+['appraise','autohypnosis','balance','bluff','climb','concentration','craftfillin1','craftfillin2','craftfillin3','decipherscript','diplomacy','disabledevice','disguise','escapeartist','forgery','gatherinfo','handleanimal','heal','intimidate','jump','knowledgefillin1','knowledgefillin2','knowledgefillin3','knowledgefillin4','knowledgefillin5','knowledgefillin6','knowledgefillin7','listen','movesilently','openlock','performfillin1','performfillin2','performfillin3','professionfillin1','professionfillin2','psicraft','ride','search','sensemotive','sleightofhand','speaklanguage','spellcraft','spot','survival','swim','tumble','usemagicdevice','usepsionicdevice','userope','skillMisc0','skillMisc1','skillMisc2'].forEach(x => {
   multistats[`${x}Total`] = {rule: 'sum', attributes: [`${x}StatMod`, `${x}Ranks`, `${x}MiscMod`, ]};
 });
 
