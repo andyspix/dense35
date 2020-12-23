@@ -235,7 +235,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 164px 40px 43px 40px 50px 37px 30px auto;
+	grid-template-columns: 144px 20px 40px 30px 40px 40px 40px 40px 30px auto;
 	grid-template-rows: repeat(8, 18px);
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
@@ -269,6 +269,7 @@
 .sheet-traits-abilities .sheet-ui,
 .sheet-traits-abilities .sheet-table-header,
 .sheet-weapons .sheet-ui,
+.sheet-weapons .sheet-roll-button,
 .sheet-weapons .sheet-table-header {
 	border-bottom: 1px solid silver;
 	border-left: 1px solid silver;
@@ -276,6 +277,7 @@
 
 .charsheet .sheet-skills button[type=roll],
 .charsheet .sheet-saves-ac .sheet-saves-ac-sec1 button[type=roll],
+.charsheet .sheet-weapons button[type=roll],
 .charsheet .sheet-ability-scores .sheet-ability-scores-table button[type=roll] {
 	padding: 0px 2px;
 	font-size: 14px;
@@ -300,7 +302,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 144px 47px 65px 65px 53px 30px auto;
+	grid-template-columns: 144px 47px 65px 65px 53px auto;
 	grid-template-rows: repeat(6, 18px);
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
@@ -540,13 +542,19 @@
 	border-right: 1px solid silver;
 	border-left: 1px solid silver;
 }
+
 .charsheet .sheet-spellspowers .sheet-spellspowers-subheader {
 	grid-row: 2;
 	grid-column: 1 / span 2;
-	display: grid;
-	grid-template-columns: 5px 20px 550px 80px 80px 80px 5px;
-	grid-template-rows: 18px;
 	background: rgba(255, 255, 255, 0);
+}
+
+.charsheet .sheet-spellspowers-subheader,
+.charsheet .sheet-spellspowers-section {
+	display: grid;
+	column-gap: 5px;
+	grid-template-columns: 5px 20px 90px 500px 80px 70px 50px 5px;
+	grid-template-rows: 18px;
 }
 
 .repcontrol[data-groupname=repeating_spellspowers],
@@ -569,14 +577,6 @@
 	display: grid;
 	column-gap: 5px;
 	grid-template-columns: 5px 412px 412px 5px;
-	grid-template-rows: 18px;
-}
-
-.charsheet .sheet-spellspowers-subheader,
-.charsheet .sheet-spellspowers-section {
-	display: grid;
-	column-gap: 5px;
-	grid-template-columns: 5px 20px 550px 80px 80px 80px 5px;
 	grid-template-rows: 18px;
 }
 
@@ -670,11 +670,15 @@
 */
 
 /* Make even-numbered rows grey */
-.sheet-rolltemplate-custom .sheet-content :nth-child(4n+3),
-.sheet-rolltemplate-custom .sheet-content :nth-child(4n) {
+.sheet-rolltemplate-custom .sheet-content .sheet-key:nth-child(4n+3),
+.sheet-rolltemplate-custom .sheet-content .sheet-value:nth-child(4n) {
   background:#EEE;
 }
 
+.sheet-rolltemplate-custom .sheet-content .inlinerollresult:last-of-type {
+	background:rgb(4, 133, 113);
+	color: #FFF
+}
 /* Description field */
 .sheet-rolltemplate-custom .sheet-desc {
   grid-column: span 2;

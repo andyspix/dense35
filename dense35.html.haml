@@ -247,17 +247,23 @@
       -# WEAPONS
       .sheet-weapons
         .sheet-label.sheet-table-header.sheet-weapons-header Weapons
+        .sheet-label.sheet-table-header.sheet-roll-weapon-header
         .sheet-label.sheet-table-header.sheet-tohit-header ToHit
+        .sheet-label.sheet-table-header.sheet-tohitmod-header Mod
         .sheet-label.sheet-table-header.sheet-damage-header Dmg
+        .sheet-label.sheet-table-header.sheet-damagemod-header Mod
         .sheet-label.sheet-table-header.sheet-crit-header Crit
-        .sheet-label.sheet-table-header.sheet-range-header Range
+        .sheet-label.sheet-table-header.sheet-range-header Rnge
         .sheet-label.sheet-table-header.sheet-wpnsize-header Size
-        .sheet-label.sheet-table-header.sheet-wpnwt-header Wt
-        .sheet-label.sheet-table-header.sheet-wpnspecial-header Special Abilities
+        .sheet-label.sheet-table-header.sheet-wpnspecial-header Special
         - (1..7).each do |i|
-          - %w(weaponName weaponToHit weaponDamage weaponCrit weaponRange weaponSize weaponWt weaponSpecial).each do |val|
-            .sheet-ui{class: "sheet-#{val}#{i}"}
-              %input{type: 'text', name: "attr_#{val}#{i}"}
+          - %w(weaponName xxx weaponToHit weaponToHitMod weaponDamage weaponDamageMod weaponCrit weaponRange weaponSize weaponSpecial).each do |val|
+            -if val.eql? 'xxx'
+              .sheet-roll-button
+                %button{type: 'roll', value: "&{template:custom} [[ [[1d20]] + [[0@{weaponToHit#{i}}]] + [[0@{weaponToHitMod#{i}}]] ]] [[[[0@{weaponDamage#{i}}]] + [[0@{weaponDamageMod#{i}}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName#{i}} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "roll_weapon#{i}"}
+            -else
+              .sheet-ui{class: "sheet-#{val}#{i}"}
+                %input{type: 'text', name: "attr_#{val}#{i}"}
 
       -# ARMOR
       .sheet-armor
@@ -266,10 +272,9 @@
         .sheet-label.sheet-table-header.sheet-maxdex-header Max Dex
         .sheet-label.sheet-table-header.sheet-penalty-header &#10004;Penalty
         .sheet-label.sheet-table-header.sheet-spell-header Spell&#9785;
-        .sheet-label.sheet-table-header.sheet-armorwt-header Wt
         .sheet-label.sheet-table-header.sheet-armorspecial-header Special Abilities
         - (1..5).each do |i|
-          - %w(armorName armorBonus armorMaxDex armorPenalty armorSpellFail armorWt armorSpecial).each do |val|
+          - %w(armorName armorBonus armorMaxDex armorPenalty armorSpellFail armorSpecial).each do |val|
             .sheet-ui{class: "sheet-#{val}#{i}"}
               %input{type: 'text', name: "attr_#{val}#{i}"}
 
@@ -434,6 +439,7 @@
         .sheet-label.sheet-table-header.sheet-spellspowers-subheader
           .sheet-label
           .sheet-label Level
+          .sheet-label Name
           .sheet-label Description
           .sheet-label Duration
           .sheet-label Range
@@ -444,8 +450,10 @@
             .sheet-label
             .sheet-ui.sheet-spellspowers-level
               %input{type: 'text', name: 'attr_spellspowerslevel', placeholder: 'Lvl', title: 'Level of Spell or Power, leave blank if not applicable'}
+            .sheet-ui.sheet-spellspowers-name
+              %input{type: 'text', name: 'attr_spellspowersname', placeholder: 'Name', title: 'Name'}
             .sheet-ui.sheet-spellspowers-description
-              %input{type: 'text', name: 'attr_spellspowersdescription', placeholder: 'Description', title: 'Name, damage dice, effect when used, etc'}
+              %input{type: 'text', name: 'attr_spellspowersdescription', placeholder: 'Description', title: 'Damage dice, effect when used, etc'}
             .sheet-ui.sheet-spellspowers-duration
               %input{type: 'text', name: 'attr_spellspowersduration', placeholder: 'Duration', title: 'instant, 1rd / lvl, etc'}
             .sheet-ui.sheet-spellspowers-range
@@ -514,9 +522,7 @@
     const backpack            = _.map([...Array(29).keys()], function(n) {return 'backpackWt' + n})
     const worn                = _.map([...Array(29).keys()], function(n) {return 'wornWt' + n})
     const magic               = _.map([...Array(29).keys()], function(n) {return 'magicItemWt' + n})
-    const armor               = _.map([...Array(6).keys()], function(n) {return 'armorWt' + n})
-    const weapon              = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
-    const gearwt              = _.union(backpack, worn, magic, armor, weapon)
+    const gearwt              = _.union(backpack, worn, magic)
     multistats['coinwt']      = {rule: 'sum', attributes: ['platinumPieces', 'goldPieces', 'silverPieces', 'copperPieces'], modifier: 0.02};
     multistats['totalweight'] = {rule: 'sum', attributes: [...gearwt, 'coinwt']};
 

@@ -450,21 +450,32 @@
 </div>
 <div class='sheet-weapons'>
 <div class='sheet-label sheet-table-header sheet-weapons-header'>Weapons</div>
+<div class='sheet-label sheet-table-header sheet-roll-weapon-header'></div>
 <div class='sheet-label sheet-table-header sheet-tohit-header'>ToHit</div>
+<div class='sheet-label sheet-table-header sheet-tohitmod-header'>Mod</div>
 <div class='sheet-label sheet-table-header sheet-damage-header'>Dmg</div>
+<div class='sheet-label sheet-table-header sheet-damagemod-header'>Mod</div>
 <div class='sheet-label sheet-table-header sheet-crit-header'>Crit</div>
-<div class='sheet-label sheet-table-header sheet-range-header'>Range</div>
+<div class='sheet-label sheet-table-header sheet-range-header'>Rnge</div>
 <div class='sheet-label sheet-table-header sheet-wpnsize-header'>Size</div>
-<div class='sheet-label sheet-table-header sheet-wpnwt-header'>Wt</div>
-<div class='sheet-label sheet-table-header sheet-wpnspecial-header'>Special Abilities</div>
+<div class='sheet-label sheet-table-header sheet-wpnspecial-header'>Special</div>
 <div class='sheet-ui sheet-weaponName1'>
 <input name='attr_weaponName1' type='text'>
+</div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon1' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit1}]] + [[0@{weaponToHitMod1}]] ]] [[[[0@{weaponDamage1}]] + [[0@{weaponDamageMod1}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName1} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
 </div>
 <div class='sheet-ui sheet-weaponToHit1'>
 <input name='attr_weaponToHit1' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod1'>
+<input name='attr_weaponToHitMod1' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage1'>
 <input name='attr_weaponDamage1' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod1'>
+<input name='attr_weaponDamageMod1' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit1'>
 <input name='attr_weaponCrit1' type='text'>
@@ -475,20 +486,26 @@
 <div class='sheet-ui sheet-weaponSize1'>
 <input name='attr_weaponSize1' type='text'>
 </div>
-<div class='sheet-ui sheet-weaponWt1'>
-<input name='attr_weaponWt1' type='text'>
-</div>
 <div class='sheet-ui sheet-weaponSpecial1'>
 <input name='attr_weaponSpecial1' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponName2'>
 <input name='attr_weaponName2' type='text'>
 </div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon2' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit2}]] + [[0@{weaponToHitMod2}]] ]] [[[[0@{weaponDamage2}]] + [[0@{weaponDamageMod2}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName2} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+</div>
 <div class='sheet-ui sheet-weaponToHit2'>
 <input name='attr_weaponToHit2' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod2'>
+<input name='attr_weaponToHitMod2' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage2'>
 <input name='attr_weaponDamage2' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod2'>
+<input name='attr_weaponDamageMod2' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit2'>
 <input name='attr_weaponCrit2' type='text'>
@@ -499,20 +516,26 @@
 <div class='sheet-ui sheet-weaponSize2'>
 <input name='attr_weaponSize2' type='text'>
 </div>
-<div class='sheet-ui sheet-weaponWt2'>
-<input name='attr_weaponWt2' type='text'>
-</div>
 <div class='sheet-ui sheet-weaponSpecial2'>
 <input name='attr_weaponSpecial2' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponName3'>
 <input name='attr_weaponName3' type='text'>
 </div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon3' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit3}]] + [[0@{weaponToHitMod3}]] ]] [[[[0@{weaponDamage3}]] + [[0@{weaponDamageMod3}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName3} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+</div>
 <div class='sheet-ui sheet-weaponToHit3'>
 <input name='attr_weaponToHit3' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod3'>
+<input name='attr_weaponToHitMod3' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage3'>
 <input name='attr_weaponDamage3' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod3'>
+<input name='attr_weaponDamageMod3' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit3'>
 <input name='attr_weaponCrit3' type='text'>
@@ -523,20 +546,26 @@
 <div class='sheet-ui sheet-weaponSize3'>
 <input name='attr_weaponSize3' type='text'>
 </div>
-<div class='sheet-ui sheet-weaponWt3'>
-<input name='attr_weaponWt3' type='text'>
-</div>
 <div class='sheet-ui sheet-weaponSpecial3'>
 <input name='attr_weaponSpecial3' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponName4'>
 <input name='attr_weaponName4' type='text'>
 </div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon4' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit4}]] + [[0@{weaponToHitMod4}]] ]] [[[[0@{weaponDamage4}]] + [[0@{weaponDamageMod4}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName4} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+</div>
 <div class='sheet-ui sheet-weaponToHit4'>
 <input name='attr_weaponToHit4' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod4'>
+<input name='attr_weaponToHitMod4' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage4'>
 <input name='attr_weaponDamage4' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod4'>
+<input name='attr_weaponDamageMod4' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit4'>
 <input name='attr_weaponCrit4' type='text'>
@@ -547,20 +576,26 @@
 <div class='sheet-ui sheet-weaponSize4'>
 <input name='attr_weaponSize4' type='text'>
 </div>
-<div class='sheet-ui sheet-weaponWt4'>
-<input name='attr_weaponWt4' type='text'>
-</div>
 <div class='sheet-ui sheet-weaponSpecial4'>
 <input name='attr_weaponSpecial4' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponName5'>
 <input name='attr_weaponName5' type='text'>
 </div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon5' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit5}]] + [[0@{weaponToHitMod5}]] ]] [[[[0@{weaponDamage5}]] + [[0@{weaponDamageMod5}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName5} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+</div>
 <div class='sheet-ui sheet-weaponToHit5'>
 <input name='attr_weaponToHit5' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod5'>
+<input name='attr_weaponToHitMod5' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage5'>
 <input name='attr_weaponDamage5' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod5'>
+<input name='attr_weaponDamageMod5' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit5'>
 <input name='attr_weaponCrit5' type='text'>
@@ -571,20 +606,26 @@
 <div class='sheet-ui sheet-weaponSize5'>
 <input name='attr_weaponSize5' type='text'>
 </div>
-<div class='sheet-ui sheet-weaponWt5'>
-<input name='attr_weaponWt5' type='text'>
-</div>
 <div class='sheet-ui sheet-weaponSpecial5'>
 <input name='attr_weaponSpecial5' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponName6'>
 <input name='attr_weaponName6' type='text'>
 </div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon6' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit6}]] + [[0@{weaponToHitMod6}]] ]] [[[[0@{weaponDamage6}]] + [[0@{weaponDamageMod6}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName6} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+</div>
 <div class='sheet-ui sheet-weaponToHit6'>
 <input name='attr_weaponToHit6' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod6'>
+<input name='attr_weaponToHitMod6' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage6'>
 <input name='attr_weaponDamage6' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod6'>
+<input name='attr_weaponDamageMod6' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit6'>
 <input name='attr_weaponCrit6' type='text'>
@@ -595,20 +636,26 @@
 <div class='sheet-ui sheet-weaponSize6'>
 <input name='attr_weaponSize6' type='text'>
 </div>
-<div class='sheet-ui sheet-weaponWt6'>
-<input name='attr_weaponWt6' type='text'>
-</div>
 <div class='sheet-ui sheet-weaponSpecial6'>
 <input name='attr_weaponSpecial6' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponName7'>
 <input name='attr_weaponName7' type='text'>
 </div>
+<div class='sheet-roll-button'>
+<button name='roll_weapon7' type='roll' value='&amp;{template:custom} [[ [[1d20]] + [[0@{weaponToHit7}]] + [[0@{weaponToHitMod7}]] ]] [[[[0@{weaponDamage7}]] + [[0@{weaponDamageMod7}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName7} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+</div>
 <div class='sheet-ui sheet-weaponToHit7'>
 <input name='attr_weaponToHit7' type='text'>
 </div>
+<div class='sheet-ui sheet-weaponToHitMod7'>
+<input name='attr_weaponToHitMod7' type='text'>
+</div>
 <div class='sheet-ui sheet-weaponDamage7'>
 <input name='attr_weaponDamage7' type='text'>
+</div>
+<div class='sheet-ui sheet-weaponDamageMod7'>
+<input name='attr_weaponDamageMod7' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponCrit7'>
 <input name='attr_weaponCrit7' type='text'>
@@ -618,9 +665,6 @@
 </div>
 <div class='sheet-ui sheet-weaponSize7'>
 <input name='attr_weaponSize7' type='text'>
-</div>
-<div class='sheet-ui sheet-weaponWt7'>
-<input name='attr_weaponWt7' type='text'>
 </div>
 <div class='sheet-ui sheet-weaponSpecial7'>
 <input name='attr_weaponSpecial7' type='text'>
@@ -632,7 +676,6 @@
 <div class='sheet-label sheet-table-header sheet-maxdex-header'>Max Dex</div>
 <div class='sheet-label sheet-table-header sheet-penalty-header'>&#10004;Penalty</div>
 <div class='sheet-label sheet-table-header sheet-spell-header'>Spell&#9785;</div>
-<div class='sheet-label sheet-table-header sheet-armorwt-header'>Wt</div>
 <div class='sheet-label sheet-table-header sheet-armorspecial-header'>Special Abilities</div>
 <div class='sheet-armorName1 sheet-ui'>
 <input name='attr_armorName1' type='text'>
@@ -648,9 +691,6 @@
 </div>
 <div class='sheet-armorSpellFail1 sheet-ui'>
 <input name='attr_armorSpellFail1' type='text'>
-</div>
-<div class='sheet-armorWt1 sheet-ui'>
-<input name='attr_armorWt1' type='text'>
 </div>
 <div class='sheet-armorSpecial1 sheet-ui'>
 <input name='attr_armorSpecial1' type='text'>
@@ -670,9 +710,6 @@
 <div class='sheet-armorSpellFail2 sheet-ui'>
 <input name='attr_armorSpellFail2' type='text'>
 </div>
-<div class='sheet-armorWt2 sheet-ui'>
-<input name='attr_armorWt2' type='text'>
-</div>
 <div class='sheet-armorSpecial2 sheet-ui'>
 <input name='attr_armorSpecial2' type='text'>
 </div>
@@ -690,9 +727,6 @@
 </div>
 <div class='sheet-armorSpellFail3 sheet-ui'>
 <input name='attr_armorSpellFail3' type='text'>
-</div>
-<div class='sheet-armorWt3 sheet-ui'>
-<input name='attr_armorWt3' type='text'>
 </div>
 <div class='sheet-armorSpecial3 sheet-ui'>
 <input name='attr_armorSpecial3' type='text'>
@@ -712,9 +746,6 @@
 <div class='sheet-armorSpellFail4 sheet-ui'>
 <input name='attr_armorSpellFail4' type='text'>
 </div>
-<div class='sheet-armorWt4 sheet-ui'>
-<input name='attr_armorWt4' type='text'>
-</div>
 <div class='sheet-armorSpecial4 sheet-ui'>
 <input name='attr_armorSpecial4' type='text'>
 </div>
@@ -732,9 +763,6 @@
 </div>
 <div class='sheet-armorSpellFail5 sheet-ui'>
 <input name='attr_armorSpellFail5' type='text'>
-</div>
-<div class='sheet-armorWt5 sheet-ui'>
-<input name='attr_armorWt5' type='text'>
 </div>
 <div class='sheet-armorSpecial5 sheet-ui'>
 <input name='attr_armorSpecial5' type='text'>
@@ -2790,6 +2818,7 @@
 <div class='sheet-label sheet-table-header sheet-spellspowers-subheader'>
 <div class='sheet-label'></div>
 <div class='sheet-label'>Level</div>
+<div class='sheet-label'>Name</div>
 <div class='sheet-label'>Description</div>
 <div class='sheet-label'>Duration</div>
 <div class='sheet-label'>Range</div>
@@ -2802,8 +2831,11 @@
 <div class='sheet-ui sheet-spellspowers-level'>
 <input name='attr_spellspowerslevel' placeholder='Lvl' title='Level of Spell or Power, leave blank if not applicable' type='text'>
 </div>
+<div class='sheet-ui sheet-spellspowers-name'>
+<input name='attr_spellspowersname' placeholder='Name' title='Name' type='text'>
+</div>
 <div class='sheet-ui sheet-spellspowers-description'>
-<input name='attr_spellspowersdescription' placeholder='Description' title='Name, damage dice, effect when used, etc' type='text'>
+<input name='attr_spellspowersdescription' placeholder='Description' title='Damage dice, effect when used, etc' type='text'>
 </div>
 <div class='sheet-ui sheet-spellspowers-duration'>
 <input name='attr_spellspowersduration' placeholder='Duration' title='instant, 1rd / lvl, etc' type='text'>
@@ -2880,9 +2912,7 @@ const multistats = {};
 const backpack            = _.map([...Array(29).keys()], function(n) {return 'backpackWt' + n})
 const worn                = _.map([...Array(29).keys()], function(n) {return 'wornWt' + n})
 const magic               = _.map([...Array(29).keys()], function(n) {return 'magicItemWt' + n})
-const armor               = _.map([...Array(6).keys()], function(n) {return 'armorWt' + n})
-const weapon              = _.map([...Array(8).keys()], function(n) {return 'weaponWt' + n})
-const gearwt              = _.union(backpack, worn, magic, armor, weapon)
+const gearwt              = _.union(backpack, worn, magic)
 multistats['coinwt']      = {rule: 'sum', attributes: ['platinumPieces', 'goldPieces', 'silverPieces', 'copperPieces'], modifier: 0.02};
 multistats['totalweight'] = {rule: 'sum', attributes: [...gearwt, 'coinwt']};
 
