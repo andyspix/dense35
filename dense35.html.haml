@@ -246,40 +246,66 @@
 
       -# WEAPONS
       .sheet-weapons
-        .sheet-label.sheet-table-header.sheet-weapons-header Weapons/Attacks
-        .sheet-label.sheet-table-header.sheet-weapons-subheader
-          .sheet-label.sheet-table-header.sheet-weaponname-header Name
+        .sheet-label.sheet-table-header.sheet-weapons-header
+          .sheet-label.sheet-table-header.sheet-weaponname-header Weapon/Attack
           .sheet-label.sheet-table-header.sheet-roll-weapon-header
           .sheet-label.sheet-table-header.sheet-tohit-header ToHit
           .sheet-label.sheet-table-header.sheet-tohitmod-header Hit+
           .sheet-label.sheet-table-header.sheet-damage-header Dmg
           .sheet-label.sheet-table-header.sheet-damagemod-header Dmg+
           .sheet-label.sheet-table-header.sheet-crit-header Crit
+          .sheet-label.sheet-table-header.sheet-mult-header Mult
           .sheet-label.sheet-table-header.sheet-range-header Rnge
           .sheet-label.sheet-table-header.sheet-wpnsize-header Size
-          .sheet-label.sheet-table-header.sheet-wpnspecial-header Special
+          .sheet-label.sheet-table-header.sheet-wpnspecial-header
         %fieldset.repeating_weapons
           .sheet-weapons-section
-            - %w(weaponName xxx weaponToHit weaponToHitMod weaponDamage weaponDamageMod weaponCrit weaponRange weaponSize weaponSpecial).each do |val|
-              -if val.eql? 'xxx'
-                .sheet-roll-button
-                  %button{type: 'roll', value: "&{template:custom} [[ [[1d20]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "rollweapon"}
-              -else
-                .sheet-ui{class: "sheet-#{val}"}
-                  %input{type: 'text', name: "attr_#{val}"}
+            .sheet-ui{class: "sheet-weaponName"}
+              %input{type: 'text', name: "attr_weaponName", placeholder: 'eg: Light XBow point blank'}
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} [[ [[1d20cs>@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "rollweapon"}
+            .sheet-ui{class: "sheet-weaponToHit"}
+              %input{type: 'text', name: "attr_weaponToHit", placeholder: '3'}
+            .sheet-ui{class: "sheet-weaponToHitMod"}
+              %input{type: 'text', name: "attr_weaponToHitMod", placeholder: '1'}
+            .sheet-ui{class: "sheet-weaponDamage"}
+              %input{type: 'text', name: "attr_weaponDamage", placeholder: '1d8'}
+            .sheet-ui{class: "sheet-weaponDamageMod"}
+              %input{type: 'text', name: "attr_weaponDamageMod", placeholder: '1'}
+            .sheet-ui{class: "sheet-weaponCrit"}
+              %input{type: 'text', name: "attr_weaponCrit", placeholder: '19'}
+            .sheet-ui{class: "sheet-weaponMult"}
+              %input{type: 'text', name: "attr_weaponMult", placeholder: '2'}
+            .sheet-ui{class: "sheet-weaponRange"}
+              %input{type: 'text', name: "attr_weaponRange", placeholder: '80ft'}
+            .sheet-ui{class: "sheet-weaponSize"}
+              %input{type: 'text', name: "attr_weaponSize", placeholder: 'm'}
+            .sheet-ui{class: "sheet-weaponSpecial"}
+              %input{type: 'text', name: "attr_weaponSpecial", placeholder: '...'}
 
       -# ARMOR
       .sheet-armor
-        .sheet-label.sheet-table-header.sheet-armor-header Armor/Shield/Item
-        .sheet-label.sheet-table-header.sheet-bonus-header Bonus
-        .sheet-label.sheet-table-header.sheet-maxdex-header Max Dex
-        .sheet-label.sheet-table-header.sheet-penalty-header &#10004;Penalty
-        .sheet-label.sheet-table-header.sheet-spell-header Spell&#9785;
-        .sheet-label.sheet-table-header.sheet-armorspecial-header Special Abilities
-        - (1..5).each do |i|
-          - %w(armorName armorBonus armorMaxDex armorPenalty armorSpellFail armorSpecial).each do |val|
-            .sheet-ui{class: "sheet-#{val}#{i}"}
-              %input{type: 'text', name: "attr_#{val}#{i}"}
+        .sheet-label.sheet-table-header.sheet-armor-header
+          .sheet-label.sheet-table-header.sheet-armorname-header Armor/Shield/Item
+          .sheet-label.sheet-table-header.sheet-bonus-header Bonus
+          .sheet-label.sheet-table-header.sheet-maxdex-header Max Dex
+          .sheet-label.sheet-table-header.sheet-penalty-header &#10004;Penalty
+          .sheet-label.sheet-table-header.sheet-spell-header Spell&#9785;
+          .sheet-label.sheet-table-header.sheet-armorspecial-header
+        %fieldset.repeating_armor
+          .sheet-armor-section
+            .sheet-ui{class: "sheet-armorName"}
+              %input{type: 'text', name: "attr_armorName", placeholder: 'eg: leather armor +1'}
+            .sheet-ui{class: "sheet-armorBonus"}
+              %input{type: 'text', name: "attr_armorBonus", placeholder: '3'}
+            .sheet-ui{class: "sheet-armorMaxDex"}
+              %input{type: 'text', name: "attr_armorMaxDex", placeholder: '6'}
+            .sheet-ui{class: "sheet-armorPenalty"}
+              %input{type: 'text', name: "attr_armorPenalty", placeholder: '0'}
+            .sheet-ui{class: "sheet-armorSpellFail"}
+              %input{type: 'text', name: "attr_armorSpellFail", placeholder: '10%'}
+            .sheet-ui{class: "sheet-armorSpecial"}
+              %input{type: 'text', name: "attr_armorSpecial", placeholder: '...'}
 
       -# TRAITS & ABILITIES
       .sheet-traits-abilities

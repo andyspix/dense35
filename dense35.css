@@ -4,7 +4,9 @@
 	width: 850px;
 	padding: 0px;
 }
-
+::placeholder {
+	color: silver;
+}
 .sheet-grid {
 	display: grid;
 	row-gap: 20px;
@@ -234,9 +236,19 @@
 	grid-row: 3;
 	justify-self: stretch;
 	align-self: start;
-	grid-template-columns: auto 105px;
-	grid-template-rows: 18px auto;
-	border-top: 1px solid silver;
+	grid-template-columns: auto 100px;
+	grid-template-rows: auto;
+	border-right: 1px solid silver;
+}
+
+.charsheet .sheet-armor {
+	display: grid;
+	grid-column: 1 / span 2;
+	grid-row: 4;
+	justify-self: stretch;
+	align-self: start;
+	grid-template-columns: auto 100px;
+	grid-template-rows: auto;
 	border-right: 1px solid silver;
 }
 
@@ -292,19 +304,6 @@
 .charsheet .sheet-notes .sheet-ui,
 .charsheet .sheet-spellspowers .sheet-ui {
 	border-bottom: 1px solid silver;
-}
-
-.sheet-armor {
-	display: grid;
-	grid-column: 1 / span 2;
-	grid-row: 4;
-	justify-self: stretch;
-	align-self: center;
-	grid-gap: 0px;
-	grid-template-columns: 144px 47px 65px 65px 53px auto;
-	grid-template-rows: repeat(6, 18px);
-	border-top: 1px solid silver;
-	border-right: 1px solid silver;
 }
 
 .sheet-traits-abilities {
@@ -532,27 +531,44 @@
 	grid-template-rows: 28px auto;
 }
 
-.charsheet .sheet-weapons .sheet-weapons-subheader {
-	grid-row: 2;
+.charsheet .sheet-armor .sheet-armor-header,
+.charsheet .sheet-weapons .sheet-weapons-header {
+	grid-row: 1;
 	grid-column: 1 / span 2;
 	border-bottom: none;
 	border-left: none;
-	border-top: 1px solid silver;
+	border-top: none;
 	background: rgba(255, 255, 255, 0);
 }
 
-/* HERE */
-.charsheet .sheet-weapons-subheader,
-.charsheet .sheet-weapons-section {
+.charsheet .sheet-armor-header,
+.charsheet .sheet-armor-section {
 	display: grid;
-	grid-template-columns: 145px 20px 40px 35px 40px 40px 40px 40px 30px auto;
+	grid-template-columns: 144px 47px 65px 65px 53px auto;
 	grid-template-rows: 18px;
-	border-top: none;
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
 
-.charsheet .sheet-weapons .sheet-weapons-header,
+/* HERE */
+.charsheet .sheet-weapons-header,
+.charsheet .sheet-weapons-section {
+	display: grid;
+	grid-template-columns: 145px 20px 40px 35px 40px 40px 40px 30px 40px 30px auto;
+	grid-template-rows: 18px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.charsheet .sheet-armor .sheet-armor-header,
+.charsheet .sheet-weapons .sheet-weapons-header {
+	grid-row: 1;
+	border-top: 1px solid silver;
+	grid-template-rows: 22px;
+	grid-column: 1 / span 2;
+	align-self: center;
+}
+
 .charsheet .sheet-page2 .sheet-spellspowers .sheet-spellspowers-header,
 .charsheet .sheet-page2 .sheet-notes .sheet-notes-header {
 	grid-row: 1;
@@ -580,17 +596,19 @@
 
 .repcontrol[data-groupname=repeating_spellspowers],
 .repcontrol[data-groupname=repeating_notes],
+.repcontrol[data-groupname=repeating_armor],
 .repcontrol[data-groupname=repeating_weapons] {
 	grid-row: 1;
 	grid-column: 2;
  }
 
+.repcontainer[data-groupname=repeating_armor],
+.repcontainer[data-groupname=repeating_weapons],
 .repcontainer[data-groupname=repeating_notes] {
 	grid-row: 2;
 	grid-column: 1 / span 2;
  }
 
-.repcontainer[data-groupname=repeating_weapons],
 .repcontainer[data-groupname=repeating_spellspowers] {
 	grid-row: 3;
 	grid-column: 1 / span 2;
@@ -603,17 +621,21 @@
 	grid-template-rows: 18px;
 }
 
+.sheet-armor .repcontrol_add,
+.sheet-armor .repcontrol_edit,
 .sheet-weapons .repcontrol_add,
 .sheet-weapons .repcontrol_edit {
 	padding: 1px 6px 1px;
-	margin-top: -2px;
+	margin-top: 1px;
 }
 
+.sheet-armor .repcontainer .repcontrol_move,
 .sheet-weapons .repcontainer .repcontrol_move {
 	padding: 0px 4px 0px;
 	margin-left: -10px;
 }
 
+.sheet-armor .repcontainer .repcontrol_del,
 .sheet-weapons .repcontainer .repcontrol_del {
 	padding: 0px 4px 0px;
 	margin-left: 10px;
@@ -715,7 +737,7 @@
 }
 
 .sheet-rolltemplate-custom .sheet-content .inlinerollresult:last-of-type {
-	background:rgb(4, 133, 113);
+	background:rgb(3, 35, 65);
 	color: #FFF
 }
 /* Description field */
