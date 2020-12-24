@@ -246,24 +246,27 @@
 
       -# WEAPONS
       .sheet-weapons
-        .sheet-label.sheet-table-header.sheet-weapons-header Weapons
-        .sheet-label.sheet-table-header.sheet-roll-weapon-header
-        .sheet-label.sheet-table-header.sheet-tohit-header ToHit
-        .sheet-label.sheet-table-header.sheet-tohitmod-header Mod
-        .sheet-label.sheet-table-header.sheet-damage-header Dmg
-        .sheet-label.sheet-table-header.sheet-damagemod-header Mod
-        .sheet-label.sheet-table-header.sheet-crit-header Crit
-        .sheet-label.sheet-table-header.sheet-range-header Rnge
-        .sheet-label.sheet-table-header.sheet-wpnsize-header Size
-        .sheet-label.sheet-table-header.sheet-wpnspecial-header Special
-        - (1..7).each do |i|
-          - %w(weaponName xxx weaponToHit weaponToHitMod weaponDamage weaponDamageMod weaponCrit weaponRange weaponSize weaponSpecial).each do |val|
-            -if val.eql? 'xxx'
-              .sheet-roll-button
-                %button{type: 'roll', value: "&{template:custom} [[ [[1d20]] + [[0@{weaponToHit#{i}}]] + [[0@{weaponToHitMod#{i}}]] ]] [[[[0@{weaponDamage#{i}}]] + [[0@{weaponDamageMod#{i}}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName#{i}} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "roll_weapon#{i}"}
-            -else
-              .sheet-ui{class: "sheet-#{val}#{i}"}
-                %input{type: 'text', name: "attr_#{val}#{i}"}
+        .sheet-label.sheet-table-header.sheet-weapons-header Weapons/Attacks
+        .sheet-label.sheet-table-header.sheet-weapons-subheader
+          .sheet-label.sheet-table-header.sheet-weaponname-header Name
+          .sheet-label.sheet-table-header.sheet-roll-weapon-header
+          .sheet-label.sheet-table-header.sheet-tohit-header ToHit
+          .sheet-label.sheet-table-header.sheet-tohitmod-header Hit+
+          .sheet-label.sheet-table-header.sheet-damage-header Dmg
+          .sheet-label.sheet-table-header.sheet-damagemod-header Dmg+
+          .sheet-label.sheet-table-header.sheet-crit-header Crit
+          .sheet-label.sheet-table-header.sheet-range-header Rnge
+          .sheet-label.sheet-table-header.sheet-wpnsize-header Size
+          .sheet-label.sheet-table-header.sheet-wpnspecial-header Special
+        %fieldset.repeating_weapons
+          .sheet-weapons-section
+            - %w(weaponName xxx weaponToHit weaponToHitMod weaponDamage weaponDamageMod weaponCrit weaponRange weaponSize weaponSpecial).each do |val|
+              -if val.eql? 'xxx'
+                .sheet-roll-button
+                  %button{type: 'roll', value: "&{template:custom} [[ [[1d20]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "rollweapon"}
+              -else
+                .sheet-ui{class: "sheet-#{val}"}
+                  %input{type: 'text', name: "attr_#{val}"}
 
       -# ARMOR
       .sheet-armor
