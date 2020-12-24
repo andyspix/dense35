@@ -544,7 +544,7 @@
 .charsheet .sheet-armor-header,
 .charsheet .sheet-armor-section {
 	display: grid;
-	grid-template-columns: 144px 47px 65px 65px 53px auto;
+	grid-template-columns: 184px 47px 65px 65px 53px auto;
 	grid-template-rows: 18px;
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -554,7 +554,7 @@
 .charsheet .sheet-weapons-header,
 .charsheet .sheet-weapons-section {
 	display: grid;
-	grid-template-columns: 145px 20px 40px 35px 40px 40px 40px 30px 40px 30px auto;
+	grid-template-columns: 145px 18px 40px 35px 43px 43px 35px 30px 40px 30px auto;
 	grid-template-rows: 18px;
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -590,7 +590,7 @@
 .charsheet .sheet-spellspowers-section {
 	display: grid;
 	column-gap: 5px;
-	grid-template-columns: 5px 20px 90px 500px 80px 70px 50px 5px;
+	grid-template-columns: 5px 20px 150px 440px 80px 70px 50px 5px;
 	grid-template-rows: 18px;
 }
 
