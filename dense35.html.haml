@@ -468,17 +468,19 @@
         .sheet-label.sheet-table-header.sheet-spellspowers-subheader
           .sheet-label
           .sheet-label Level
+          .sheet-label Uses
           .sheet-label Name
           .sheet-label Description
           .sheet-label Duration
           .sheet-label Range
-          .sheet-label Uses/Cost
           .sheet-label
         %fieldset.repeating_spellspowers
           .sheet-spellspowers-section
             .sheet-label
             .sheet-ui.sheet-spellspowers-level
               %input{type: 'text', name: 'attr_spellspowerslevel', placeholder: 'Lvl', title: 'Level of Spell or Power, leave blank if not applicable'}
+            .sheet-ui.sheet-spellspowers-usespoints
+              %input{type: 'text', name: 'attr_spellspowersusescost', placeholder: 'Uses/Cost', title: 'How many uses per day, times memorized, or PsiPt cost of power' }
             .sheet-ui.sheet-spellspowers-name
               %input{type: 'text', name: 'attr_spellspowersname', placeholder: 'Name', title: 'Name'}
             .sheet-ui.sheet-spellspowers-description
@@ -487,8 +489,6 @@
               %input{type: 'text', name: 'attr_spellspowersduration', placeholder: 'Duration', title: 'instant, 1rd / lvl, etc'}
             .sheet-ui.sheet-spellspowers-range
               %input{type: 'text', name: 'attr_spellspowersrange', placeholder: 'Range', title: 'personal, touch, area, distance, etc'}
-            .sheet-ui.sheet-spellspowers-usespoints
-              %input{type: 'text', name: 'attr_spellspowersusescost', placeholder: 'Uses/Cost', title: 'How many uses per day, times memorized, or PsiPt cost of power' }
             .sheet-label
 
 %script{type: 'text/worker'}
