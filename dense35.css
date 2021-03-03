@@ -509,6 +509,7 @@
 
 /* REPEATING INPUTS */
 .charsheet .sheet-grid .sheet-spellspowers input{
+	text-align: left;
 	height: 22px;
 }
 
@@ -590,7 +591,7 @@
 .charsheet .sheet-spellspowers-section {
 	display: grid;
 	column-gap: 5px;
-	grid-template-columns: 5px 20px 150px 440px 80px 70px 50px 5px;
+	grid-template-columns: 5px 20px 40px 150px 440px 80px 70px 5px;
 	grid-template-rows: 18px;
 }
 

@@ -467,8 +467,8 @@
         .sheet-label.sheet-table-header.sheet-spellspowers-header Spells and Powers
         .sheet-label.sheet-table-header.sheet-spellspowers-subheader
           .sheet-label
-          .sheet-label Level
-          .sheet-label Uses
+          .sheet-label Lvl
+          .sheet-label Use
           .sheet-label Name
           .sheet-label Description
           .sheet-label Duration
@@ -480,15 +480,15 @@
             .sheet-ui.sheet-spellspowers-level
               %input{type: 'text', name: 'attr_spellspowerslevel', placeholder: 'Lvl', title: 'Level of Spell or Power, leave blank if not applicable'}
             .sheet-ui.sheet-spellspowers-usespoints
-              %input{type: 'text', name: 'attr_spellspowersusescost', placeholder: 'Uses/Cost', title: 'How many uses per day, times memorized, or PsiPt cost of power' }
+              %input{type: 'text', name: 'attr_spellspowersusescost', placeholder: 'Use', title: 'How many uses per day, times memorized, or PsiPt cost of power' }
             .sheet-ui.sheet-spellspowers-name
               %input{type: 'text', name: 'attr_spellspowersname', placeholder: 'Name', title: 'Name'}
             .sheet-ui.sheet-spellspowers-description
               %input{type: 'text', name: 'attr_spellspowersdescription', placeholder: 'Description', title: 'Damage dice, effect when used, etc'}
             .sheet-ui.sheet-spellspowers-duration
-              %input{type: 'text', name: 'attr_spellspowersduration', placeholder: 'Duration', title: 'instant, 1rd / lvl, etc'}
+              %input{type: 'text', name: 'attr_spellspowersduration', placeholder: 'Duration', title: 'instant, min / lvl, etc'}
             .sheet-ui.sheet-spellspowers-range
-              %input{type: 'text', name: 'attr_spellspowersrange', placeholder: 'Range', title: 'personal, touch, area, distance, etc'}
+              %input{type: 'text', name: 'attr_spellspowersrange', placeholder: 'Range', title: 'personal, close, long, touch, area, 10ft-sphere, etc'}
             .sheet-label
 
 %script{type: 'text/worker'}
