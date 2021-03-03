@@ -1,3 +1,25 @@
-This is a compacted sheet for use with 3.5 campaigns.  Add the following macros to implement Skill rolls, Saving Throws, Ability Checks, and Initiative Rolls:
+This is a compacted sheet for use with 3.5e campaigns:
 
-// Macros TBD
+Macros and API configuration:
+
+/////////////////////////////////////////////////////////////////////////////////////
+// To Configure Group Initiative, set the following in the Roll20 command window:
+/////////////////////////////////////////////////////////////////////////////////////
+!group-init --add-group --bare initiative|current  --tie-breaker initiateive|current
+!group-init --add-group --token_bar 1  --tie-breaker-token_bar 1
+
+// and Create a Macro called 'Initiative' in the GM account.  The Macro
+// Should be Visible to 'All Players' and 'Show as Token Action', containing:
+!group-init
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+// To Configure custom Spell/round/effect tracking that all players can use:
+/////////////////////////////////////////////////////////////////////////////////////
+// and Create a Macro called 'Initiative' in the GM account.  The Macro
+// Should be Visible to 'All Players', containing:
+!act ?{Increment?|1} ?{Start?|1} --?{Name?|Round}
+
+/////////////////////////////////////////////////////////////////////////////////////
