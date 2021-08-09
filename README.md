@@ -18,7 +18,7 @@ Macros and API configuration:
 /////////////////////////////////////////////////////////////////////////////////////
 // To Configure custom Spell/round/effect tracking that all players can use:
 /////////////////////////////////////////////////////////////////////////////////////
-// and Create a Macro called 'Initiative' in the GM account.  The Macro
+// and Create a Macro called 'Act' in the GM account.  The Macro
 // Should be Visible to 'All Players', containing:
 !act ?{Increment?|1} ?{Start?|1} --?{Name?|Round}
 
