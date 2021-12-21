@@ -5,7 +5,7 @@ Macros and API configuration:
 /////////////////////////////////////////////////////////////////////////////////////
 // To Configure Group Initiative, set the following in the Roll20 command window:
 /////////////////////////////////////////////////////////////////////////////////////
-!group-init --add-group --bare initiative|current  --tie-breaker initiateive|current
+!group-init --add-group --bare initiative|current  --tie-breaker initiative|current
 !group-init --add-group --token_bar 1  --tie-breaker-token_bar 1
 
 // and Create a Macro called 'Initiative' in the GM account.  The Macro
