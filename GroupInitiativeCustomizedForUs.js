@@ -5,8 +5,8 @@
 const GroupInitiative = (() => { // eslint-disable-line no-unused-vars
 
     const scriptName = "GroupInitiative";
-    const version = '0.9.34';
-    const lastUpdate = 1589282532;
+    const version = '0.9.36';
+    const lastUpdate = 1643852555;
     const schemaVersion = 1.3;
 
     const isString = (s)=>'string'===typeof s || s instanceof String;
@@ -46,20 +46,6 @@ const GroupInitiative = (() => { // eslint-disable-line no-unused-vars
               newTo = [...newTo.slice(idx),...newTo.slice(0,idx)];
             }
             return newTo;
-          }
-        },
-        'RotateDown': {
-          desc: `Increments Turn Order Down by one, rotating first to last`,
-          func: (to,preserveFirst) => {
-            let newTo = to.slice(1).concat(to[0]);
-            return ((to.length < 2) ? to : newTo);
-          }
-        },
-        'RotateUp': {
-          desc: `Increments Turn Order Up by one, rotating last to first`,
-          func: (to,preserveFirst) => {
-            let newTo = to.slice(-1).concat(to.slice(0,-1));
-            return ((to.length < 2) ? to : newTo);
           }
         }
     };
@@ -788,20 +774,6 @@ const _h = {
               ),
               _h.font.command(
                   `!group-init`,
-                  `--advance-turn`
-              ),
-              _h.paragraph(
-                `Advance the Turn in the Turn Order. (Current to Last)`
-              ),
-              _h.font.command(
-                  `!group-init`,
-                  `--backup-turn`
-              ),
-              _h.paragraph(
-                `Backup the Turn in the Turn Order. (Last to Current)`
-              ),
-              _h.font.command(
-                  `!group-init`,
                   `--clear`
               ),
               _h.paragraph(
@@ -834,7 +806,7 @@ const _h = {
 
           sortOptionsConfig: ( /* context */ ) => _h.section('Sorter Options',
             _h.paragraph(
-              `Sorting adjusts the order of entries in the Turn Order when the Sort command is issued.`
+              `The Sorter is used to determine how to reorder entries in the Turn Order whenever GroupInitiative performs a sort.  Sorting occurs when the sort command (${_h.code('!group-init --sort')}) is issued, when stack entries are merged into the current Turn Order, and when new entries are added to the Turn Order with a GroupInitiative command (like ${_h.code('!group-init')}).`
             ),
             _h.inset(
               _h.ul(
@@ -1167,6 +1139,7 @@ const _h = {
                                 return {
                                     id: s.token.id,
                                     pr: s.rollResults.total,
+                                    _pageid: s.token.get('pageid'),
                                     custom: ''
                                 };
                             })
@@ -1587,6 +1560,9 @@ const _h = {
                             break;
 
                         case 'toggle-turnorder':
+                            if(!playerIsGM(msg.playerid)){
+                                return;
+                            }
                             if(false !== Campaign().get('initiativepage') ){
                                 Campaign().set({
                                     initiativepage: false
@@ -1617,30 +1593,11 @@ const _h = {
                             break;
 
                         case 'sort':
+                            if(!playerIsGM(msg.playerid)){
+                                return;
+                            }
                             Campaign().set('turnorder', JSON.stringify(
                                 sorters[state[scriptName].config.sortOption].func(
-                                    JSON.parse(Campaign().get('turnorder'))||[],
-                                    false
-                                )
-                            ));
-                            notifyObservers('turnOrderChange',Campaign().get('turnorder'),prev);
-
-                            break;
-
-                        case 'advance-turn':
-                            Campaign().set('turnorder', JSON.stringify(
-                                sorters['RotateDown'].func(
-                                    JSON.parse(Campaign().get('turnorder'))||[],
-                                    false
-                                )
-                            ));
-                            notifyObservers('turnOrderChange',Campaign().get('turnorder'),prev);
-
-                            break;
-
-                        case 'backup-turn':
-                            Campaign().set('turnorder', JSON.stringify(
-                                sorters['RotateUp'].func(
                                     JSON.parse(Campaign().get('turnorder'))||[],
                                     false
                                 )
@@ -1709,6 +1666,9 @@ const _h = {
 
 
                         case 'clear':
+                            if(!playerIsGM(msg.playerid)){
+                                return;
+                            }
                             Campaign().set({
                                 turnorder: '[]',
                                 initiativepage: (state[scriptName].config.autoOpenInit ? false : Campaign().get('initiativepage'))
