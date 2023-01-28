@@ -382,11 +382,70 @@
           %input{type: 'text', name: "attr_weightDrag", readonly: true}
 
       -# SKILLS
-      .sheet-skills
+      -skills1 = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'],
+        }
+      -skills2 = { 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'KnowledgeFillIn6' => [1, 'INT'], 'KnowledgeFillIn7' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'] }
+      -skills3 = { 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
+      .sheet-skills.sheet-skills-1
         .sheet-label.sheet-table-header.sheet-skills-header SKILLS
         .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
-        -skills = { 'Appraise' => [0, 'INT'], 'Autohypnosis' => [1, 'WIS'], 'Balance' => [0, 'DEX'], 'Bluff' => [0, 'CHA'], 'Climb' => [0, 'STR'], 'Concentration' => [0, 'CON'], 'CraftFillIn1' => [0, 'INT'], 'CraftFillIn2' => [0, 'INT'], 'CraftFillIn3' => [0, 'INT'], 'Decipher Script' => [1, 'INT'], 'Diplomacy' => [0, 'CHA'], 'Disable Device' => [1, 'INT'], 'Disguise' => [0, 'CHA'], 'Escape Artist' => [0, 'DEX'], 'Forgery' => [0, 'INT'], 'Gather Info' => [0, 'CHA'], 'Handle Animal' => [1, 'CHA'], 'Heal' => [0, 'WIS'], 'Hide' => [0, 'DEX'], 'Intimidate' => [0, 'CHA'], 'Jump' => [0, 'STR'], 'KnowledgeFillIn1' => [1, 'INT'], 'KnowledgeFillIn2' => [1, 'INT'], 'KnowledgeFillIn3' => [1, 'INT'], 'KnowledgeFillIn4' => [1, 'INT'], 'KnowledgeFillIn5' => [1, 'INT'], 'KnowledgeFillIn6' => [1, 'INT'], 'KnowledgeFillIn7' => [1, 'INT'], 'Listen' => [0, 'WIS'], 'Move Silently' => [0, 'DEX'], 'Open Lock' => [1, 'DEX'], 'PerformFillIn1' => [0, 'CHA'], 'PerformFillIn2' => [0, 'CHA'], 'PerformFillIn3' => [0, 'CHA'], 'ProfessionFillIn1' => [1, 'WIS'], 'ProfessionFillIn2' => [1, 'WIS'], 'PsiCraft' => [1, 'INT'], 'Ride' => [0, 'DEX'], 'Search' => [0, 'INT'], 'Sense Motive' => [0, 'WIS'], 'Sleight Of Hand' => [1, 'DEX'], 'Speak Language' => [1, 'INT'], 'SpellCraft' => [1, 'INT'], 'Spot' => [0, 'WIS'], 'Survival' => [0, 'WIS'], 'Swim' => [0, 'STR'], 'Tumble' => [1, 'DEX'], 'Use Magic Device' => [1, 'CHA'], 'Use Psionic Device' => [1, 'CHA'], 'Use Rope' => [0, 'DEX'], }
-        - skills.each do |k, v|
+        - skills1.each do |k, v|
+          - safename = k.downcase.tr(' ', '')
+          - if k =~ /FillIn\d+/
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
+            .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
+              %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
+          - else
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
+          .sheet-ui.sheet-skill-total
+            %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-skill-statmod.sheet-hideleft
+            %input{type: 'text', name: "attr_#{safename}Statmod", placeholder: v[1], readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-ranks.sheet-hideleft
+            %input{type: 'text', name: "attr_#{safename}Ranks"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-miscmod.sheet-hideleft
+            %input{type: 'text', name: "attr_#{safename}Miscmod"}
+          .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_#{safename}MiscExplanation", placeholder: '...', title: '-explanation-'}
+      .sheet-skills.sheet-skills-2
+        .sheet-label.sheet-table-header.sheet-skills-header SKILLS
+        .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
+        - skills2.each do |k, v|
+          - safename = k.downcase.tr(' ', '')
+          - if k =~ /FillIn\d+/
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
+            .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
+              %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
+          - else
+            .sheet-roll-button
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
+          .sheet-ui.sheet-skill-total
+            %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator =
+          .sheet-ui.sheet-skill-statmod.sheet-hideleft
+            %input{type: 'text', name: "attr_#{safename}Statmod", placeholder: v[1], readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-ranks.sheet-hideleft
+            %input{type: 'text', name: "attr_#{safename}Ranks"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-skill-miscmod.sheet-hideleft
+            %input{type: 'text', name: "attr_#{safename}Miscmod"}
+          .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft.sheet-misc-explanation
+            %input{type: 'text', name: "attr_#{safename}MiscExplanation", placeholder: '...', title: '-explanation-'}
+      .sheet-skills.sheet-skills-3
+        .sheet-label.sheet-table-header.sheet-skills-header SKILLS
+        .sheet-label-small.sheet-skills-explain Mod = Stat + Ranks + Misc
+        - skills3.each do |k, v|
           - safename = k.downcase.tr(' ', '')
           - if k =~ /FillIn\d+/
             .sheet-roll-button
@@ -429,7 +488,7 @@
             %input{type: 'text', name: "attr_skillMisc#{i}Miscmod"}
           .sheet-ui.sheet-skill-misc-explanation.sheet-hideleft
             %input{type: 'text', name: "attr_skillMisc#{i}MiscExplanation"}
-        - 10.times do |i|
+        - 9.times do |i|
           .sheet-ui.sheet-skill-miscline
             %input{type: 'text', name: "attr_miscline#{i}"}
         .sheet-skill-money

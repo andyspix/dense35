@@ -230,13 +230,22 @@
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
 	display: grid;
-	grid-column: 3;
-	grid-row: 3 / span 5;
+	grid-row: 3;
 	justify-self: stretch;
 	align-self: stretch;
 	grid-gap: 0px;
 	grid-template-columns: 16px 61px 61px 25px 9px 29px 9px 18px 9px 18px auto;
 	grid-template-rows: repeat(65, 18px)
+}
+
+.sheet-skills-1 {
+	grid-column: 1;
+}
+.sheet-skills-2 {
+	grid-column: 2;
+}
+.sheet-skills-3 {
+	grid-column: 3;
 }
 
 .sheet-merged-skill {
@@ -250,7 +259,7 @@
 .charsheet .sheet-weapons {
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 3;
+	grid-row: 4;
 	justify-self: stretch;
 	align-self: start;
 	grid-template-columns: auto 100px;
@@ -261,7 +270,7 @@
 .charsheet .sheet-armor {
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 4;
+	grid-row: 5;
 	justify-self: stretch;
 	align-self: start;
 	grid-template-columns: auto 100px;
@@ -328,7 +337,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 5;
+	grid-row: 6;
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
@@ -342,7 +351,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 6;
+	grid-row: 7;
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
@@ -356,7 +365,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 7;
+	grid-row: 8;
 	justify-self: stretch;
 	align-self: end;
 	grid-gap: 0px;
