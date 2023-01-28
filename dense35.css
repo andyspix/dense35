@@ -230,14 +230,6 @@
   text-align: center;
 }
 
-.charsheet .sheet-modifiers .sheet-modifiers-header {
-	grid-row: 1;
-	border-top: 1px solid silver;
-	grid-template-rows: 22px;
-	grid-column: 1 / span 3;
-	align-self: stretch;
-}
-
 .charsheet .sheet-modifiers {
 	display: grid;
 	grid-column: 1 / span 3;
@@ -562,13 +554,25 @@
 	padding-bottom: 0px;
 }
 
-.charsheet .sheet-modifiers-header,
-.charsheet .sheet-modifiers-section {
+.charsheet .sheet-modifiers .sheet-modifiers-section {
 	display: grid;
-	grid-template-columns: repeat(10, 84px) auto ;
-	grid-template-rows: 18px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+	border: 1px solid silver;
+	grid-template-columns: repeat(4, 25px 80px) repeat(3, 25px 73px 37px) auto;
+	grid-template-rows: 18px 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.charsheet .sheet-modifiers .sheet-modifiers-section input[type=checkbox] {
+  transform: scale(63%);
+  margin: 0;
+  padding: 0;
+  margin-top: -2;
+}
+
+.charsheet .sheet-modifiers .sheet-modifiers-section .sheet-label {
+  margin-top: 1;
+  padding: 0;
 }
 
 .charsheet .sheet-weapons-header,

@@ -246,28 +246,64 @@
 
       -# MODIFIERS
       .sheet-modifiers
-        .sheet-label.sheet-table-header.sheet-modifiers-header
-          .sheet-label.sheet-table-header.sheet-mod-header Charging
-          .sheet-label.sheet-table-header.sheet-mod-header Flanking
-          .sheet-label.sheet-table-header.sheet-mod-header Hasted
-          .sheet-label.sheet-table-header.sheet-mod-header Entangled
-          .sheet-label.sheet-table-header.sheet-mod-header Shaken/Fear
-          .sheet-label.sheet-table-header.sheet-mod-header Sickened
-          .sheet-label.sheet-table-header.sheet-mod-header Stunned
-          .sheet-label.sheet-table-header.sheet-mod-header Inspired
-          .sheet-label.sheet-table-header.sheet-mod-header Fatigued
-          .sheet-label.sheet-table-header.sheet-mod-header Exhausted
         .sheet-modifiers-section
-          %input{type: 'checkbox', name: "charging_check", value: 2}
-          %input{type: 'checkbox', name: "flanking_check", value: 2}
-          %input{type: 'checkbox', name: "hasted_check", value: 1}
-          %input{type: 'checkbox', name: "entangled_check", value: -2}
-          %input{type: 'checkbox', name: "shaken_check", value: -2}
-          %input{type: 'checkbox', name: "sickened_check", value: -2}
-          %input{type: 'checkbox', name: "stunned_check", value: -2}
-          %input{type: 'checkbox', name: "inspired_check", value: 1}
-          %input{type: 'checkbox', name: "fatigued_check", value: -2}
-          %input{type: 'checkbox', name: "exhausted_check", value: -6}
+          %input{type: 'checkbox', name: "attr_chargingCheck", value: 2}
+          .sheet-label Charging
+
+          %input{type: 'checkbox', name: "attr_hastedCheck", value: 1}
+          .sheet-label Hasted
+
+          %input{type: 'checkbox', name: "attr_entangledCheck", value: -2}
+          .sheet-label Entangled
+
+          %input{type: 'checkbox', name: "attr_shakenCheck", value: -2}
+          .sheet-label Shaken/Fear
+
+          %input{type: 'checkbox', name: "attr_moraleHitCheck", value: 1}
+          .sheet-label MoraleHit
+          .sheet-hideleft.sheet-ui{class: "sheet-modMoraleHit"}
+            %input{type: 'text', name: "attr_modMoraleHit"}
+
+          %input{type: 'checkbox', name: "attr_insightHitCheck", value: 1}
+          .sheet-label InsightHit
+          .sheet-hideleft.sheet-ui{class: "sheet-modInsightHit"}
+            %input{type: 'text', name: "attr_modInsightHit"}
+
+          %input{type: 'checkbox', name: "attr_otherHitCheck", value: 1}
+          .sheet-label OtherHit
+          .sheet-hideleft.sheet-ui{class: "sheet-modOtherHit"}
+            %input{type: 'text', name: "attr_modOtherHit"}
+
+          .auto-gap
+
+          %input{type: 'checkbox', name: "attr_flankingCheck", value: 2}
+          .sheet-label Flanking
+
+          %input{type: 'checkbox', name: "attr_slowedCheck", value: -1}
+          .sheet-label Slowed
+
+          %input{type: 'checkbox', name: "attr_stunnedCheck", value: -2}
+          .sheet-label Stunned
+
+          %input{type: 'checkbox', name: "attr_sickenedCheck", value: -2}
+          .sheet-label Sickened
+
+          %input{type: 'checkbox', name: "attr_moraleDmgCheck", value: 1}
+          .sheet-label MoraleDmg
+          .sheet-hideleft.sheet-ui{class: "sheet-modMoraleDmg"}
+            %input{type: 'text', name: "attr_modMoraleDmg"}
+
+          %input{type: 'checkbox', name: "attr_insightDmgCheck", value: 1}
+          .sheet-label InsightDmg
+          .sheet-hideleft.sheet-ui{class: "sheet-modInsightDmg"}
+            %input{type: 'text', name: "attr_modInsightDmg"}
+
+          %input{type: 'checkbox', name: "attr_otherDmgCheck", value: 1}
+          .sheet-label OtherDmg
+          .sheet-hideleft.sheet-ui{class: "sheet-modOtherDmg"}
+            %input{type: 'text', name: "attr_modOtherDmg"}
+
+          .auto-gap
       -# WEAPONS
       .sheet-weapons
         .sheet-label.sheet-table-header.sheet-weapons-header
@@ -288,7 +324,7 @@
               %input{type: 'text', name: "attr_weaponName", placeholder: 'eg: Light XBow point blank'}
             .sheet-roll-button
               -# ANDY LOOK HERE
-              %button{type: 'roll', value: "&{template:custom} [[ [[1d20cs>@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] + [[0@{charging_check}]] + [[0@{flanking_check}]] + [[0@{hasted_check}]] + [[0@{shaken_check}]] + [[0@{inspired_check}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "rollweapon"}
+              %button{type: 'roll', value: "&{template:custom} [[ [[1d20cs>@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] + [[ [[0@{chargingCheck}]] + [[0@{flankingCheck}]] + [[0@{hastedCheck}]] + [[0@{shakenCheck}]] + [[0@{inspiredCheck}]] ]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] + $[[8]] = $[[9]] }} {{Damage=$[[10]] + $[[11]] = $[[12]]}}", name: "rollweapon"}
             .sheet-ui{class: "sheet-weaponToHit"}
               %input{type: 'text', name: "attr_weaponToHit", placeholder: '3'}
             .sheet-ui{class: "sheet-weaponToHitMod"}
@@ -416,13 +452,13 @@
           - if k =~ /FillIn\d+/
             .sheet-roll-button
               %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
-            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}!= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
             .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
               %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
           - else
             .sheet-roll-button
               %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
-            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
+            .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}!= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
           .sheet-ui.sheet-skill-total
             %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
