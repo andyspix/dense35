@@ -226,6 +226,23 @@
 	background: gainsboro;
 }
 
+.sheet-skills {
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
+	display: grid;
+	grid-column: 3;
+	grid-row: 3 / span 5;
+	justify-self: stretch;
+	align-self: stretch;
+	grid-gap: 0px;
+	grid-template-columns: 16px 61px 61px 25px 9px 29px 9px 18px 9px 18px auto;
+	grid-template-rows: repeat(65, 18px)
+}
+
+.sheet-merged-skill {
+	grid-column: 2 / span 2;
+}
+
 .sheet-table-subheader {
   text-align: center;
 }
@@ -349,22 +366,6 @@
 
 .charsheet .sheet-grid .sheet-carry-weight input {
 	padding: 1px;
-}
-
-.sheet-skills {
-	border-top: 1px solid silver;
-	border-right: 1px solid silver;
-	display: grid;
-	grid-column: 3;
-	grid-row: 3 / span 5;
-	justify-self: stretch;
-	align-self: stretch;
-	grid-gap: 0px;
-	grid-template-columns: 16px 61px 61px 25px 9px 29px 9px 18px 9px 18px auto;
-	grid-template-rows: repeat(65, 18px)
-}
-.sheet-merged-skill {
-	grid-column: 2 / span 2;
 }
 
 .sheet-grid div {
