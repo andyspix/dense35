@@ -244,6 +244,30 @@
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_flatFootedAC", placeholder: 'No Dex/Dodge', readonly: true}
 
+      -# MODIFIERS
+      .sheet-modifiers
+        .sheet-label.sheet-table-header.sheet-modifiers-header
+          .sheet-label.sheet-table-header.sheet-mod-header Charging
+          .sheet-label.sheet-table-header.sheet-mod-header Flanking
+          .sheet-label.sheet-table-header.sheet-mod-header Hasted
+          .sheet-label.sheet-table-header.sheet-mod-header Entangled
+          .sheet-label.sheet-table-header.sheet-mod-header Shaken/Fear
+          .sheet-label.sheet-table-header.sheet-mod-header Sickened
+          .sheet-label.sheet-table-header.sheet-mod-header Stunned
+          .sheet-label.sheet-table-header.sheet-mod-header Inspired
+          .sheet-label.sheet-table-header.sheet-mod-header Fatigued
+          .sheet-label.sheet-table-header.sheet-mod-header Exhausted
+        .sheet-modifiers-section
+          %input{type: 'checkbox', name: "charging_check", value: 2}
+          %input{type: 'checkbox', name: "flanking_check", value: 2}
+          %input{type: 'checkbox', name: "hasted_check", value: 1}
+          %input{type: 'checkbox', name: "entangled_check", value: -2}
+          %input{type: 'checkbox', name: "shaken_check", value: -2}
+          %input{type: 'checkbox', name: "sickened_check", value: -2}
+          %input{type: 'checkbox', name: "stunned_check", value: -2}
+          %input{type: 'checkbox', name: "inspired_check", value: 1}
+          %input{type: 'checkbox', name: "fatigued_check", value: -2}
+          %input{type: 'checkbox', name: "exhausted_check", value: -6}
       -# WEAPONS
       .sheet-weapons
         .sheet-label.sheet-table-header.sheet-weapons-header
@@ -263,7 +287,8 @@
             .sheet-ui{class: "sheet-weaponName"}
               %input{type: 'text', name: "attr_weaponName", placeholder: 'eg: Light XBow point blank'}
             .sheet-roll-button
-              %button{type: 'roll', value: "&{template:custom} [[ [[1d20cs>@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "rollweapon"}
+              -# ANDY LOOK HERE
+              %button{type: 'roll', value: "&{template:custom} [[ [[1d20cs>@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] + [[0@{charging_check}]] + [[0@{flanking_check}]] + [[0@{hasted_check}]] + [[0@{shaken_check}]] + [[0@{inspired_check}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}", name: "rollweapon"}
             .sheet-ui{class: "sheet-weaponToHit"}
               %input{type: 'text', name: "attr_weaponToHit", placeholder: '3'}
             .sheet-ui{class: "sheet-weaponToHitMod"}

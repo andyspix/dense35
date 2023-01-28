@@ -230,10 +230,29 @@
   text-align: center;
 }
 
+.charsheet .sheet-modifiers .sheet-modifiers-header {
+	grid-row: 1;
+	border-top: 1px solid silver;
+	grid-template-rows: 22px;
+	grid-column: 1 / span 3;
+	align-self: stretch;
+}
+
+.charsheet .sheet-modifiers {
+	display: grid;
+	grid-column: 1 / span 3;
+	grid-row: 3;
+	justify-self: stretch;
+	align-self: start;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	border-right: 1px solid silver;
+}
+
 .charsheet .sheet-weapons {
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 3;
+	grid-row: 4;
 	justify-self: stretch;
 	align-self: start;
 	grid-template-columns: auto 100px;
@@ -244,7 +263,7 @@
 .charsheet .sheet-armor {
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 4;
+	grid-row: 5;
 	justify-self: stretch;
 	align-self: start;
 	grid-template-columns: auto 100px;
@@ -265,6 +284,8 @@
 .sheet-attack-bonus .sheet-label,
 .sheet-armor .sheet-ui,
 .sheet-armor .sheet-table-header,
+.sheet-modifiers .sheet-ui,
+.sheet-modifiers .sheet-table-header,
 .sheet-carry-weight .sheet-ui,
 .sheet-carry-weight .sheet-label-small,
 .sheet-equipment .sheet-ui,
@@ -311,7 +332,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 5;
+	grid-row: 6;
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
@@ -325,7 +346,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 6;
+	grid-row: 7;
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
@@ -339,7 +360,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 1 / span 2;
-	grid-row: 7;
+	grid-row: 8;
 	justify-self: stretch;
 	align-self: end;
 	grid-gap: 0px;
@@ -356,7 +377,7 @@
 	border-right: 1px solid silver;
 	display: grid;
 	grid-column: 3;
-	grid-row: 3 / span 5;
+	grid-row: 4 / span 6;
 	justify-self: stretch;
 	align-self: stretch;
 	grid-gap: 0px;
@@ -532,16 +553,6 @@
 	grid-template-rows: 28px auto;
 }
 
-.charsheet .sheet-armor .sheet-armor-header,
-.charsheet .sheet-weapons .sheet-weapons-header {
-	grid-row: 1;
-	grid-column: 1 / span 2;
-	border-bottom: none;
-	border-left: none;
-	border-top: none;
-	background: rgba(255, 255, 255, 0);
-}
-
 .charsheet .sheet-armor-header,
 .charsheet .sheet-armor-section {
 	display: grid;
@@ -551,7 +562,15 @@
 	padding-bottom: 0px;
 }
 
-/* HERE */
+.charsheet .sheet-modifiers-header,
+.charsheet .sheet-modifiers-section {
+	display: grid;
+	grid-template-columns: repeat(10, 84px) auto ;
+	grid-template-rows: 18px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
 .charsheet .sheet-weapons-header,
 .charsheet .sheet-weapons-section {
 	display: grid;
@@ -564,9 +583,13 @@
 .charsheet .sheet-armor .sheet-armor-header,
 .charsheet .sheet-weapons .sheet-weapons-header {
 	grid-row: 1;
-	border-top: 1px solid silver;
-	grid-template-rows: 22px;
 	grid-column: 1 / span 2;
+	border-bottom: none;
+	border-left: none;
+	border-top: none;
+	border-top: 1px solid silver;
+	background: rgba(255, 255, 255, 0);
+	grid-template-rows: 22px;
 	align-self: center;
 }
 

@@ -448,6 +448,32 @@
 </div>
 </div>
 </div>
+<div class='sheet-modifiers'>
+<div class='sheet-label sheet-table-header sheet-modifiers-header'>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Charging</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Flanking</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Hasted</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Entangled</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Shaken/Fear</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Sickened</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Stunned</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Inspired</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Fatigued</div>
+<div class='sheet-label sheet-table-header sheet-mod-header'>Exhausted</div>
+</div>
+<div class='sheet-modifiers-section'>
+<input name='charging_check' type='checkbox' value='2'>
+<input name='flanking_check' type='checkbox' value='2'>
+<input name='hasted_check' type='checkbox' value='1'>
+<input name='entangled_check' type='checkbox' value='-2'>
+<input name='shaken_check' type='checkbox' value='-2'>
+<input name='sickened_check' type='checkbox' value='-2'>
+<input name='stunned_check' type='checkbox' value='-2'>
+<input name='inspired_check' type='checkbox' value='1'>
+<input name='fatigued_check' type='checkbox' value='-2'>
+<input name='exhausted_check' type='checkbox' value='-6'>
+</div>
+</div>
 <div class='sheet-weapons'>
 <div class='sheet-label sheet-table-header sheet-weapons-header'>
 <div class='sheet-label sheet-table-header sheet-weaponname-header'>Weapon/Attack</div>
@@ -468,7 +494,7 @@
 <input name='attr_weaponName' placeholder='eg: Light XBow point blank' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='rollweapon' type='roll' value='&amp;{template:custom} [[ [[1d20cs&gt;@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
+<button name='rollweapon' type='roll' value='&amp;{template:custom} [[ [[1d20cs&gt;@{weaponCrit}]] + [[0@{weaponToHit}]] + [[0@{weaponToHitMod}]] + [[0@{charging_check}]] + [[0@{flanking_check}]] + [[0@{hasted_check}]] + [[0@{shaken_check}]] + [[0@{inspired_check}]] ]] [[[[0@{weaponDamage}]] + [[0@{weaponDamageMod}]]]] {{title= @{Charname} Attacks}} {{Weapon= @{weaponName} }} {{To Hit=$[[0]] + $[[1]] + $[[2]] = $[[3]] }} {{Damage=$[[4]] + $[[5]] = $[[6]]}}'></button>
 </div>
 <div class='sheet-ui sheet-weaponToHit'>
 <input name='attr_weaponToHit' placeholder='3' type='text'>
@@ -511,22 +537,22 @@
 </div>
 <fieldset class='repeating_armor'>
 <div class='sheet-armor-section'>
-<div class='sheet-armorName sheet-ui'>
+<div class='sheet-ui sheet-armorName'>
 <input name='attr_armorName' placeholder='eg: leather armor +1' type='text'>
 </div>
-<div class='sheet-armorBonus sheet-ui'>
+<div class='sheet-ui sheet-armorBonus'>
 <input name='attr_armorBonus' placeholder='3' type='text'>
 </div>
-<div class='sheet-armorMaxDex sheet-ui'>
+<div class='sheet-ui sheet-armorMaxDex'>
 <input name='attr_armorMaxDex' placeholder='6' type='text'>
 </div>
-<div class='sheet-armorPenalty sheet-ui'>
+<div class='sheet-ui sheet-armorPenalty'>
 <input name='attr_armorPenalty' placeholder='0' type='text'>
 </div>
-<div class='sheet-armorSpellFail sheet-ui'>
+<div class='sheet-ui sheet-armorSpellFail'>
 <input name='attr_armorSpellFail' placeholder='10%' type='text'>
 </div>
-<div class='sheet-armorSpecial sheet-ui'>
+<div class='sheet-ui sheet-armorSpecial'>
 <input name='attr_armorSpecial' placeholder='...' type='text'>
 </div>
 </div>
@@ -534,157 +560,157 @@
 </div>
 <div class='sheet-traits-abilities'>
 <div class='sheet-label sheet-table-header sheet-racial-traits-header'>Racial Traits</div>
-<div class='sheet-racial-traits1 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits1'>
 <input name='attr_racialTraits1' type='text'>
 </div>
-<div class='sheet-racial-traits2 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits2'>
 <input name='attr_racialTraits2' type='text'>
 </div>
-<div class='sheet-racial-traits3 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits3'>
 <input name='attr_racialTraits3' type='text'>
 </div>
-<div class='sheet-racial-traits4 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits4'>
 <input name='attr_racialTraits4' type='text'>
 </div>
-<div class='sheet-racial-traits5 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits5'>
 <input name='attr_racialTraits5' type='text'>
 </div>
-<div class='sheet-racial-traits6 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits6'>
 <input name='attr_racialTraits6' type='text'>
 </div>
-<div class='sheet-racial-traits7 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits7'>
 <input name='attr_racialTraits7' type='text'>
 </div>
-<div class='sheet-racial-traits8 sheet-ui'>
+<div class='sheet-ui sheet-racial-traits8'>
 <input name='attr_racialTraits8' type='text'>
 </div>
 <div class='sheet-label sheet-table-header sheet-languages-header'>Languages</div>
-<div class='sheet-languages1 sheet-ui'>
+<div class='sheet-ui sheet-languages1'>
 <input name='attr_languages1' type='text'>
 </div>
-<div class='sheet-languages2 sheet-ui'>
+<div class='sheet-ui sheet-languages2'>
 <input name='attr_languages2' type='text'>
 </div>
-<div class='sheet-languages3 sheet-ui'>
+<div class='sheet-ui sheet-languages3'>
 <input name='attr_languages3' type='text'>
 </div>
-<div class='sheet-languages4 sheet-ui'>
+<div class='sheet-ui sheet-languages4'>
 <input name='attr_languages4' type='text'>
 </div>
-<div class='sheet-languages5 sheet-ui'>
+<div class='sheet-ui sheet-languages5'>
 <input name='attr_languages5' type='text'>
 </div>
-<div class='sheet-languages6 sheet-ui'>
+<div class='sheet-ui sheet-languages6'>
 <input name='attr_languages6' type='text'>
 </div>
-<div class='sheet-languages7 sheet-ui'>
+<div class='sheet-ui sheet-languages7'>
 <input name='attr_languages7' type='text'>
 </div>
-<div class='sheet-languages8 sheet-ui'>
+<div class='sheet-ui sheet-languages8'>
 <input name='attr_languages8' type='text'>
 </div>
 <div class='sheet-label sheet-table-header sheet-class-abilities-header'>Class Abilities</div>
-<div class='sheet-class-abilities1 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities1'>
 <input name='attr_classAbilities1' type='text'>
 </div>
-<div class='sheet-class-abilities2 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities2'>
 <input name='attr_classAbilities2' type='text'>
 </div>
-<div class='sheet-class-abilities3 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities3'>
 <input name='attr_classAbilities3' type='text'>
 </div>
-<div class='sheet-class-abilities4 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities4'>
 <input name='attr_classAbilities4' type='text'>
 </div>
-<div class='sheet-class-abilities5 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities5'>
 <input name='attr_classAbilities5' type='text'>
 </div>
-<div class='sheet-class-abilities6 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities6'>
 <input name='attr_classAbilities6' type='text'>
 </div>
-<div class='sheet-class-abilities7 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities7'>
 <input name='attr_classAbilities7' type='text'>
 </div>
-<div class='sheet-class-abilities8 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities8'>
 <input name='attr_classAbilities8' type='text'>
 </div>
-<div class='sheet-class-abilities9 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities9'>
 <input name='attr_classAbilities9' type='text'>
 </div>
-<div class='sheet-class-abilities10 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities10'>
 <input name='attr_classAbilities10' type='text'>
 </div>
-<div class='sheet-class-abilities11 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities11'>
 <input name='attr_classAbilities11' type='text'>
 </div>
-<div class='sheet-class-abilities12 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities12'>
 <input name='attr_classAbilities12' type='text'>
 </div>
-<div class='sheet-class-abilities13 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities13'>
 <input name='attr_classAbilities13' type='text'>
 </div>
-<div class='sheet-class-abilities14 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities14'>
 <input name='attr_classAbilities14' type='text'>
 </div>
-<div class='sheet-class-abilities15 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities15'>
 <input name='attr_classAbilities15' type='text'>
 </div>
-<div class='sheet-class-abilities16 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities16'>
 <input name='attr_classAbilities16' type='text'>
 </div>
-<div class='sheet-class-abilities17 sheet-ui'>
+<div class='sheet-ui sheet-class-abilities17'>
 <input name='attr_classAbilities17' type='text'>
 </div>
 <div class='sheet-label sheet-table-header sheet-feats-header'>Feats</div>
-<div class='sheet-feats1 sheet-ui'>
+<div class='sheet-ui sheet-feats1'>
 <input name='attr_feats1' type='text'>
 </div>
-<div class='sheet-feats2 sheet-ui'>
+<div class='sheet-ui sheet-feats2'>
 <input name='attr_feats2' type='text'>
 </div>
-<div class='sheet-feats3 sheet-ui'>
+<div class='sheet-ui sheet-feats3'>
 <input name='attr_feats3' type='text'>
 </div>
-<div class='sheet-feats4 sheet-ui'>
+<div class='sheet-ui sheet-feats4'>
 <input name='attr_feats4' type='text'>
 </div>
-<div class='sheet-feats5 sheet-ui'>
+<div class='sheet-ui sheet-feats5'>
 <input name='attr_feats5' type='text'>
 </div>
-<div class='sheet-feats6 sheet-ui'>
+<div class='sheet-ui sheet-feats6'>
 <input name='attr_feats6' type='text'>
 </div>
-<div class='sheet-feats7 sheet-ui'>
+<div class='sheet-ui sheet-feats7'>
 <input name='attr_feats7' type='text'>
 </div>
-<div class='sheet-feats8 sheet-ui'>
+<div class='sheet-ui sheet-feats8'>
 <input name='attr_feats8' type='text'>
 </div>
-<div class='sheet-feats9 sheet-ui'>
+<div class='sheet-ui sheet-feats9'>
 <input name='attr_feats9' type='text'>
 </div>
-<div class='sheet-feats10 sheet-ui'>
+<div class='sheet-ui sheet-feats10'>
 <input name='attr_feats10' type='text'>
 </div>
-<div class='sheet-feats11 sheet-ui'>
+<div class='sheet-ui sheet-feats11'>
 <input name='attr_feats11' type='text'>
 </div>
-<div class='sheet-feats12 sheet-ui'>
+<div class='sheet-ui sheet-feats12'>
 <input name='attr_feats12' type='text'>
 </div>
-<div class='sheet-feats13 sheet-ui'>
+<div class='sheet-ui sheet-feats13'>
 <input name='attr_feats13' type='text'>
 </div>
-<div class='sheet-feats14 sheet-ui'>
+<div class='sheet-ui sheet-feats14'>
 <input name='attr_feats14' type='text'>
 </div>
-<div class='sheet-feats15 sheet-ui'>
+<div class='sheet-ui sheet-feats15'>
 <input name='attr_feats15' type='text'>
 </div>
-<div class='sheet-feats16 sheet-ui'>
+<div class='sheet-ui sheet-feats16'>
 <input name='attr_feats16' type='text'>
 </div>
-<div class='sheet-feats17 sheet-ui'>
+<div class='sheet-ui sheet-feats17'>
 <input name='attr_feats17' type='text'>
 </div>
 </div>
@@ -696,172 +722,172 @@
 <div class='sheet-label sheet-table-subheader sheet-equipment-subheader4'>Wt</div>
 <div class='sheet-label sheet-table-subheader sheet-equipment-subheader5'>Magical Items</div>
 <div class='sheet-label sheet-table-subheader sheet-equipment-subheader6'>Wt</div>
-<div class='sheet-backpack1 sheet-ui'>
+<div class='sheet-ui sheet-backpack1'>
 <input name='attr_backpack1' type='text'>
 </div>
-<div class='sheet-backpack2 sheet-ui'>
+<div class='sheet-ui sheet-backpack2'>
 <input name='attr_backpack2' type='text'>
 </div>
-<div class='sheet-backpack3 sheet-ui'>
+<div class='sheet-ui sheet-backpack3'>
 <input name='attr_backpack3' type='text'>
 </div>
-<div class='sheet-backpack4 sheet-ui'>
+<div class='sheet-ui sheet-backpack4'>
 <input name='attr_backpack4' type='text'>
 </div>
-<div class='sheet-backpack5 sheet-ui'>
+<div class='sheet-ui sheet-backpack5'>
 <input name='attr_backpack5' type='text'>
 </div>
-<div class='sheet-backpack6 sheet-ui'>
+<div class='sheet-ui sheet-backpack6'>
 <input name='attr_backpack6' type='text'>
 </div>
-<div class='sheet-backpack7 sheet-ui'>
+<div class='sheet-ui sheet-backpack7'>
 <input name='attr_backpack7' type='text'>
 </div>
-<div class='sheet-backpack8 sheet-ui'>
+<div class='sheet-ui sheet-backpack8'>
 <input name='attr_backpack8' type='text'>
 </div>
-<div class='sheet-backpack9 sheet-ui'>
+<div class='sheet-ui sheet-backpack9'>
 <input name='attr_backpack9' type='text'>
 </div>
-<div class='sheet-backpack10 sheet-ui'>
+<div class='sheet-ui sheet-backpack10'>
 <input name='attr_backpack10' type='text'>
 </div>
-<div class='sheet-backpack11 sheet-ui'>
+<div class='sheet-ui sheet-backpack11'>
 <input name='attr_backpack11' type='text'>
 </div>
-<div class='sheet-backpack12 sheet-ui'>
+<div class='sheet-ui sheet-backpack12'>
 <input name='attr_backpack12' type='text'>
 </div>
-<div class='sheet-backpack13 sheet-ui'>
+<div class='sheet-ui sheet-backpack13'>
 <input name='attr_backpack13' type='text'>
 </div>
-<div class='sheet-backpack14 sheet-ui'>
+<div class='sheet-ui sheet-backpack14'>
 <input name='attr_backpack14' type='text'>
 </div>
-<div class='sheet-backpack15 sheet-ui'>
+<div class='sheet-ui sheet-backpack15'>
 <input name='attr_backpack15' type='text'>
 </div>
-<div class='sheet-backpack16 sheet-ui'>
+<div class='sheet-ui sheet-backpack16'>
 <input name='attr_backpack16' type='text'>
 </div>
-<div class='sheet-backpack17 sheet-ui'>
+<div class='sheet-ui sheet-backpack17'>
 <input name='attr_backpack17' type='text'>
 </div>
-<div class='sheet-backpack18 sheet-ui'>
+<div class='sheet-ui sheet-backpack18'>
 <input name='attr_backpack18' type='text'>
 </div>
-<div class='sheet-backpack19 sheet-ui'>
+<div class='sheet-ui sheet-backpack19'>
 <input name='attr_backpack19' type='text'>
 </div>
-<div class='sheet-backpack20 sheet-ui'>
+<div class='sheet-ui sheet-backpack20'>
 <input name='attr_backpack20' type='text'>
 </div>
-<div class='sheet-backpack21 sheet-ui'>
+<div class='sheet-ui sheet-backpack21'>
 <input name='attr_backpack21' type='text'>
 </div>
-<div class='sheet-backpack22 sheet-ui'>
+<div class='sheet-ui sheet-backpack22'>
 <input name='attr_backpack22' type='text'>
 </div>
-<div class='sheet-backpack23 sheet-ui'>
+<div class='sheet-ui sheet-backpack23'>
 <input name='attr_backpack23' type='text'>
 </div>
-<div class='sheet-backpack24 sheet-ui'>
+<div class='sheet-ui sheet-backpack24'>
 <input name='attr_backpack24' type='text'>
 </div>
-<div class='sheet-backpack25 sheet-ui'>
+<div class='sheet-ui sheet-backpack25'>
 <input name='attr_backpack25' type='text'>
 </div>
-<div class='sheet-backpack26 sheet-ui'>
+<div class='sheet-ui sheet-backpack26'>
 <input name='attr_backpack26' type='text'>
 </div>
-<div class='sheet-backpack27 sheet-ui'>
+<div class='sheet-ui sheet-backpack27'>
 <input name='attr_backpack27' type='text'>
 </div>
-<div class='sheet-backpack28 sheet-ui'>
+<div class='sheet-ui sheet-backpack28'>
 <input name='attr_backpack28' type='text'>
 </div>
-<div class='sheet-backpack-wt1 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt1'>
 <input name='attr_backpackWt1' type='text'>
 </div>
-<div class='sheet-backpack-wt2 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt2'>
 <input name='attr_backpackWt2' type='text'>
 </div>
-<div class='sheet-backpack-wt3 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt3'>
 <input name='attr_backpackWt3' type='text'>
 </div>
-<div class='sheet-backpack-wt4 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt4'>
 <input name='attr_backpackWt4' type='text'>
 </div>
-<div class='sheet-backpack-wt5 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt5'>
 <input name='attr_backpackWt5' type='text'>
 </div>
-<div class='sheet-backpack-wt6 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt6'>
 <input name='attr_backpackWt6' type='text'>
 </div>
-<div class='sheet-backpack-wt7 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt7'>
 <input name='attr_backpackWt7' type='text'>
 </div>
-<div class='sheet-backpack-wt8 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt8'>
 <input name='attr_backpackWt8' type='text'>
 </div>
-<div class='sheet-backpack-wt9 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt9'>
 <input name='attr_backpackWt9' type='text'>
 </div>
-<div class='sheet-backpack-wt10 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt10'>
 <input name='attr_backpackWt10' type='text'>
 </div>
-<div class='sheet-backpack-wt11 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt11'>
 <input name='attr_backpackWt11' type='text'>
 </div>
-<div class='sheet-backpack-wt12 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt12'>
 <input name='attr_backpackWt12' type='text'>
 </div>
-<div class='sheet-backpack-wt13 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt13'>
 <input name='attr_backpackWt13' type='text'>
 </div>
-<div class='sheet-backpack-wt14 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt14'>
 <input name='attr_backpackWt14' type='text'>
 </div>
-<div class='sheet-backpack-wt15 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt15'>
 <input name='attr_backpackWt15' type='text'>
 </div>
-<div class='sheet-backpack-wt16 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt16'>
 <input name='attr_backpackWt16' type='text'>
 </div>
-<div class='sheet-backpack-wt17 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt17'>
 <input name='attr_backpackWt17' type='text'>
 </div>
-<div class='sheet-backpack-wt18 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt18'>
 <input name='attr_backpackWt18' type='text'>
 </div>
-<div class='sheet-backpack-wt19 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt19'>
 <input name='attr_backpackWt19' type='text'>
 </div>
-<div class='sheet-backpack-wt20 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt20'>
 <input name='attr_backpackWt20' type='text'>
 </div>
-<div class='sheet-backpack-wt21 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt21'>
 <input name='attr_backpackWt21' type='text'>
 </div>
-<div class='sheet-backpack-wt22 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt22'>
 <input name='attr_backpackWt22' type='text'>
 </div>
-<div class='sheet-backpack-wt23 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt23'>
 <input name='attr_backpackWt23' type='text'>
 </div>
-<div class='sheet-backpack-wt24 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt24'>
 <input name='attr_backpackWt24' type='text'>
 </div>
-<div class='sheet-backpack-wt25 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt25'>
 <input name='attr_backpackWt25' type='text'>
 </div>
-<div class='sheet-backpack-wt26 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt26'>
 <input name='attr_backpackWt26' type='text'>
 </div>
-<div class='sheet-backpack-wt27 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt27'>
 <input name='attr_backpackWt27' type='text'>
 </div>
-<div class='sheet-backpack-wt28 sheet-ui'>
+<div class='sheet-ui sheet-backpack-wt28'>
 <input name='attr_backpackWt28' type='text'>
 </div>
 <div class='sheet-ui sheet-worn1'>
@@ -1092,198 +1118,198 @@
 <div class='sheet-label-magic-item'>
 <input name='attr_magicItemSlot28' placeholder=' ...' title='-custom slot-' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item1 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item1'>
 <input name='attr_magicItem1' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item2 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item2'>
 <input name='attr_magicItem2' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item3 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item3'>
 <input name='attr_magicItem3' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item4 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item4'>
 <input name='attr_magicItem4' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item5 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item5'>
 <input name='attr_magicItem5' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item6 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item6'>
 <input name='attr_magicItem6' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item7 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item7'>
 <input name='attr_magicItem7' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item8 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item8'>
 <input name='attr_magicItem8' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item9 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item9'>
 <input name='attr_magicItem9' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item10 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item10'>
 <input name='attr_magicItem10' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item11 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item11'>
 <input name='attr_magicItem11' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item12 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item12'>
 <input name='attr_magicItem12' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item13 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item13'>
 <input name='attr_magicItem13' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item14 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item14'>
 <input name='attr_magicItem14' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item15 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item15'>
 <input name='attr_magicItem15' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item16 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item16'>
 <input name='attr_magicItem16' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item17 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item17'>
 <input name='attr_magicItem17' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item18 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item18'>
 <input name='attr_magicItem18' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item19 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item19'>
 <input name='attr_magicItem19' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item20 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item20'>
 <input name='attr_magicItem20' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item21 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item21'>
 <input name='attr_magicItem21' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item22 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item22'>
 <input name='attr_magicItem22' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item23 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item23'>
 <input name='attr_magicItem23' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item24 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item24'>
 <input name='attr_magicItem24' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item25 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item25'>
 <input name='attr_magicItem25' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item26 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item26'>
 <input name='attr_magicItem26' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item27 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item27'>
 <input name='attr_magicItem27' type='text'>
 </div>
-<div class='sheet-magic-item-description sheet-magic-item28 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-description sheet-magic-item28'>
 <input name='attr_magicItem28' type='text'>
 </div>
-<div class='sheet-magic-item-wt1 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt1'>
 <input name='attr_magicItemWt1' type='text'>
 </div>
-<div class='sheet-magic-item-wt2 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt2'>
 <input name='attr_magicItemWt2' type='text'>
 </div>
-<div class='sheet-magic-item-wt3 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt3'>
 <input name='attr_magicItemWt3' type='text'>
 </div>
-<div class='sheet-magic-item-wt4 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt4'>
 <input name='attr_magicItemWt4' type='text'>
 </div>
-<div class='sheet-magic-item-wt5 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt5'>
 <input name='attr_magicItemWt5' type='text'>
 </div>
-<div class='sheet-magic-item-wt6 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt6'>
 <input name='attr_magicItemWt6' type='text'>
 </div>
-<div class='sheet-magic-item-wt7 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt7'>
 <input name='attr_magicItemWt7' type='text'>
 </div>
-<div class='sheet-magic-item-wt8 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt8'>
 <input name='attr_magicItemWt8' type='text'>
 </div>
-<div class='sheet-magic-item-wt9 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt9'>
 <input name='attr_magicItemWt9' type='text'>
 </div>
-<div class='sheet-magic-item-wt10 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt10'>
 <input name='attr_magicItemWt10' type='text'>
 </div>
-<div class='sheet-magic-item-wt11 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt11'>
 <input name='attr_magicItemWt11' type='text'>
 </div>
-<div class='sheet-magic-item-wt12 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt12'>
 <input name='attr_magicItemWt12' type='text'>
 </div>
-<div class='sheet-magic-item-wt13 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt13'>
 <input name='attr_magicItemWt13' type='text'>
 </div>
-<div class='sheet-magic-item-wt14 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt14'>
 <input name='attr_magicItemWt14' type='text'>
 </div>
-<div class='sheet-magic-item-wt15 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt15'>
 <input name='attr_magicItemWt15' type='text'>
 </div>
-<div class='sheet-magic-item-wt16 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt16'>
 <input name='attr_magicItemWt16' type='text'>
 </div>
-<div class='sheet-magic-item-wt17 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt17'>
 <input name='attr_magicItemWt17' type='text'>
 </div>
-<div class='sheet-magic-item-wt18 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt18'>
 <input name='attr_magicItemWt18' type='text'>
 </div>
-<div class='sheet-magic-item-wt19 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt19'>
 <input name='attr_magicItemWt19' type='text'>
 </div>
-<div class='sheet-magic-item-wt20 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt20'>
 <input name='attr_magicItemWt20' type='text'>
 </div>
-<div class='sheet-magic-item-wt21 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt21'>
 <input name='attr_magicItemWt21' type='text'>
 </div>
-<div class='sheet-magic-item-wt22 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt22'>
 <input name='attr_magicItemWt22' type='text'>
 </div>
-<div class='sheet-magic-item-wt23 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt23'>
 <input name='attr_magicItemWt23' type='text'>
 </div>
-<div class='sheet-magic-item-wt24 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt24'>
 <input name='attr_magicItemWt24' type='text'>
 </div>
-<div class='sheet-magic-item-wt25 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt25'>
 <input name='attr_magicItemWt25' type='text'>
 </div>
-<div class='sheet-magic-item-wt26 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt26'>
 <input name='attr_magicItemWt26' type='text'>
 </div>
-<div class='sheet-magic-item-wt27 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt27'>
 <input name='attr_magicItemWt27' type='text'>
 </div>
-<div class='sheet-magic-item-wt28 sheet-ui'>
+<div class='sheet-ui sheet-magic-item-wt28'>
 <input name='attr_magicItemWt28' type='text'>
 </div>
 </div>
 <div class='sheet-carry-weight'>
 <div class='sheet-label-small'>Total Weight:</div>
-<div class='sheet-hideleft sheet-total-weight sheet-ui'>
+<div class='sheet-ui sheet-total-weight sheet-hideleft'>
 <input name='attr_totalWeight' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Light (1/3):</div>
-<div class='sheet-hideleft sheet-ui sheet-weight-light'>
+<div class='sheet-ui sheet-weight-light sheet-hideleft'>
 <input name='attr_weightLight' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Medium (2/3):</div>
-<div class='sheet-hideleft sheet-ui sheet-weight-medium'>
+<div class='sheet-ui sheet-weight-medium sheet-hideleft'>
 <input name='attr_weightMedium' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Heavy:</div>
-<div class='sheet-hideleft sheet-ui sheet-weight-heavy'>
+<div class='sheet-ui sheet-weight-heavy sheet-hideleft'>
 <input name='attr_weightHeavy' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Lift (2x):</div>
-<div class='sheet-hideleft sheet-ui sheet-weight-lift'>
+<div class='sheet-ui sheet-weight-lift sheet-hideleft'>
 <input name='attr_weightLift' readonly type='text'>
 </div>
 <div class='sheet-label-small sheet-hideleft'>Drag (5x):</div>
-<div class='sheet-hideleft sheet-ui sheet-weight-drag'>
+<div class='sheet-ui sheet-weight-drag sheet-hideleft'>
 <input name='attr_weightDrag' readonly type='text'>
 </div>
 </div>
@@ -1293,7 +1319,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_appraise_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Appraise}} {{Result=[[1d20 + @{appraiseTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Appraise&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Appraise&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_appraiseTotal' readonly type='text'>
 </div>
@@ -1337,7 +1363,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_balance_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Balance}} {{Result=[[1d20 + @{balanceTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Balance&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Balance&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_balanceTotal' readonly type='text'>
 </div>
@@ -1359,7 +1385,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_bluff_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Bluff}} {{Result=[[1d20 + @{bluffTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Bluff&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Bluff&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_bluffTotal' readonly type='text'>
 </div>
@@ -1381,7 +1407,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_climb_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Climb}} {{Result=[[1d20 + @{climbTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Climb&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Climb&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_climbTotal' readonly type='text'>
 </div>
@@ -1403,7 +1429,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_concentration_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Concentration}} {{Result=[[1d20 + @{concentrationTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Concentration&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Concentration&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_concentrationTotal' readonly type='text'>
 </div>
@@ -1425,7 +1451,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_craftfillin1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Craft: @{craftfillin1SplitSkillExplanation} }} {{Result=[[1d20 + @{craftfillin1Total}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft&amp;#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
 <input name='attr_craftfillin1SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
@@ -1450,7 +1476,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_craftfillin2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Craft: @{craftfillin2SplitSkillExplanation} }} {{Result=[[1d20 + @{craftfillin2Total}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft&amp;#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
 <input name='attr_craftfillin2SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
@@ -1475,7 +1501,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_craftfillin3_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Craft: @{craftfillin3SplitSkillExplanation} }} {{Result=[[1d20 + @{craftfillin3Total}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Craft&amp;#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
 <input name='attr_craftfillin3SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
@@ -1522,7 +1548,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_diplomacy_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Diplomacy}} {{Result=[[1d20 + @{diplomacyTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Diplomacy&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Diplomacy&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_diplomacyTotal' readonly type='text'>
 </div>
@@ -1566,7 +1592,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_disguise_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Disguise}} {{Result=[[1d20 + @{disguiseTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Disguise&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Disguise&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_disguiseTotal' readonly type='text'>
 </div>
@@ -1588,7 +1614,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_escapeartist_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Escape Artist}} {{Result=[[1d20 + @{escapeartistTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Escape Artist&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Escape Artist&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_escapeartistTotal' readonly type='text'>
 </div>
@@ -1610,7 +1636,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_forgery_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Forgery}} {{Result=[[1d20 + @{forgeryTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Forgery&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Forgery&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_forgeryTotal' readonly type='text'>
 </div>
@@ -1632,7 +1658,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_gatherinfo_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Gather Info}} {{Result=[[1d20 + @{gatherinfoTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Gather Info&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Gather Info&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_gatherinfoTotal' readonly type='text'>
 </div>
@@ -1676,7 +1702,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_heal_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Heal}} {{Result=[[1d20 + @{healTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Heal&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Heal&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_healTotal' readonly type='text'>
 </div>
@@ -1698,7 +1724,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_hide_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Hide}} {{Result=[[1d20 + @{hideTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Hide&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Hide&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_hideTotal' readonly type='text'>
 </div>
@@ -1720,7 +1746,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_intimidate_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Intimidate}} {{Result=[[1d20 + @{intimidateTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Intimidate&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Intimidate&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_intimidateTotal' readonly type='text'>
 </div>
@@ -1742,7 +1768,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_jump_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Jump}} {{Result=[[1d20 + @{jumpTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Jump&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Jump&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_jumpTotal' readonly type='text'>
 </div>
@@ -1939,7 +1965,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_listen_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Listen}} {{Result=[[1d20 + @{listenTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Listen&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Listen&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_listenTotal' readonly type='text'>
 </div>
@@ -1961,7 +1987,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_movesilently_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Move Silently}} {{Result=[[1d20 + @{movesilentlyTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Move Silently&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Move Silently&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_movesilentlyTotal' readonly type='text'>
 </div>
@@ -2005,7 +2031,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_performfillin1_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Perform: @{performfillin1SplitSkillExplanation} }} {{Result=[[1d20 + @{performfillin1Total}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform&amp;#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
 <input name='attr_performfillin1SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
@@ -2030,7 +2056,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_performfillin2_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Perform: @{performfillin2SplitSkillExplanation} }} {{Result=[[1d20 + @{performfillin2Total}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform&amp;#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
 <input name='attr_performfillin2SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
@@ -2055,7 +2081,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_performfillin3_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Perform: @{performfillin3SplitSkillExplanation} }} {{Result=[[1d20 + @{performfillin3Total}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-split-skill' title='Can use Untrained'>Perform&amp;#10041;</div>
 <div class='sheet-ui sheet-split-skill-explanation sheet-hideleft'>
 <input name='attr_performfillin3SplitSkillExplanation' placeholder='...' title='-area of expertise-' type='text'>
 </div>
@@ -2152,7 +2178,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_ride_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Ride}} {{Result=[[1d20 + @{rideTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Ride&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Ride&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_rideTotal' readonly type='text'>
 </div>
@@ -2174,7 +2200,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_search_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Search}} {{Result=[[1d20 + @{searchTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Search&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Search&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_searchTotal' readonly type='text'>
 </div>
@@ -2196,7 +2222,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_sensemotive_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Sense Motive}} {{Result=[[1d20 + @{sensemotiveTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Sense Motive&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Sense Motive&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_sensemotiveTotal' readonly type='text'>
 </div>
@@ -2284,7 +2310,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_spot_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Spot}} {{Result=[[1d20 + @{spotTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Spot&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Spot&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_spotTotal' readonly type='text'>
 </div>
@@ -2306,7 +2332,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_survival_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Survival}} {{Result=[[1d20 + @{survivalTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Survival&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Survival&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_survivalTotal' readonly type='text'>
 </div>
@@ -2328,7 +2354,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_swim_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Swim}} {{Result=[[1d20 + @{swimTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Swim&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Swim&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_swimTotal' readonly type='text'>
 </div>
@@ -2416,7 +2442,7 @@
 <div class='sheet-roll-button'>
 <button name='roll_userope_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Use Rope}} {{Result=[[1d20 + @{useropeTotal}]] }}'></button>
 </div>
-<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Use Rope&#10041;</div>
+<div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Use Rope&amp;#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
 <input name='attr_useropeTotal' readonly type='text'>
 </div>
