@@ -199,7 +199,7 @@
 
       -# ARMOR CLASS
       .sheet-ac
-        .sheet-ac-sec1
+        .sheet-ac-sec
           .sheet-label.sheet-big AC
           .sheet-label.sheet-big Touch
           .sheet-label.sheet-big FlatFoot
@@ -209,12 +209,14 @@
             .sheet-label.sheet-hideleft.sheet-italics #{val}
             .sheet-label.sheet-hideleft.sheet-italics +
           .sheet-label.sheet-italics.sheet-hideleft Misc3
-          .sheet-label.sheet-hideleft.sheet-italics
-        .sheet-ac-sec2
+
           .sheet-ui
-            %input{type: 'text', name: "attr_acTotal"}
-          .sheet-label.sheet-hideleft.sheet-operator =
-          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acTotal", readonly: true}
+          .sheet-ui
+            %input{type: 'text', name: "attr_touchAC", readonly: true}
+          .sheet-ui
+            %input{type: 'text', name: "attr_flatFootedAC", readonly: true}
+          .sheet-ui
             %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
@@ -633,14 +635,14 @@
     multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
 
     // Armor & Save Summing
-    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc']};
+    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc', 'acMisc2', 'acMisc3']};
     ['Fort', 'Will', 'Ref'].forEach(x => {
       multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
     });
 
     // Touch/FF AC filler
-    multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc']};
-    multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc']};
+    multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc', 'acMisc2', 'acMisc3']};
+    multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc', 'acMisc2', 'acMisc3']};
 
     // Attack Bonus Summing
     ['grapple', 'melee', 'range'].forEach(x => {
