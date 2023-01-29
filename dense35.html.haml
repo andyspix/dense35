@@ -131,7 +131,10 @@
           - %w(FORT REF WILL).each do |val|
             .sheet-label= val
             .sheet-roll-button.sheet-hideleft
-              %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total}]] }}", name: "roll_#{val}savingthrow"}
+              - if val == 'REF'
+                %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}", name: "roll_#{val}savingthrow"}
+              -else
+                %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{val}savingthrow"}
             .sheet-ui
               %input{type: 'text', name: "attr_save#{val}Total"}
             .sheet-ui
@@ -144,6 +147,8 @@
               %input{type: 'text', name: "attr_save#{val}Misc"}
             .sheet-ui.sheet-hideleft.sheet-misc-explanation
               %input{type: 'text', name: "attr_save#{val}MiscExplanation", placeholder: '...', title: '-explanation-'}
+
+
         .sheet-saves-sec2
           .sheet-label.sheet-table-subheader  Max HP:
           .sheet-ui.sheet-hideleft

@@ -210,7 +210,7 @@
 <div class='sheet-label sheet-table-subheader sheet-saves-misc-merge'>Misc</div>
 <div class='sheet-label'>FORT</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_FORTsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= FORT }} {{Result=[[1d20 + @{saveFORTTotal}]] }}'></button>
+<button name='roll_FORTsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= FORT }} {{Result=[[1d20 + @{saveFORTTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveFORTTotal' type='text'>
@@ -232,7 +232,7 @@
 </div>
 <div class='sheet-label'>REF</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_REFsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= REF }} {{Result=[[1d20 + @{saveREFTotal}]] }}'></button>
+<button name='roll_REFsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= REF }} {{Result=[[1d20 + @{saveREFTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveREFTotal' type='text'>
@@ -254,7 +254,7 @@
 </div>
 <div class='sheet-label'>WILL</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_WILLsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= WILL }} {{Result=[[1d20 + @{saveWILLTotal}]] }}'></button>
+<button name='roll_WILLsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= WILL }} {{Result=[[1d20 + @{saveWILLTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveWILLTotal' type='text'>
