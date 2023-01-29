@@ -493,7 +493,8 @@
 .charsheet .sheet-grid .sheet-skills input,
 .charsheet .sheet-grid .sheet-attack-bonus input,
 .charsheet .sheet-grid .sheet-saves-ac input,
-.charsheet .sheet-grid .sheet-ability-scores input {
+.charsheet .sheet-grid .sheet-ability-scores input,
+.charsheet .sheet-grid .sheet-modifiers input {
 	font-size: 14px;
 }
 
@@ -556,15 +557,16 @@
 
 .charsheet .sheet-modifiers .sheet-modifiers-section {
 	display: grid;
+	background: gainsboro;
 	border: 1px solid silver;
-	grid-template-columns: repeat(4, 25px 80px) repeat(3, 25px 73px 37px) auto;
+	grid-template-columns: repeat(3, 26px 80px) 26px 90px repeat(3, 26px 72px 35px) auto;
 	grid-template-rows: 18px 18px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
 
 .charsheet .sheet-modifiers .sheet-modifiers-section input[type=checkbox] {
-  transform: scale(63%);
+  transform: scale(70%);
   margin: 0;
   padding: 0;
   margin-top: -2;
