@@ -493,13 +493,13 @@
           - safename = k.downcase.tr(' ', '')
           - if k =~ /FillIn\d+/
             .sheet-roll-button
-              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k.gsub(/FillIn\d+/, '')}: @{#{safename}SplitSkillExplanation} }} {{Result=[[1d20 + @{#{safename}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{safename}_skill_check"}
             .sheet-label.sheet-label-skills.sheet-hideleft.sheet-split-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}!= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
             .sheet-ui.sheet-split-skill-explanation.sheet-hideleft
               %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
           - else
             .sheet-roll-button
-              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total}]] }}", name: "roll_#{safename}_skill_check"}
+              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{safename}_skill_check"}
             .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}!= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
           .sheet-ui.sheet-skill-total
             %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
@@ -516,7 +516,7 @@
             %input{type: 'text', name: "attr_#{safename}MiscExplanation", placeholder: '...', title: '-explanation-'}
         - 3.times do |i|
           .sheet-roll-button
-            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check: #{i}}} {{Result=[[1d20 + @{skillMisc#{i}Total}]] }}", name: "roll_SkillMisc#{i}_skill_check"}
+            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check: #{i}}} {{Result=[[1d20 + @{skillMisc#{i}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_SkillMisc#{i}_skill_check"}
           .sheet-ui.sheet-label-sheet-skills.sheet-merged-skill.sheet-hideleft
             %input{type: 'text', name: "attr_skillMisc#{i}Name", placeholder: ' ...', title: '-Additional Skills-'}
           .sheet-ui.sheet-skill-total
