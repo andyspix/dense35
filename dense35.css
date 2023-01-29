@@ -54,7 +54,7 @@
 .sheet-saves {
 	display: grid;
 	grid-column: 2;
-	grid-row: 2;
+	grid-row: 3;
 	justify-self: start;
 	align-self: start;
 	grid-gap: 0px;
@@ -66,7 +66,7 @@
 .sheet-ac {
 	display: grid;
 	grid-column: 2 / span 3;
-	grid-row: 3;
+	grid-row: 4;
 	justify-self: start;
 	align-self: start;
 	grid-gap: 0px;
@@ -97,7 +97,7 @@
 .sheet-ability-scores {
 	display: grid;
 	grid-column: 1;
-	grid-row: 2 / span 3;
+	grid-row: 3 / span 4;
 	justify-self: start;
 	grid-gap: 0px;
 	grid-template-columns: auto;
@@ -153,7 +153,7 @@
 	justify-items: stretch;
 	grid-gap: 0px;
 	grid-template-rows: 18px 18px;
-	grid-template-columns: 40px 50px 60px repeat(21, auto) ;
+	grid-template-columns: 40px 50px 60px repeat(10, 38px 6px) 38px;
 }
 
 .sheet-ac .sheet-ac-sec div {
@@ -163,7 +163,7 @@
 .sheet-attack-bonus {
 	display: grid;
 	grid-column: 3;
-	grid-row: 2;
+	grid-row: 3;
 	justify-self: stretch;
 	align-self: start;
 	grid-gap: 0px;
@@ -216,7 +216,7 @@
 .charsheet .sheet-modifiers {
 	display: grid;
 	grid-column: 1 / span 3;
-	grid-row: 4;
+	grid-row: 2;
 	justify-self: stretch;
 	grid-template-columns: auto;
 	grid-template-rows: auto;
@@ -428,7 +428,7 @@
 	font-size: 12px;
 }
 
-.charsheet .sheet-ac-sec .sheet-label {
+.charsheet .sheet-ac .sheet-ac-sec .sheet-label {
 	font-size: 12px;
 }
 
@@ -449,6 +449,12 @@
 	border-left: none !important;
 }
 
+.charsheet .sheet-ac .sheet-ac-sec .sheet-ui.sheet-italics input {
+	font-size: 11px;
+  margin-top: -2px;
+	font-style: italic;
+	font-weight: normal;
+}
 .charsheet .sheet-grid .sheet-italics {
 	font-style: italic;
 	font-weight: normal;
@@ -541,7 +547,7 @@
 
 .charsheet .sheet-modifiers .sheet-modifiers-section {
 	display: grid;
-	background: gainsboro;
+	background: lemonchiffon;
 	border: 1px solid silver;
 	grid-template-columns: repeat(3, 26px 80px) 26px 90px repeat(3, 26px 72px 35px) auto;
 	grid-template-rows: 18px 18px;

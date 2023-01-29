@@ -203,12 +203,18 @@
           .sheet-label.sheet-big AC
           .sheet-label.sheet-big Touch
           .sheet-label.sheet-big FlatFoot
-          .sheet-label.sheet-italics Base
+          .sheet-ui.sheet-italics
+            %input{type: 'text', name: "attr_acBaseLabel", readonly: true, value: 'Base' }
           .sheet-label.sheet-hideleft.sheet-italics +
           - %w(Armor Shield DEX Size Nat Dodge Deflect Misc Misc2).each do |val|
-            .sheet-label.sheet-hideleft.sheet-italics #{val}
+            .sheet-ui.sheet-italics.sheet-hideleft
+              - if val =~ /Misc/
+                %input{type: 'text', name: "attr_ac#{val}Label", value: val }
+              - else
+                %input{type: 'text', name: "attr_ac#{val}Label", readonly: true, value: val }
             .sheet-label.sheet-hideleft.sheet-italics +
-          .sheet-label.sheet-italics.sheet-hideleft Misc3
+          .sheet-ui.sheet-italics.sheet-hideleft
+            %input{type: 'text', name: "attr_acMisc3Label", readonly: true, value: 'Misc3' }
 
           .sheet-ui
             %input{type: 'text', name: "attr_acTotal", readonly: true}
