@@ -104,7 +104,7 @@
 <div class='sheet-ability-scores-table'>
 <div class='sheet-label'>STR</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_strcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Strength}} {{Result=[[1d20 + @{strTempMod}]] }} {{color=red}}'></button>
+<button name='roll_strcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Strength}} {{Result=[[1d20 + @{strTempMod}[Strength] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_str' type='text'>
@@ -120,7 +120,7 @@
 </div>
 <div class='sheet-label'>DEX</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_dexcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Dexterity}} {{Result=[[1d20 + @{dexTempMod}]] }} {{color=red}}'></button>
+<button name='roll_dexcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Dexterity}} {{Result=[[1d20 + @{dexTempMod}[Dexterity] + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_dex' type='text'>
@@ -136,7 +136,7 @@
 </div>
 <div class='sheet-label'>CON</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_concheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Constitution}} {{Result=[[1d20 + @{conTempMod}]] }} {{color=red}}'></button>
+<button name='roll_concheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Constitution}} {{Result=[[1d20 + @{conTempMod}[Constitution] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_con' type='text'>
@@ -152,7 +152,7 @@
 </div>
 <div class='sheet-label'>INT</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_intcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Intelligence}} {{Result=[[1d20 + @{intTempMod}]] }} {{color=red}}'></button>
+<button name='roll_intcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Intelligence}} {{Result=[[1d20 + @{intTempMod}[Intelligence] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_int' type='text'>
@@ -168,7 +168,7 @@
 </div>
 <div class='sheet-label'>WIS</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_wischeck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Wisdom}} {{Result=[[1d20 + @{wisTempMod}]] }} {{color=red}}'></button>
+<button name='roll_wischeck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Wisdom}} {{Result=[[1d20 + @{wisTempMod}[Wisdom] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_wis' type='text'>
@@ -184,7 +184,7 @@
 </div>
 <div class='sheet-label'>CHA</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_chacheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Charisma}} {{Result=[[1d20 + @{chaTempMod}]] }} {{color=red}}'></button>
+<button name='roll_chacheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Charisma}} {{Result=[[1d20 + @{chaTempMod}[Charisma] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_cha' type='text'>
