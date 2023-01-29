@@ -200,14 +200,18 @@
       -# ARMOR CLASS
       .sheet-ac
         .sheet-ac-sec1
-          .sheet-label.sheet-italics
-          .sheet-label.sheet-italics.sheet-hideleft Total | Touch | FF
-          .sheet-label.sheet-italics.sheet-hideleft Base
-          - %w(Armor Shield DEX Size Nat Dodge Deflect Misc Misc2 Misc3).each do |val|
-            .sheet-label.sheet-hideleft.sheet-italics=val
+          .sheet-label.sheet-big AC
+          .sheet-label.sheet-big Touch
+          .sheet-label.sheet-big FlatFoot
+          .sheet-label.sheet-italics Base
+          .sheet-label.sheet-hideleft.sheet-italics +
+          - %w(Armor Shield DEX Size Nat Dodge Deflect Misc Misc2).each do |val|
+            .sheet-label.sheet-hideleft.sheet-italics #{val}
+            .sheet-label.sheet-hideleft.sheet-italics +
+          .sheet-label.sheet-italics.sheet-hideleft Misc3
+          .sheet-label.sheet-hideleft.sheet-italics
         .sheet-ac-sec2
-          .sheet-label AC
-          .sheet-ui.sheet-hideleft
+          .sheet-ui
             %input{type: 'text', name: "attr_acTotal"}
           .sheet-label.sheet-hideleft.sheet-operator =
           .sheet-ui.sheet-hideleft

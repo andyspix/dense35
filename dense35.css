@@ -55,7 +55,8 @@
 	display: grid;
 	grid-column: 2;
 	grid-row: 2;
-	justify-self: stretch;
+	justify-self: start;
+	align-self: start;
 	grid-gap: 0px;
 	grid-template-rows: 72px 18px;
 	border-top: 1px solid silver;
@@ -66,7 +67,10 @@
 	display: grid;
 	grid-column: 2 / span 3;
 	grid-row: 3;
+	justify-self: start;
+	align-self: start;
 	grid-gap: 0px;
+	grid-template-columns: 632px;
 	grid-template-rows: 18px 18px;
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
@@ -94,10 +98,10 @@
 	display: grid;
 	grid-column: 1;
 	grid-row: 2 / span 3;
-	justify-self: stretch;
+	justify-self: start;
 	grid-gap: 0px;
 	grid-template-columns: auto;
-	grid-template-rows: 18px 108px;
+	grid-template-rows: 18px 115px;
 }
 .sheet-ability-scores-top {
 	display: grid;
@@ -111,7 +115,8 @@
 .sheet-ability-scores-table {
 	display: grid;
 	grid-row: 2;
-	justify-self: stretch;
+	justify-self: start;
+	align-self: stretch;
 	grid-gap: 0px;
 	grid-template-columns: 35px 16px 40px 40px 40px auto;
 	grid-template-rows: repeat(6, 19px);
@@ -144,7 +149,7 @@
 	justify-self: stretch;
 	grid-gap: 0px;
 	grid-template-rows: 18px;
-	grid-template-columns: 25px 80px repeat(11, auto) ;
+	grid-template-columns: 25px 45px 55px repeat(23, auto) ;
 }
 
 .sheet-ac-sec2 {
@@ -153,7 +158,7 @@
 	justify-self: stretch;
 	grid-gap: 0px;
 	grid-template-rows: 18px;
-	grid-template-columns: repeat(23, auto) auto;
+	grid-template-columns: 25px 45px 55px repeat(23, auto);
 }
 
 .sheet-saves-misc-merge { grid-column: span 2 }
@@ -163,7 +168,7 @@
 	grid-column: 3;
 	grid-row: 2;
 	justify-self: stretch;
-	align-self: center;
+	align-self: start;
 	grid-gap: 0px;
 	grid-template-rows: 18px 72px;
 	border-top: 1px solid silver;
@@ -426,8 +431,12 @@
 	font-size: 12px;
 }
 
-.charsheet .sheet-saves .sheet-ac-sec1 .sheet-label {
+.charsheet .sheet-ac-sec1 .sheet-label {
 	font-size: 11px;
+}
+
+.charsheet .sheet-ac-sec1 .sheet-label.sheet-big {
+	font-size: 14px;
 }
 
 .sheet-skill-money {
