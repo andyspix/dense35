@@ -200,14 +200,14 @@
 </div>
 </div>
 </div>
-<div class='sheet-saves-ac'>
-<div class='sheet-saves-ac-sec1'>
-<div class='sheet-label sheet-saves-ac-upper-corner'>SAVE</div>
+<div class='sheet-saves'>
+<div class='sheet-saves-sec1'>
+<div class='sheet-label sheet-saves-upper-corner'>SAVE</div>
 <div class='sheet-label sheet-table-subheader'>Total</div>
 <div class='sheet-label sheet-table-subheader'>Base</div>
 <div class='sheet-label sheet-table-subheader'>Stat</div>
 <div class='sheet-label sheet-table-subheader'>Magic</div>
-<div class='sheet-label sheet-table-subheader sheet-saves-ac-misc-merge'>Misc</div>
+<div class='sheet-label sheet-table-subheader sheet-saves-misc-merge'>Misc</div>
 <div class='sheet-label'>FORT</div>
 <div class='sheet-roll-button sheet-hideleft'>
 <button name='roll_FORTsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= FORT }} {{Result=[[1d20 + @{saveFORTTotal}]] }}'></button>
@@ -275,7 +275,7 @@
 <input name='attr_saveWILLMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 </div>
-<div class='sheet-saves-ac-sec2'>
+<div class='sheet-saves-sec2'>
 <div class='sheet-label sheet-table-subheader'>Max HP:</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_maxHitPoints' type='text'>
@@ -289,9 +289,13 @@
 <input name='attr_initiative' type='text'>
 </div>
 </div>
-<div class='sheet-saves-ac-sec3'>
+</div>
+<div class='sheet-ac'>
+<div class='sheet-ac-sec1'>
 <div class='sheet-label sheet-italics'></div>
 <div class='sheet-label sheet-italics sheet-hideleft'>Total</div>
+<div class='sheet-label sheet-italics sheet-hideleft'>Touch</div>
+<div class='sheet-label sheet-italics sheet-hideleft'>FlatFoot</div>
 <div class='sheet-label sheet-italics sheet-hideleft'>Base</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Armor</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Shield</div>
@@ -302,7 +306,7 @@
 <div class='sheet-label sheet-hideleft sheet-italics'>Deflect</div>
 <div class='sheet-label sheet-hideleft sheet-italics'>Misc</div>
 </div>
-<div class='sheet-saves-ac-sec4'>
+<div class='sheet-ac-sec2'>
 <div class='sheet-label'>AC</div>
 <div class='sheet-ui sheet-hideleft'>
 <input name='attr_acTotal' type='text'>
@@ -435,16 +439,6 @@
 </div>
 <div class='sheet-ui sheet-hideleft sheet-misc-explanation'>
 <input name='attr_grappleExplanation' placeholder='...' title='-explanation-' type='text'>
-</div>
-</div>
-<div class='sheet-attack-bonus-sec3'>
-<div class='sheet-label'>Touch AC:</div>
-<div class='sheet-ui sheet-hideleft'>
-<input name='attr_touchAC' placeholder='No Armor/Shield/Nat' readonly type='text'>
-</div>
-<div class='sheet-label'>Flat Footed AC:</div>
-<div class='sheet-ui sheet-hideleft'>
-<input name='attr_flatFootedAC' placeholder='No Dex/Dodge' readonly type='text'>
 </div>
 </div>
 </div>

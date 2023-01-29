@@ -94,13 +94,13 @@
             .sheet-ui
               %input{type: 'text', name: "attr_#{k}TempMod", readonly: true}
 
-      -# SAVES & AC
-      .sheet-saves-ac
-        .sheet-saves-ac-sec1
-          .sheet-label.sheet-saves-ac-upper-corner SAVE
+      -# SAVES
+      .sheet-saves
+        .sheet-saves-sec1
+          .sheet-label.sheet-saves-upper-corner SAVE
           - %w(Total Base Stat Magic).each do |val|
             .sheet-label.sheet-table-subheader= val
-          .sheet-label.sheet-table-subheader.sheet-saves-ac-misc-merge Misc
+          .sheet-label.sheet-table-subheader.sheet-saves-misc-merge Misc
           - %w(FORT REF WILL).each do |val|
             .sheet-label= val
             .sheet-roll-button.sheet-hideleft
@@ -117,7 +117,7 @@
               %input{type: 'text', name: "attr_save#{val}Misc"}
             .sheet-ui.sheet-hideleft.sheet-misc-explanation
               %input{type: 'text', name: "attr_save#{val}MiscExplanation", placeholder: '...', title: '-explanation-'}
-        .sheet-saves-ac-sec2
+        .sheet-saves-sec2
           .sheet-label.sheet-table-subheader  Max HP:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_maxHitPoints"}
@@ -127,13 +127,17 @@
           .sheet-label.sheet-table-subheader Initiative:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_initiative"}
-        .sheet-saves-ac-sec3
+      -# Armor Class
+      .sheet-ac
+        .sheet-ac-sec1
           .sheet-label.sheet-italics
           .sheet-label.sheet-italics.sheet-hideleft Total
+          .sheet-label.sheet-italics.sheet-hideleft Touch
+          .sheet-label.sheet-italics.sheet-hideleft FlatFoot
           .sheet-label.sheet-italics.sheet-hideleft Base
           - %w(Armor Shield DEX Size Nat Dodge Deflect Misc).each do |val|
             .sheet-label.sheet-hideleft.sheet-italics=val
-        .sheet-saves-ac-sec4
+        .sheet-ac-sec2
           .sheet-label AC
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_acTotal"}
@@ -236,7 +240,7 @@
             %input{type: 'text', name: "attr_grappleMisc"}
           .sheet-ui.sheet-hideleft.sheet-misc-explanation
             %input{type: 'text', name: "attr_grappleExplanation", placeholder: '...', title: '-explanation-'}
-        .sheet-attack-bonus-sec3
+        -#.sheet-attack-bonus-sec3
           .sheet-label Touch AC:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_touchAC", placeholder: 'No Armor/Shield/Nat', readonly: true}
