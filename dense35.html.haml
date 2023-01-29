@@ -127,50 +127,6 @@
           .sheet-label.sheet-table-subheader Initiative:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_initiative"}
-      -# Armor Class
-      .sheet-ac
-        .sheet-ac-sec1
-          .sheet-label.sheet-italics
-          .sheet-label.sheet-italics.sheet-hideleft Total
-          .sheet-label.sheet-italics.sheet-hideleft Touch
-          .sheet-label.sheet-italics.sheet-hideleft FlatFoot
-          .sheet-label.sheet-italics.sheet-hideleft Base
-          - %w(Armor Shield DEX Size Nat Dodge Deflect Misc).each do |val|
-            .sheet-label.sheet-hideleft.sheet-italics=val
-        .sheet-ac-sec2
-          .sheet-label AC
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acTotal"}
-          .sheet-label.sheet-hideleft.sheet-operator =
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acArmor"}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acShield"}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acDex", readonly: true}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acSize", readonly: true}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acNat"}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acDodge"}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acDeflect"}
-          .sheet-label.sheet-hideleft.sheet-operator +
-          .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_acMisc"}
-          .sheet-ui.sheet-hideleft.sheet-misc-explanation
-            %input{type: 'text', name: "attr_acMiscExplain", placeholder: '...', title: '-explanation-'}
-
       -# ATTACK BONUSES
       .sheet-attack-bonus
         .sheet-attack-bonus-sec1
@@ -240,13 +196,52 @@
             %input{type: 'text', name: "attr_grappleMisc"}
           .sheet-ui.sheet-hideleft.sheet-misc-explanation
             %input{type: 'text', name: "attr_grappleExplanation", placeholder: '...', title: '-explanation-'}
-        -#.sheet-attack-bonus-sec3
-          .sheet-label Touch AC:
+
+      -# ARMOR CLASS
+      .sheet-ac
+        .sheet-ac-sec1
+          .sheet-label.sheet-italics
+          .sheet-label.sheet-italics.sheet-hideleft Total
+          .sheet-label.sheet-italics.sheet-hideleft Base
+          - %w(Armor Shield DEX Size Nat Dodge Deflect Misc Misc2 Misc3).each do |val|
+            .sheet-label.sheet-hideleft.sheet-italics=val
+        .sheet-ac-sec2
+          .sheet-label AC
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_touchAC", placeholder: 'No Armor/Shield/Nat', readonly: true}
-          .sheet-label Flat Footed AC:
+            %input{type: 'text', name: "attr_acTotal"}
+          .sheet-label.sheet-hideleft.sheet-operator =
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_flatFootedAC", placeholder: 'No Dex/Dodge', readonly: true}
+            %input{type: 'text', name: "attr_acBase", readonly: true, value: 10}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acArmor"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acShield"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acDex", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acSize", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acNat"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acDodge"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acDeflect"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acMisc"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acMisc2"}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acMisc3"}
 
       -# MODIFIERS
       .sheet-modifiers
