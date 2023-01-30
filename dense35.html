@@ -312,7 +312,7 @@
 </div>
 <div class='sheet-attack-bonus-sec3'>
 <div class='sheet-roll-button'>
-<button name='roll_con2check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= CON}} {{Result=[[1d20 + @{conTempMod}[con] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
+<button name='roll_meleeattack' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Melee Attack}} {{Ability= Dex}} {{Result=[[1d20 + @{meleeTotal}]] }} {{color=purple}}'></button>
 </div>
 <div class='sheet-label sheet-attack-melee sheet-hideleft'>Melee:</div>
 <div class='sheet-ui sheet-hideleft'>
@@ -342,7 +342,7 @@
 <input name='attr_meleeExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_dex2check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= DEX}} {{Result=[[1d20 + @{dexTempMod}[dex] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
+<button name='roll_rangeattack' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Range Attack}} {{Ability= Dex}} {{Result=[[1d20 + @{rangeTotal}]] }} {{color=purple}}'></button>
 </div>
 <div class='sheet-label sheet-attack-range sheet-hideleft'>Range:</div>
 <div class='sheet-ui sheet-hideleft'>
@@ -372,7 +372,7 @@
 <input name='attr_rangeExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_grapplecheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Grapple Check}} {{Ability= STR}} {{Result=[[1d20 + @{grappleTotal}]] }} {{color=red}}'></button>
+<button name='roll_grapplecheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Grapple Check}} {{Ability= STR}} {{Result=[[1d20 + @{grappleTotal}]] }} {{color=purple}}'></button>
 </div>
 <div class='sheet-label sheet-attack-grapple sheet-hideleft'>Grapple:</div>
 <div class='sheet-ui sheet-hideleft'>
