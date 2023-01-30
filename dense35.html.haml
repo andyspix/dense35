@@ -103,7 +103,8 @@
             .sheet-label.sheet-table-subheader= val
           .sheet-label.sheet-table-subheader.sheet-saves-misc-merge Misc
           - %w(FORT REF WILL).each do |val|
-            .sheet-label= val
+            .sheet-label
+            .sheet-label.sheet-hideleft= val
             .sheet-roll-button.sheet-hideleft
               - if val == 'REF'
                 %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total} + [[@{sickenedCheck} + @{shakenCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}", name: "roll_#{val}savingthrow"}
@@ -136,22 +137,22 @@
       -# ATTACK BONUSES
       .sheet-attack-bonus
         .sheet-attack-bonus-sec1
-          .sheet-label BASE ATTACK BONUS:
+          .sheet-label
+          .sheet-label.sheet-hideleft BASE ATTACK BONUS:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_baseAttackBonus"}
         .sheet-attack-bonus-sec2
           .sheet-label
           .sheet-label.sheet-hideleft.sheet-italics Total
-          .sheet-label.sheet-hideleft.sheet-italics
           .sheet-label.sheet-hideleft.sheet-italics Base
-          .sheet-label.sheet-hideleft.sheet-italics
           .sheet-label.sheet-hideleft.sheet-italics Stat
-          .sheet-label.sheet-hideleft.sheet-italics
           .sheet-label.sheet-hideleft.sheet-italics Size
-          .sheet-label.sheet-hideleft.sheet-italics
+          .sheet-label.sheet-hideleft.sheet-italics Effects
           .sheet-label.sheet-hideleft.sheet-italics Misc
-          .sheet-label.sheet-hideleft
-          .sheet-label.sheet-attack-melee &#9876;Melee:
+        .sheet-attack-bonus-sec3
+          .sheet-roll-button
+            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= CON}} {{Result=[[1d20 + @{conTempMod}[con] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}", name: "roll_con2check"}
+          .sheet-label.sheet-attack-melee.sheet-hideleft Melee:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_meleeTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
@@ -159,16 +160,21 @@
             %input{type: 'text', name: "attr_meleeBase", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_meleeStatBonus", placeholder: 'STR', readonly: true}
+            %input{type: 'text', name: "attr_meleeStatBonus", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_meleeSize", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_meleeEffects", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_meleeMisc"}
           .sheet-ui.sheet-hideleft.sheet-misc-explanation
             %input{type: 'text', name: "attr_meleeExplanation", placeholder: '...', title: '-explanation-'}
-          .sheet-label.sheet-attack-range &#9732;Range:
+          .sheet-roll-button
+            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= DEX}} {{Result=[[1d20 + @{dexTempMod}[dex] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}", name: "roll_dex2check"}
+          .sheet-label.sheet-attack-range.sheet-hideleft Range:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_rangeTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
@@ -176,16 +182,21 @@
             %input{type: 'text', name: "attr_rangeBase", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_rangeStatBonus", placeholder: 'DEX', readonly: true}
+            %input{type: 'text', name: "attr_rangeStatBonus", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_rangeSize", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_rangeEffects", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_rangeMisc"}
           .sheet-ui.sheet-hideleft.sheet-misc-explanation
             %input{type: 'text', name: "attr_rangeExplanation", placeholder: '...', title: '-explanation-'}
-          .sheet-label.sheet-attack-grapple Grapple:
+          .sheet-roll-button
+            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= STR}} {{Result=[[1d20 + @{strTempMod}[str] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}", name: "roll_str2check"}
+          .sheet-label.sheet-attack-grapple.sheet-hideleft Grapple:
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_grappleTotal", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator =
@@ -193,10 +204,13 @@
             %input{type: 'text', name: "attr_grappleBase", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
-            %input{type: 'text', name: "attr_grappleStatBonus", placeholder: 'STR', readonly: true}
+            %input{type: 'text', name: "attr_grappleStatBonus", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_grappleSize", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_grappleEffects", readonly: true}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_grappleMisc"}

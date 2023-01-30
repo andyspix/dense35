@@ -124,15 +124,18 @@
 	border-right: 1px solid silver;
 }
 .sheet-saves-upper-corner {
+	justify-self: stretch;
+	align-self: stretch;
+  padding-left: 3px;
 	grid-row: 1;
-	grid-column: 1 / span 2;
+	grid-column: 1 / span 3;
 }
 .sheet-saves-sec1 {
 	grid-row: 1;
 	display: grid;
 	justify-self: stretch;
 	grid-gap: 0px;
-	grid-template-columns: 54px 16px 48px 43px 43px 43px 43px auto;
+	grid-template-columns: 3px 54px 16px 48px 43px 43px 43px 43px auto;
 	grid-template-rows: repeat(4, 18px);
 }
 .sheet-saves-sec2 {
@@ -167,7 +170,7 @@
 	justify-self: stretch;
 	align-self: start;
 	grid-gap: 0px;
-	grid-template-rows: 18px 72px;
+	grid-template-rows: 18px 18px 54px;
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
 }
@@ -178,7 +181,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: auto auto;
+	grid-template-columns: 10px auto auto;
 	grid-template-rows: 18px;
 }
 
@@ -188,8 +191,18 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 60px 27px 9px 27px 9px 39px 9px 27px 9px 30px auto;
-	grid-template-rows: 18px 18px 18px 18px;
+	grid-template-columns: 57px 37px 37px 33px 28px 45px auto;
+	grid-template-rows: 18px;
+}
+
+.sheet-attack-bonus-sec3 {
+	display: grid;
+	grid-row: 3;
+	justify-self: stretch;
+	align-self: center;
+	grid-gap: 0px;
+	grid-template-columns: 14px 53px repeat(2, 23px 8px) repeat(3, 25px 8px) 25px auto;
+	grid-template-rows: 18px 18px 18px;
 }
 
 .sheet-table-header {
@@ -254,6 +267,7 @@
 .sheet-ability-scores-table .sheet-roll-button,
 .sheet-attack-bonus .sheet-ui,
 .sheet-attack-bonus .sheet-label,
+.sheet-attack-bonus .sheet-roll-button,
 .sheet-armor .sheet-ui,
 .sheet-armor .sheet-table-header,
 .sheet-effects .sheet-ui,
@@ -282,10 +296,11 @@
 }
 
 .charsheet .sheet-skills button[type=roll],
+.charsheet .sheet-attack-bonus button[type=roll],
 .charsheet .sheet-saves .sheet-saves-sec1 button[type=roll],
 .charsheet .sheet-weapons button[type=roll],
 .charsheet .sheet-ability-scores .sheet-ability-scores-table button[type=roll] {
-	padding: 0px 2px;
+	padding: 0px 1px;
 	font-size: 14px;
 	border: none;
 	background: rgba(255, 255, 255, 0);
@@ -352,7 +367,7 @@
 	grid-row: 5 / span 7;
 	justify-self: stretch;
 	grid-gap: 0px;
-	grid-template-columns: 16px 61px 61px 25px 9px 29px 9px 18px 9px 18px auto;
+	grid-template-columns: 14px 61px 61px 25px 9px 29px 9px 18px 9px 18px auto;
 	grid-template-rows: repeat(65, 18px)
 }
 .sheet-merged-skill {
