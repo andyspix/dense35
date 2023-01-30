@@ -81,34 +81,8 @@
           .sheet-label.sheet-ability-scores-header Temp
           .sheet-label.sheet-ability-scores-header Mod
         .sheet-ability-scores-table
-          -# STR
-          .sheet-label STR
-          .sheet-roll-button.sheet-hideleft
-            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Strength}} {{Result=[[1d20 + @{strTempMod}[Strength] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}", name: "roll_strcheck"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_str"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_strMod", readonly: true}
-          .sheet-ui
-            %input{type: 'text', name: "attr_strTemp"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_strTempMod", readonly: true}
-
-          -# DEX
-          .sheet-label DEX
-          .sheet-roll-button.sheet-hideleft
-            %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Dexterity}} {{Result=[[1d20 + @{dexTempMod}[Dexterity] + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck}]][StatusEffects] ]] }} {{color=red}}", name: "roll_dexcheck"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_dex"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_dexMod", readonly: true}
-          .sheet-ui
-            %input{type: 'text', name: "attr_dexTemp"}
-          .sheet-ui
-            %input{type: 'text', name: "attr_dexTempMod", readonly: true}
-
-          -# CON, INT, WIS, CHA
-          - {con: 'Constitution', int: 'Intelligence', wis: 'Wisdom', cha: 'Charisma'}.each do |k, v|
+          -# STR, DEX, CON, INT, WIS, CHA
+          - {str: 'Strength', dex: 'Dexterity', con: 'Constitution', int: 'Intelligence', wis: 'Wisdom', cha: 'Charisma'}.each do |k, v|
             .sheet-label= k.upcase
             .sheet-roll-button.sheet-hideleft
               %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= #{v}}} {{Result=[[1d20 + @{#{k}TempMod}[#{v}] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}", name: "roll_#{k}check"}
@@ -132,7 +106,7 @@
             .sheet-label= val
             .sheet-roll-button.sheet-hideleft
               - if val == 'REF'
-                %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}", name: "roll_#{val}savingthrow"}
+                %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total} + [[@{sickenedCheck} + @{shakenCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}", name: "roll_#{val}savingthrow"}
               -else
                 %button{type: 'roll', value: "&{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= #{val.upcase} }} {{Result=[[1d20 + @{save#{val}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{val}savingthrow"}
             .sheet-ui
@@ -238,7 +212,7 @@
           .sheet-ui.sheet-italics
             %input{type: 'text', name: "attr_acBaseLabel", readonly: true, value: 'Base' }
           .sheet-label.sheet-hideleft.sheet-italics +
-          - %w(Armor Shield DEX Size Nat Dodge Deflect Misc Misc2).each do |val|
+          - %w(Armor Shield DEX Size Nat Dodge Deflect Effects Misc Misc2).each do |val|
             .sheet-ui.sheet-italics.sheet-hideleft
               - if val =~ /Misc/
                 %input{type: 'text', name: "attr_ac#{val}Label", value: val }
@@ -279,6 +253,9 @@
             %input{type: 'text', name: "attr_acDeflect"}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
+            %input{type: 'text', name: "attr_acEffects", readonly: true}
+          .sheet-label.sheet-hideleft.sheet-operator +
+          .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_acMisc"}
           .sheet-label.sheet-hideleft.sheet-operator +
           .sheet-ui.sheet-hideleft
@@ -287,35 +264,33 @@
           .sheet-ui.sheet-hideleft
             %input{type: 'text', name: "attr_acMisc3"}
 
-      -# MODIFIERS
-      .sheet-modifiers
-        .sheet-modifiers-section
+      -# STATUS EFFECTS
+      .sheet-effects
+        .sheet-effects-section
           %input{type: 'checkbox', name: "attr_chargingCheck", value: 2}
           .sheet-label Charging
 
           %input{type: 'checkbox', name: "attr_hastedCheck", value: 1}
           .sheet-label Hasted
 
-          %input{type: 'checkbox', name: "attr_entangledCheck", value: -2}
-          .sheet-label Entangled
-
           %input{type: 'checkbox', name: "attr_shakenCheck", value: -2}
           .sheet-label Shaken/Fear
+
+          %input{type: 'checkbox', name: "attr_fatiguedCheck", value: -1}
+          .sheet-label Fatigued
+
+          %input{type: 'checkbox', name: "attr_conToAcCheck", value: 1}
+          .sheet-label CON to AC
 
           %input{type: 'checkbox', name: "attr_moraleHitCheck", value: 1}
           .sheet-label MoraleHit
           .sheet-hideleft.sheet-ui{class: "sheet-modMoraleHit"}
             %input{type: 'text', name: "attr_modMoraleHit"}
 
-          %input{type: 'checkbox', name: "attr_insightHitCheck", value: 1}
-          .sheet-label InsightHit
-          .sheet-hideleft.sheet-ui{class: "sheet-modInsightHit"}
-            %input{type: 'text', name: "attr_modInsightHit"}
-
-          %input{type: 'checkbox', name: "attr_otherHitCheck", value: 1}
-          .sheet-label OtherHit
-          .sheet-hideleft.sheet-ui{class: "sheet-modOtherHit"}
-            %input{type: 'text', name: "attr_modOtherHit"}
+          %input{type: 'checkbox', name: "attr_moraleDmgCheck", value: 1}
+          .sheet-label MoraleDmg
+          .sheet-hideleft.sheet-ui{class: "sheet-modMoraleDmg"}
+            %input{type: 'text', name: "attr_modMoraleDmg"}
 
           .auto-gap
 
@@ -325,21 +300,46 @@
           %input{type: 'checkbox', name: "attr_slowedCheck", value: -1}
           .sheet-label Slowed
 
-          %input{type: 'checkbox', name: "attr_stunnedCheck", value: -2}
-          .sheet-label Stunned
-
           %input{type: 'checkbox', name: "attr_sickenedCheck", value: -2}
           .sheet-label Sickened
 
-          %input{type: 'checkbox', name: "attr_moraleDmgCheck", value: 1}
-          .sheet-label MoraleDmg
-          .sheet-hideleft.sheet-ui{class: "sheet-modMoraleDmg"}
-            %input{type: 'text', name: "attr_modMoraleDmg"}
+          %input{type: 'checkbox', name: "attr_exhaustedCheck", value: -3}
+          .sheet-label Exhausted
+
+          %input{type: 'checkbox', name: "attr_intToAcCheck", value: 1}
+          .sheet-label INT to AC
+
+          %input{type: 'checkbox', name: "attr_insightHitCheck", value: 1}
+          .sheet-label InsightHit
+          .sheet-hideleft.sheet-ui{class: "sheet-modInsightHit"}
+            %input{type: 'text', name: "attr_modInsightHit"}
 
           %input{type: 'checkbox', name: "attr_insightDmgCheck", value: 1}
           .sheet-label InsightDmg
           .sheet-hideleft.sheet-ui{class: "sheet-modInsightDmg"}
             %input{type: 'text', name: "attr_modInsightDmg"}
+
+          .auto-gap
+
+          %input{type: 'checkbox', name: "attr_stunnedCheck", value: -2}
+          .sheet-label Stunned
+
+          %input{type: 'checkbox', name: "attr_entangledCheck", value: -2}
+          .sheet-label Entangled
+
+          %input{type: 'checkbox', name: "attr_dazzledCheck", value: 1}
+          .sheet-label Dazzled
+
+          %input{type: 'checkbox', name: "attr_wisToAcCheck", value: 1}
+          .sheet-label WIS to AC
+
+          %input{type: 'checkbox', name: "attr_chaToAcCheck", value: 1}
+          .sheet-label CHA to AC
+
+          %input{type: 'checkbox', name: "attr_otherHitCheck", value: 1}
+          .sheet-label OtherHit
+          .sheet-hideleft.sheet-ui{class: "sheet-modOtherHit"}
+            %input{type: 'text', name: "attr_modOtherHit"}
 
           %input{type: 'checkbox', name: "attr_otherDmgCheck", value: 1}
           .sheet-label OtherDmg
@@ -347,6 +347,7 @@
             %input{type: 'text', name: "attr_modOtherDmg"}
 
           .auto-gap
+
       -# WEAPONS
       .sheet-weapons
         .sheet-label.sheet-table-header.sheet-weapons-header
@@ -499,7 +500,13 @@
               %input{type: 'text', name: "attr_#{safename}SplitSkillExplanation", placeholder: '...', title: '-area of expertise-'}
           - else
             .sheet-roll-button
-              %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{safename}_skill_check"}
+              -# TODO: Update Dex/Str specific skill checks if we add exhaustion/fatigue
+              - if v[1] == 'DEX'
+                %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}", name: "roll_#{safename}_skill_check"}
+              - elsif v[1] == 'STR'
+                %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{safename}_skill_check"}
+              - else
+                %button{type: 'roll', value: "&{template:custom} {{title= @{Charname} - Skill Check}} {{skill=#{k}}} {{Result=[[1d20 + @{#{safename}Total} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}", name: "roll_#{safename}_skill_check"}
             .sheet-label.sheet-label-skills.sheet-hideleft.sheet-merged-skill{title: (v[0].zero? ? 'Can use Untrained' : '')}!= k.gsub(/FillIn\d+/, '') + (v[0].zero? ? '&#10041;' : '')
           .sheet-ui.sheet-skill-total
             %input{type: 'text', name: "attr_#{safename}Total", readonly: true}
@@ -611,8 +618,12 @@
     // Attribute bonus summing
     ['str', 'con', 'dex', 'int', 'wis', 'cha'].forEach(x => {
       multistats[`${x}mod`] = {rule: 'dnd_stat_bonus', attributes: [x]};
+    });
+    ['con', 'int', 'wis', 'cha'].forEach(x => {
       multistats[`${x}tempmod`] = {rule: 'dnd_tmpstat_bonus', attributes: [x, `${x}temp`]};
     });
+    multistats[`strtempmod`] = {rule: 'dnd_str_tmpstat_bonus', attributes: ['str', 'strtemp', 'fatiguedcheck', 'exhaustedcheck']};
+    multistats[`dextempmod`] = {rule: 'dnd_dex_tmpstat_bonus', attributes: ['dex', 'dextemp', 'fatiguedcheck', 'exhaustedcheck', 'entangledcheck']};
 
     // STR mod fillers
     ['meleeStatBonus', 'grappleStatBonus', 'climbStatMod', 'jumpStatMod', 'swimStatMod'].forEach(x => {
@@ -671,15 +682,22 @@
     multistats['acSize']      = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
     multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
 
+    // AC from Effects
+    multistats['acEffects']      = {
+      rule: 'sum_effects_ac',
+      attributes: [ 'wistempmod', 'wistoaccheck', 'contempmod', 'contoaccheck', 'inttempmod', 'inttoaccheck', 'chatempmod', 'chatoaccheck',
+                    'chargingcheck', 'hastedcheck', 'slowedcheck', 'stunnedcheck']
+    };
+
     // Armor & Save Summing
-    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc', 'acMisc2', 'acMisc3']};
+    multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acEffects', 'acMisc', 'acMisc2', 'acMisc3']};
     ['Fort', 'Will', 'Ref'].forEach(x => {
       multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
     });
 
     // Touch/FF AC filler
-    multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc', 'acMisc2', 'acMisc3']};
-    multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc', 'acMisc2', 'acMisc3']};
+    multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acEffects', 'acMisc', 'acMisc2', 'acMisc3']};
+    multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acEffects', 'acMisc', 'acMisc2', 'acMisc3']};
 
     // Attack Bonus Summing
     ['grapple', 'melee', 'range'].forEach(x => {
@@ -699,6 +717,8 @@
         sum: (x, mult) => ((x.reduce((total, add) => total + add)) * (mult || 1)),  // add up any number of attributes, optional multiplier
         dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
         dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
+        dnd_str_tmpstat_bonus: (x) => (Math.floor((x[0]+x[1])/2 -5) + x[2] + x[3]),
+        dnd_dex_tmpstat_bonus: (x) => (Math.floor((x[0]+x[1])/2 -5) + x[2] + x[3] + x[4]),
         carry_capacity: function(x, mult) {
           const size_multiplier = {1: 0.125, 2: 0.25, 3: 0.5, 4: 0.75, 5: 1, 6: 2, 7: 4, 8: 8, 9: 16}
           const str_lookup = {0: 0, 1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100, 11: 115, 12: 130, 13: 150, 14: 175, 15: 200, 16: 230, 17: 260, 18: 300, 19: 350, 20: 400, 21: 460, 22: 520, 23: 600, 24: 700, 25: 800, 26: 920, 27: 1040, 28: 1200, 29: 1400, 30: 1600, 31: 1840, 32: 2080, 33: 2400, 34: 2800, 35: 3200, 36: 3680, 37: 4160, 38: 4800, 39: 5600, 40: 6400, 41: 7360, 42: 8320, 43: 9600}
@@ -721,6 +741,12 @@
           const bonus = {1: 16, 2: 12, 3: 8, 4: 4, 5: 0, 6: -4, 7: -8, 8: -12, 9: -16}
           let normal_sum = multifunctions.sum(x.slice(0,3))
           return (normal_sum + bonus[x[3]])
+        },
+        sum_effects_ac: function(x) {
+          // Stat AC bonuses are never negative
+          let ac_from_stats = Math.max(x[0] * x[1],0) + Math.max(x[2] * x[3],0) + Math.max(x[4] * x[5],0) + Math.max(x[6] * x[7],0)
+          let ac_from_conditions = -x[8] + multifunctions.sum(x.slice(9,12))
+          return (ac_from_stats + ac_from_conditions)
         }
     };
 

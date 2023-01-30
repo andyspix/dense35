@@ -120,7 +120,7 @@
 </div>
 <div class='sheet-label'>DEX</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_dexcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Dexterity}} {{Result=[[1d20 + @{dexTempMod}[Dexterity] + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
+<button name='roll_dexcheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= Dexterity}} {{Result=[[1d20 + @{dexTempMod}[Dexterity] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_dex' type='text'>
@@ -232,7 +232,7 @@
 </div>
 <div class='sheet-label'>REF</div>
 <div class='sheet-roll-button sheet-hideleft'>
-<button name='roll_REFsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= REF }} {{Result=[[1d20 + @{saveREFTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}'></button>
+<button name='roll_REFsavingthrow' type='roll' value='&amp;{template:custom} {{color=green}} {{title= @{Charname} - Saving Throw}} {{Type= REF }} {{Result=[[1d20 + @{saveREFTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{hastedCheck} + @{slowedCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-ui'>
 <input name='attr_saveREFTotal' type='text'>
@@ -418,6 +418,10 @@
 </div>
 <div class='sheet-label sheet-hideleft sheet-italics'>+</div>
 <div class='sheet-ui sheet-italics sheet-hideleft'>
+<input name='attr_acEffectsLabel' readonly type='text' value='Effects'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-italics'>+</div>
+<div class='sheet-ui sheet-italics sheet-hideleft'>
 <input name='attr_acMiscLabel' type='text' value='Misc'>
 </div>
 <div class='sheet-label sheet-hideleft sheet-italics'>+</div>
@@ -470,6 +474,10 @@
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>+</div>
 <div class='sheet-ui sheet-hideleft'>
+<input name='attr_acEffects' readonly type='text'>
+</div>
+<div class='sheet-label sheet-hideleft sheet-operator'>+</div>
+<div class='sheet-ui sheet-hideleft'>
 <input name='attr_acMisc' type='text'>
 </div>
 <div class='sheet-label sheet-hideleft sheet-operator'>+</div>
@@ -482,49 +490,64 @@
 </div>
 </div>
 </div>
-<div class='sheet-modifiers'>
-<div class='sheet-modifiers-section'>
+<div class='sheet-effects'>
+<div class='sheet-effects-section'>
 <input name='attr_chargingCheck' type='checkbox' value='2'>
 <div class='sheet-label'>Charging</div>
 <input name='attr_hastedCheck' type='checkbox' value='1'>
 <div class='sheet-label'>Hasted</div>
-<input name='attr_entangledCheck' type='checkbox' value='-2'>
-<div class='sheet-label'>Entangled</div>
 <input name='attr_shakenCheck' type='checkbox' value='-2'>
 <div class='sheet-label'>Shaken/Fear</div>
+<input name='attr_fatiguedCheck' type='checkbox' value='-1'>
+<div class='sheet-label'>Fatigued</div>
+<input name='attr_conToAcCheck' type='checkbox' value='1'>
+<div class='sheet-label'>CON to AC</div>
 <input name='attr_moraleHitCheck' type='checkbox' value='1'>
 <div class='sheet-label'>MoraleHit</div>
 <div class='sheet-hideleft sheet-ui sheet-modMoraleHit'>
 <input name='attr_modMoraleHit' type='text'>
 </div>
-<input name='attr_insightHitCheck' type='checkbox' value='1'>
-<div class='sheet-label'>InsightHit</div>
-<div class='sheet-hideleft sheet-ui sheet-modInsightHit'>
-<input name='attr_modInsightHit' type='text'>
-</div>
-<input name='attr_otherHitCheck' type='checkbox' value='1'>
-<div class='sheet-label'>OtherHit</div>
-<div class='sheet-hideleft sheet-ui sheet-modOtherHit'>
-<input name='attr_modOtherHit' type='text'>
+<input name='attr_moraleDmgCheck' type='checkbox' value='1'>
+<div class='sheet-label'>MoraleDmg</div>
+<div class='sheet-hideleft sheet-ui sheet-modMoraleDmg'>
+<input name='attr_modMoraleDmg' type='text'>
 </div>
 <div class='auto-gap'></div>
 <input name='attr_flankingCheck' type='checkbox' value='2'>
 <div class='sheet-label'>Flanking</div>
 <input name='attr_slowedCheck' type='checkbox' value='-1'>
 <div class='sheet-label'>Slowed</div>
-<input name='attr_stunnedCheck' type='checkbox' value='-2'>
-<div class='sheet-label'>Stunned</div>
 <input name='attr_sickenedCheck' type='checkbox' value='-2'>
 <div class='sheet-label'>Sickened</div>
-<input name='attr_moraleDmgCheck' type='checkbox' value='1'>
-<div class='sheet-label'>MoraleDmg</div>
-<div class='sheet-hideleft sheet-ui sheet-modMoraleDmg'>
-<input name='attr_modMoraleDmg' type='text'>
+<input name='attr_exhaustedCheck' type='checkbox' value='-3'>
+<div class='sheet-label'>Exhausted</div>
+<input name='attr_intToAcCheck' type='checkbox' value='1'>
+<div class='sheet-label'>INT to AC</div>
+<input name='attr_insightHitCheck' type='checkbox' value='1'>
+<div class='sheet-label'>InsightHit</div>
+<div class='sheet-hideleft sheet-ui sheet-modInsightHit'>
+<input name='attr_modInsightHit' type='text'>
 </div>
 <input name='attr_insightDmgCheck' type='checkbox' value='1'>
 <div class='sheet-label'>InsightDmg</div>
 <div class='sheet-hideleft sheet-ui sheet-modInsightDmg'>
 <input name='attr_modInsightDmg' type='text'>
+</div>
+<div class='auto-gap'></div>
+<input name='attr_stunnedCheck' type='checkbox' value='-2'>
+<div class='sheet-label'>Stunned</div>
+<input name='attr_entangledCheck' type='checkbox' value='-2'>
+<div class='sheet-label'>Entangled</div>
+<input name='attr_dazzledCheck' type='checkbox' value='1'>
+<div class='sheet-label'>Dazzled</div>
+<input name='attr_wisToAcCheck' type='checkbox' value='1'>
+<div class='sheet-label'>WIS to AC</div>
+<input name='attr_chaToAcCheck' type='checkbox' value='1'>
+<div class='sheet-label'>CHA to AC</div>
+<input name='attr_otherHitCheck' type='checkbox' value='1'>
+<div class='sheet-label'>OtherHit</div>
+<div class='sheet-hideleft sheet-ui sheet-modOtherHit'>
+<input name='attr_modOtherHit' type='text'>
 </div>
 <input name='attr_otherDmgCheck' type='checkbox' value='1'>
 <div class='sheet-label'>OtherDmg</div>
@@ -1421,7 +1444,7 @@
 <input name='attr_autohypnosisMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_balance_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Balance}} {{Result=[[1d20 + @{balanceTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_balance_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Balance}} {{Result=[[1d20 + @{balanceTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Balance&#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1672,7 +1695,7 @@
 <input name='attr_disguiseMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_escapeartist_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Escape Artist}} {{Result=[[1d20 + @{escapeartistTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_escapeartist_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Escape Artist}} {{Result=[[1d20 + @{escapeartistTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Escape Artist&#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -1782,7 +1805,7 @@
 <input name='attr_healMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_hide_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Hide}} {{Result=[[1d20 + @{hideTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_hide_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Hide}} {{Result=[[1d20 + @{hideTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Hide&#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2045,7 +2068,7 @@
 <input name='attr_listenMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_movesilently_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Move Silently}} {{Result=[[1d20 + @{movesilentlyTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_movesilently_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Move Silently}} {{Result=[[1d20 + @{movesilentlyTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Move Silently&#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2067,7 +2090,7 @@
 <input name='attr_movesilentlyMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_openlock_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Open Lock}} {{Result=[[1d20 + @{openlockTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_openlock_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Open Lock}} {{Result=[[1d20 + @{openlockTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Open Lock</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2236,7 +2259,7 @@
 <input name='attr_psicraftMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_ride_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Ride}} {{Result=[[1d20 + @{rideTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_ride_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Ride}} {{Result=[[1d20 + @{rideTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Ride&#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2302,7 +2325,7 @@
 <input name='attr_sensemotiveMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_sleightofhand_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Sleight Of Hand}} {{Result=[[1d20 + @{sleightofhandTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_sleightofhand_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Sleight Of Hand}} {{Result=[[1d20 + @{sleightofhandTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Sleight Of Hand</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2434,7 +2457,7 @@
 <input name='attr_swimMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_tumble_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Tumble}} {{Result=[[1d20 + @{tumbleTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_tumble_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Tumble}} {{Result=[[1d20 + @{tumbleTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title=''>Tumble</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2500,7 +2523,7 @@
 <input name='attr_usepsionicdeviceMiscExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_userope_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Use Rope}} {{Result=[[1d20 + @{useropeTotal} + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }}'></button>
+<button name='roll_userope_skill_check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Skill Check}} {{skill=Use Rope}} {{Result=[[1d20 + @{useropeTotal} + [[@{sickenedCheck} + @{shakenCheck} + @{entangledCheck} ]][StatusEffects] ]] }}'></button>
 </div>
 <div class='sheet-label sheet-label-skills sheet-hideleft sheet-merged-skill' title='Can use Untrained'>Use Rope&#10041;</div>
 <div class='sheet-ui sheet-skill-total'>
@@ -2719,8 +2742,12 @@ const multistats = {};
 // Attribute bonus summing
 ['str', 'con', 'dex', 'int', 'wis', 'cha'].forEach(x => {
   multistats[`${x}mod`] = {rule: 'dnd_stat_bonus', attributes: [x]};
+});
+['con', 'int', 'wis', 'cha'].forEach(x => {
   multistats[`${x}tempmod`] = {rule: 'dnd_tmpstat_bonus', attributes: [x, `${x}temp`]};
 });
+multistats[`strtempmod`] = {rule: 'dnd_str_tmpstat_bonus', attributes: ['str', 'strtemp', 'fatiguedcheck', 'exhaustedcheck']};
+multistats[`dextempmod`] = {rule: 'dnd_dex_tmpstat_bonus', attributes: ['dex', 'dextemp', 'fatiguedcheck', 'exhaustedcheck', 'entangledcheck']};
 
 // STR mod fillers
 ['meleeStatBonus', 'grappleStatBonus', 'climbStatMod', 'jumpStatMod', 'swimStatMod'].forEach(x => {
@@ -2779,15 +2806,22 @@ multistats['rangeSize']   = {rule: 'size_to_attack_ac', attributes: ['characterS
 multistats['acSize']      = {rule: 'size_to_attack_ac', attributes: ['characterSize']};
 multistats['grappleSize'] = {rule: 'size_to_special_attack', attributes: ['characterSize']};
 
+// AC from Effects
+multistats['acEffects']      = {
+  rule: 'sum_effects_ac',
+  attributes: [ 'wistempmod', 'wistoaccheck', 'contempmod', 'contoaccheck', 'inttempmod', 'inttoaccheck', 'chatempmod', 'chatoaccheck',
+                'chargingcheck', 'hastedcheck', 'slowedcheck', 'stunnedcheck']
+};
+
 // Armor & Save Summing
-multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acMisc', 'acMisc2', 'acMisc3']};
+multistats['acTotal'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acDex', 'acSize', 'acNat', 'acDeflect', 'acDodge', 'acEffects', 'acMisc', 'acMisc2', 'acMisc3']};
 ['Fort', 'Will', 'Ref'].forEach(x => {
   multistats[`save${x}total`] = {rule: 'sum', attributes: [`save${x}Base`, `save${x}Stat`, `save${x}Magic`, `save${x}Misc`]};
 });
 
 // Touch/FF AC filler
-multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acMisc', 'acMisc2', 'acMisc3']};
-multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acMisc', 'acMisc2', 'acMisc3']};
+multistats['touchAC'] = {rule: 'sum', attributes: ['acBase', 'acDex', 'acSize', 'acDeflect', 'acDodge', 'acEffects', 'acMisc', 'acMisc2', 'acMisc3']};
+multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'acShield', 'acSize', 'acDeflect', 'acNat', 'acEffects', 'acMisc', 'acMisc2', 'acMisc3']};
 
 // Attack Bonus Summing
 ['grapple', 'melee', 'range'].forEach(x => {
@@ -2807,6 +2841,8 @@ const multifunctions = {
     sum: (x, mult) => ((x.reduce((total, add) => total + add)) * (mult || 1)),  // add up any number of attributes, optional multiplier
     dnd_stat_bonus: (x) => Math.floor(x[0]/2 -5),
     dnd_tmpstat_bonus: (x) => Math.floor((x[0]+x[1])/2 -5),
+    dnd_str_tmpstat_bonus: (x) => (Math.floor((x[0]+x[1])/2 -5) + x[2] + x[3]),
+    dnd_dex_tmpstat_bonus: (x) => (Math.floor((x[0]+x[1])/2 -5) + x[2] + x[3] + x[4]),
     carry_capacity: function(x, mult) {
       const size_multiplier = {1: 0.125, 2: 0.25, 3: 0.5, 4: 0.75, 5: 1, 6: 2, 7: 4, 8: 8, 9: 16}
       const str_lookup = {0: 0, 1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100, 11: 115, 12: 130, 13: 150, 14: 175, 15: 200, 16: 230, 17: 260, 18: 300, 19: 350, 20: 400, 21: 460, 22: 520, 23: 600, 24: 700, 25: 800, 26: 920, 27: 1040, 28: 1200, 29: 1400, 30: 1600, 31: 1840, 32: 2080, 33: 2400, 34: 2800, 35: 3200, 36: 3680, 37: 4160, 38: 4800, 39: 5600, 40: 6400, 41: 7360, 42: 8320, 43: 9600}
@@ -2829,6 +2865,12 @@ const multifunctions = {
       const bonus = {1: 16, 2: 12, 3: 8, 4: 4, 5: 0, 6: -4, 7: -8, 8: -12, 9: -16}
       let normal_sum = multifunctions.sum(x.slice(0,3))
       return (normal_sum + bonus[x[3]])
+    },
+    sum_effects_ac: function(x) {
+      // Stat AC bonuses are never negative
+      let ac_from_stats = Math.max(x[0] * x[1],0) + Math.max(x[2] * x[3],0) + Math.max(x[4] * x[5],0) + Math.max(x[6] * x[7],0)
+      let ac_from_conditions = -x[8] + multifunctions.sum(x.slice(9,12))
+      return (ac_from_stats + ac_from_conditions)
     }
 };
 
