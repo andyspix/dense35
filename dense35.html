@@ -372,7 +372,7 @@
 <input name='attr_rangeExplanation' placeholder='...' title='-explanation-' type='text'>
 </div>
 <div class='sheet-roll-button'>
-<button name='roll_str2check' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Ability Check}} {{Ability= STR}} {{Result=[[1d20 + @{strTempMod}[str] + [[@{sickenedCheck} + @{shakenCheck}]][StatusEffects] ]] }} {{color=red}}'></button>
+<button name='roll_grapplecheck' type='roll' value='&amp;{template:custom} {{title= @{Charname} - Grapple Check}} {{Ability= STR}} {{Result=[[1d20 + @{grappleTotal} }} {{color=red}}'></button>
 </div>
 <div class='sheet-label sheet-attack-grapple sheet-hideleft'>Grapple:</div>
 <div class='sheet-ui sheet-hideleft'>
@@ -2848,7 +2848,7 @@ multistats['flatFootedAC'] = {rule: 'sum', attributes: ['acBase', 'acArmor', 'ac
 
 // Attack Bonus Summing
 ['grapple', 'melee', 'range'].forEach(x => {
-  multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}Base`, `${x}StatBonus`, `${x}Size`, `${x}Misc`]};
+  multistats[`${x}total`] = {rule: 'sum', attributes: [`${x}Base`, `${x}StatBonus`, `${x}Size`, `${x}Effects`, `${x}Misc`]};
 });
 
 // Skill Summing (remember size bonus to hide)

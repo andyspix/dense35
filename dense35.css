@@ -191,7 +191,7 @@
 	justify-self: stretch;
 	align-self: center;
 	grid-gap: 0px;
-	grid-template-columns: 57px 37px 37px 33px 28px 45px auto;
+	grid-template-columns: 57px 37px 37px 32px 27px 47px auto;
 	grid-template-rows: 18px;
 }
 
